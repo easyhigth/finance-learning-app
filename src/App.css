@@ -4,20 +4,10 @@
   padding: 0;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
-
 .App {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -30,13 +20,24 @@ button {
   cursor: pointer;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: inherit;
 }
 
-/* Utility classes */
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+p {
+  color: var(--text-2);
+}
+
+/* Shared layout helpers */
 .container {
-  max-width: 1200px;
+  max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -45,39 +46,153 @@ input, textarea {
   padding: 4rem 0;
 }
 
-.section-header {
+.section-head {
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.section-header h2 {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
+.section-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  font-weight: 800;
 }
 
-.section-header p {
-  font-size: 1.2rem;
-  color: #666;
-  max-width: 600px;
+.section-head p {
+  font-size: 1.05rem;
+  color: var(--text-2);
+  max-width: 620px;
   margin: 0 auto;
 }
 
-/* Responsive design */
+/* Reusable pill / tag */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+
+/* Page shells */
+.page {
+  flex: 1;
+  padding-bottom: 3rem;
+}
+
+.page-head {
+  text-align: center;
+  padding: 3.5rem 2rem 2rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.page-head h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.page-head p {
+  font-size: 1.1rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+/* Eyebrow label above page titles */
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  background: var(--brand-soft);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.app-footer {
+  background: #0f1326;
+  color: #c3c8d9;
+  padding: 2.5rem 2rem 1.75rem;
+  margin-top: auto;
+}
+
+.app-footer-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.app-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.app-footer-brand span:first-child {
+  font-size: 1.4rem;
+}
+
+.app-footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.app-footer-links a {
+  color: #c3c8d9;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color var(--t-fast) var(--ease);
+}
+
+.app-footer-links a:hover {
+  color: #fff;
+}
+
+.app-footer-copy {
+  text-align: center;
+  color: #7a82a0;
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: var(--maxw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
   .section {
-    padding: 2rem 0;
+    padding: 2.5rem 0;
   }
 
-  .section-header h2 {
-    font-size: 2rem;
+  .page-head {
+    padding: 2.5rem 1.25rem 1.5rem;
   }
 
-  .section-header p {
-    font-size: 1rem;
+  .app-footer-inner {
+    flex-direction: column;
+    text-align: center;
   }
 }

@@ -78,7 +78,7 @@ const HomePage = () => {
       </div>
 
       <div className="features-section">
-        <div className="section-header">
+        <div className="section-head">
           <h2>Why Choose Finance Learning App?</h2>
           <p>Our unique approach combines the best of Wikipedia and interactive learning</p>
         </div>
@@ -95,7 +95,7 @@ const HomePage = () => {
       </div>
 
       <div className="testimonials-section">
-        <div className="section-header">
+        <div className="section-head">
           <h2>What Our Learners Say</h2>
           <p>Join thousands of finance professionals and students</p>
         </div>

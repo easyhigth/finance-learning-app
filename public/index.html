@@ -3,193 +3,68 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#3498db" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#6366f1" />
     <meta
       name="description"
-      content="Finance Learning App - Learn finance concepts like Duolingo with comprehensive Wikipedia-powered content"
+      content="FinanceLearn — learn finance concepts like Duolingo with comprehensive Wikipedia-powered content."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Finance Learning App</title>
+    <title>FinanceLearn · Master Finance Concepts</title>
     <style>
+      html, body { margin: 0; height: 100%; }
       body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-          sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(180deg, #ffffff 0%, #f4f6fc 100%);
+        background-attachment: fixed;
+        color: #1e2333;
+      }
+      #root { min-height: 100%; }
+      .app-splash {
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .app-container {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-      
-      .header {
-        background: rgba(0, 0, 0, 0.2);
-        padding: 1rem;
-        text-align: center;
-        backdrop-filter: blur(10px);
-      }
-      
-      .header h1 {
-        margin: 0;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-      
-      .main-content {
-        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 2rem;
+        gap: 1.25rem;
         text-align: center;
       }
-      
-      .logo {
-        width: 120px;
-        height: 120px;
-        background: rgba(255, 255, 255, 0.1);
+      .app-splash .badge {
+        width: 76px; height: 76px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 2.4rem;
+        box-shadow: 0 14px 30px rgba(99, 102, 241, 0.28);
+      }
+      .app-splash h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .app-splash p { margin: 0; color: #8b93a7; font-size: 0.95rem; }
+      .app-splash .spin {
+        width: 26px; height: 26px;
+        border: 3px solid #e6e8f1;
+        border-top-color: #6366f1;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        font-size: 3rem;
+        animation: splash-spin 0.8s linear infinite;
       }
-      
-      .welcome-text h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      }
-      
-      .welcome-text p {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        max-width: 600px;
-        line-height: 1.6;
-        opacity: 0.9;
-      }
-      
-      .cta-button {
-        background: linear-gradient(45deg, #4CAF50, #45a049);
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-        border-radius: 50px;
-        cursor: pointer;
-        text-decoration: none;
-        display: inline-block;
-        font-weight: 600;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-      }
-      
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      }
-      
-      .features {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 3rem;
-        max-width: 800px;
-      }
-      
-      .feature-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 12px;
-        padding: 1.5rem;
-        min-width: 200px;
-        flex: 1;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      
-      .feature-card h3 {
-        margin-top: 0;
-        font-size: 1.2rem;
-      }
-      
-      .feature-card p {
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
-      
-      .footer {
-        text-align: center;
-        padding: 1rem;
-        background: rgba(0, 0, 0, 0.2);
-        font-size: 0.9rem;
-        opacity: 0.8;
-      }
-      
-      @media (max-width: 768px) {
-        .main-content {
-          padding: 1rem;
-        }
-        
-        .welcome-text h2 {
-          font-size: 1.5rem;
-        }
-        
-        .features {
-          flex-direction: column;
-        }
-      }
+      @keyframes splash-spin { to { transform: rotate(360deg); } }
     </style>
   </head>
   <body>
     <div id="root">
-      <div class="app-container">
-        <div class="header">
-          <h1>💰 Finance Learning App</h1>
-        </div>
-        
-        <div class="main-content">
-          <div class="logo">📈</div>
-          
-          <div class="welcome-text">
-            <h2>Master Finance Concepts Like a Pro</h2>
-            <p>Learn finance terms, theories, and calculations with our interactive platform inspired by Duolingo. Access comprehensive knowledge from Wikipedia and structured lessons.</p>
-          </div>
-          
-          <a href="/learn" class="cta-button">Start Learning Now</a>
-          
-          <div class="features">
-            <div class="feature-card">
-              <h3>📚 Comprehensive Content</h3>
-              <p>Access to all finance concepts from Wikipedia and curated lessons</p>
-            </div>
-            <div class="feature-card">
-              <h3>🎮 Interactive Learning</h3>
-              <p>Engaging quizzes and exercises like Duolingo for finance education</p>
-            </div>
-            <div class="feature-card">
-              <h3>📱 Mobile Friendly</h3>
-              <p>Learn anytime, anywhere on any device with our PWA app</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="footer">
-          <p>Finance Learning App v1.0 • Learn Finance Concepts</p>
-        </div>
+      <div class="app-splash">
+        <div class="badge">💰</div>
+        <h1>FinanceLearn</h1>
+        <p>Loading your finance journey…</p>
+        <div class="spin"></div>
       </div>
     </div>
   </body>

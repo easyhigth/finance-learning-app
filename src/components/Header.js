@@ -23,7 +23,7 @@ const Header = () => {
         </Link>
 
         <div
-          className="menu-toggle"
+          className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
           role="button"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
