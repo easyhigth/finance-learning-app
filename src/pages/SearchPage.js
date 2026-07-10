@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
 import { searchFinanceTerms, getPopularFinanceTerms } from '../services/wikipediaService';
 import './SearchPage.css';
 
@@ -37,8 +36,6 @@ const SearchPage = () => {
 
   return (
     <div className="search-page">
-      <Header />
-
       <div className="search-header">
         <h1>Search Finance Terms</h1>
         <p>Find any finance concept, theory, or term from our comprehensive database</p>

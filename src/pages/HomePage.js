@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -47,8 +46,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <Header />
-
       <div className="hero-section">
         <div className="hero-content">
           <h1>Master Finance Concepts Like a Pro</h1>

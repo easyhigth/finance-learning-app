@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import { searchFinanceTerms, getFinanceCategories } from '../services/wikipediaService';
 import './LearnPage.css';
 
@@ -85,8 +84,6 @@ const LearnPage = () => {
 
   return (
     <div className="learn-page">
-      <Header />
-
       <div className="learn-header">
         <h1>Your Learning Journey</h1>
         <p>Follow structured lessons to master finance concepts</p>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import { getFinanceCategories } from '../services/wikipediaService';
 import './CategoriesPage.css';
 
@@ -15,8 +14,6 @@ const CategoriesPage = () => {
 
   return (
     <div className="categories-page">
-      <Header />
-
       <div className="categories-header">
         <h1>Finance Categories</h1>
         <p>Explore different areas of finance and master key concepts</p>
