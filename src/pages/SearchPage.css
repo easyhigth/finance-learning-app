@@ -324,6 +324,132 @@
   box-shadow: var(--shadow-brand);
 }
 
+/* ---------- Vocabulary fiches ---------- */
+.results-subhead {
+  margin: 2rem 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-2);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.results-subhead:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.vocab-card {
+  background: var(--surface);
+  padding: 1.4rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--t) var(--ease), border-color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+
+.vocab-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+
+.vocab-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.vocab-card-term {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.vocab-card-cat {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.vocab-aliases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.vocab-alias {
+  font-size: 0.75rem;
+  background: var(--surface-3);
+  color: var(--text-2);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+}
+
+.vocab-def {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.vocab-card-actions {
+  margin-top: auto;
+}
+
+.vocab-deep-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--brand-soft);
+  color: var(--brand-700);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+
+.vocab-deep-link:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.vocab-deep-link.wiki {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.vocab-deep-link.wiki:hover {
+  background: var(--text);
+  color: var(--surface);
+}
+
+.vocab-deep-icon {
+  font-size: 1rem;
+}
+
+.vocab-deep-arrow {
+  margin-left: auto;
+}
+
 /* ---------- Tips ---------- */
 .search-tips {
   background: var(--brand-grad);
@@ -387,7 +513,8 @@
   }
 
   .popular-grid,
-  .results-grid {
+  .results-grid,
+  .vocab-grid {
     grid-template-columns: 1fr;
   }
 
