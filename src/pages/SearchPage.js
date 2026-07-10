@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 import { searchFinanceTerms, getPopularFinanceTerms } from '../services/wikipediaService';
 import './SearchPage.css';
 
@@ -36,6 +37,8 @@ const SearchPage = () => {
 
   return (
     <div className="search-page">
+      <Header />
+
       <div className="search-header">
         <h1>Search Finance Terms</h1>
         <p>Find any finance concept, theory, or term from our comprehensive database</p>
@@ -61,7 +64,10 @@ const SearchPage = () => {
       <div className="content-section">
         {searchResults.length > 0 ? (
           <div className="results-section">
-            <h2>Search Results</h2>
+            <div className="section-header">
+              <h2>Search Results for "{searchTerm}"</h2>
+              <span className="results-count">{searchResults.length} results</span>
+            </div>
             <div className="results-grid">
               {searchResults.map((result, index) => (
                 <div
@@ -99,6 +105,26 @@ const SearchPage = () => {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="search-tips">
+        <div className="tips-content">
+          <h3>Search Tips</h3>
+          <div className="tips-grid">
+            <div className="tip">
+              <span className="tip-icon">🔍</span>
+              <span>Try broad terms like "investment" or "banking"</span>
+            </div>
+            <div className="tip">
+              <span className="tip-icon">📝</span>
+              <span>Use specific terms like "compound interest formula"</span>
+            </div>
+            <div className="tip">
+              <span className="tip-icon">📚</span>
+              <span>All content sourced from Wikipedia for accuracy</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

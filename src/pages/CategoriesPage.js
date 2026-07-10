@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 import { getFinanceCategories } from '../services/wikipediaService';
 import './CategoriesPage.css';
 
@@ -14,6 +15,8 @@ const CategoriesPage = () => {
 
   return (
     <div className="categories-page">
+      <Header />
+
       <div className="categories-header">
         <h1>Finance Categories</h1>
         <p>Explore different areas of finance and master key concepts</p>
@@ -52,7 +55,7 @@ const CategoriesPage = () => {
               </div>
             </div>
 
-            <Link to="/learn" className="explore-button">
+            <Link to="/search" className="explore-button">
               Explore {category.name}
             </Link>
           </div>
@@ -65,6 +68,28 @@ const CategoriesPage = () => {
           <p>Try a different search term</p>
         </div>
       )}
+
+      <div className="learning-path-section">
+        <div className="path-content">
+          <h2>Create Your Learning Path</h2>
+          <p>Personalized finance education based on your goals</p>
+          <div className="path-steps">
+            <div className="step">
+              <div className="step-number">1</div>
+              <div className="step-text">Assess your knowledge</div>
+            </div>
+            <div className="step">
+              <div className="step-number">2</div>
+              <div className="step-text">Choose categories</div>
+            </div>
+            <div className="step">
+              <div className="step-number">3</div>
+              <div className="step-text">Track progress</div>
+            </div>
+          </div>
+          <Link to="/learn" className="cta-button">Start Your Path</Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,12 +1,13 @@
 .search-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   color: #333;
-  padding: 2rem;
+  padding: 0 0 3rem 0;
 }
 
 .search-header {
   text-align: center;
+  padding: 3rem 2rem 2rem;
   margin-bottom: 2rem;
 }
 
@@ -14,6 +15,7 @@
   font-size: 2.5rem;
   margin-bottom: 1rem;
   color: #2c3e50;
+  font-weight: 700;
 }
 
 .search-header p {
@@ -26,12 +28,13 @@
 .search-section {
   max-width: 800px;
   margin: 2rem auto;
+  padding: 0 2rem;
 }
 
 .search-form {
   display: flex;
   gap: 1rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   border-radius: 50px;
   overflow: hidden;
   background: white;
@@ -85,14 +88,35 @@
 .content-section {
   max-width: 1200px;
   margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: #2c3e50;
+}
+
+.results-count {
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
 }
 
 .popular-section {
   text-align: center;
 }
 
-.popular-section h2,
-.results-section h2 {
+.popular-section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #2c3e50;
@@ -118,7 +142,7 @@
   background: white;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
@@ -142,7 +166,7 @@
   background: white;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -182,9 +206,44 @@
   opacity: 1;
 }
 
+.search-tips {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  margin: 4rem 2rem 0;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+}
+
+.tips-content h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-  .search-page {
-    padding: 1rem;
+  .search-header {
+    padding: 2rem 1rem 1rem;
   }
 
   .search-header h1 {
@@ -207,5 +266,15 @@
 
   .content-section {
     margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-tips {
+    margin: 2rem 1rem 0;
+    padding: 1.5rem;
   }
 }

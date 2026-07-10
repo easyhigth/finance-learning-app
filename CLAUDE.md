@@ -18,7 +18,7 @@ This is a Progressive Web App (PWA) for finance education, designed similar to D
 
 ```
 src/
-├── components/     # Reusable UI components
+├── components/     # Reusable UI components (Header, etc.)
 ├── pages/          # Page components (HomePage, LearnPage, etc.)
 ├── services/       # API service functions
 ├── data/           # Static data files
@@ -47,6 +47,7 @@ src/
 3. **Styling**:
    - Use component-specific CSS files
    - Follow the existing naming conventions
+   - Use responsive design principles
 
 4. **Routing**:
    - Use React Router for navigation between pages
@@ -62,11 +63,12 @@ The app integrates with the Wikipedia REST API to fetch finance-related content:
 
 ## Current Features
 
-1. **Homepage**: Attractive landing page with clear call-to-action and feature highlights
-2. **Learning Page**: Structured lessons with completion tracking and progress visualization
-3. **Categories Page**: Browse finance topics by category with search functionality
-4. **Search Page**: Search Wikipedia for any finance terms with popular terms suggestions
+1. **Homepage**: Attractive landing page with clear call-to-action, feature highlights, testimonials, and statistics
+2. **Learning Page**: Structured lessons with completion tracking, progress visualization, and search functionality
+3. **Categories Page**: Browse finance topics by category with search functionality and learning path guidance
+4. **Search Page**: Search Wikipedia for any finance terms with popular terms suggestions and search tips
 5. **Term Detail Page**: Detailed view of finance terms with Wikipedia content, related terms, and learning actions
+6. **Navigation Header**: Consistent navigation across all pages
 
 ## Design Principles
 
@@ -79,10 +81,20 @@ The app integrates with the Wikipedia REST API to fetch finance-related content:
 ## Functionality
 
 1. **Wikipedia Integration**: Real-time fetching of finance terms from Wikipedia
-2. **Search System**: Comprehensive search across all finance terms
+2. **Search System**: Comprehensive search across all finance terms with quick results
 3. **Progress Tracking**: Visual progress indicators and completion markers
 4. **Related Terms**: Contextual learning with related concept suggestions
 5. **Offline Capability**: PWA features allow for offline access to cached content
+6. **Learning Path Guidance**: Personalized learning path recommendations
+
+## Recent Improvements
+
+1. **Consistent Navigation**: Added a unified header component across all pages
+2. **Enhanced Homepage**: Added testimonials, statistics, and dual call-to-action buttons
+3. **Improved Learning Page**: Better progress visualization, quick search results, and learning tips
+4. **Enhanced Categories Page**: Added learning path section and improved category cards
+5. **Better Search Page**: Added search tips and improved result presentation
+6. **Responsive Design**: Improved mobile experience across all pages
 
 ## Future Development Areas
 
@@ -91,6 +103,7 @@ The app integrates with the Wikipedia REST API to fetch finance-related content:
 3. **Personalized Learning Paths**: AI-driven recommendations based on user progress
 4. **Social Features**: Leaderboards, sharing, and community learning
 5. **Advanced Analytics**: Learning insights and progress visualization
+6. **Offline Content**: Cached Wikipedia content for offline learning
 
 ## Content Strategy
 
