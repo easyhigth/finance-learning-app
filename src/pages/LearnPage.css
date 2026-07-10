@@ -1,0 +1,151 @@
+.learn-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.learn-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.learn-header h2 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.learn-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.learn-progress {
+  margin-bottom: 2rem;
+}
+
+.search-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.search-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.search-results-section {
+  margin-top: 1.5rem;
+}
+
+.search-results-section h4 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.search-results-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-result-link {
+  background-color: #f1f8ff;
+  color: #3498db;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.search-result-link:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.search-loading {
+  text-align: center;
+  padding: 1rem;
+  color: #3498db;
+}
+
+.lessons-section {
+  margin-bottom: 2rem;
+}
+
+.lessons-section h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.lessons-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.categories-section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categories-section h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.category-box {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.category-box h4 {
+  margin-top: 0;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.category-box ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.category-box li {
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.explore-link {
+  display: inline-block;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.explore-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .learn-page {
+    padding: 1rem;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}

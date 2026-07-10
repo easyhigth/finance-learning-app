@@ -11,6 +11,7 @@ This is a Progressive Web App (PWA) for finance education, designed similar to D
 - **Frontend**: React.js with React Router
 - **Styling**: CSS modules and plain CSS
 - **Build Tool**: Create React App
+- **API Integration**: Wikipedia REST API
 - **Deployment**: Can be deployed as a PWA to any static hosting service
 
 ## Project Structure
@@ -18,13 +19,15 @@ This is a Progressive Web App (PWA) for finance education, designed similar to D
 ```
 src/
 ├── components/     # Reusable UI components
+│   ├── Header      # Navigation header
+│   ├── LessonCard  # Card component for displaying lessons
+│   ├── SearchBar   # Search input component
+│   ├── ProgressBar # Progress visualization component
 ├── pages/          # Page components (HomePage, LearnPage, etc.)
-├── assets/         # Images, icons, and other static assets
-├── utils/          # Utility functions
 ├── services/       # API service functions
-├── contexts/       # React context providers
-├── hooks/          # Custom React hooks
-├── styles/         # CSS and styling files
+├── data/           # Static data files
+├── utils/          # Utility functions
+├── styles/         # Global CSS and styling files
 └── config/         # Configuration files
 ```
 
@@ -46,23 +49,41 @@ src/
    - Use useState and useEffect for local component state
 
 3. **Styling**:
-   - Use CSS modules for component-specific styles
-   - Use plain CSS for global styles
+   - Use component-specific CSS files
+   - Follow the existing naming conventions
 
 4. **Routing**:
    - Use React Router for navigation between pages
+   - Keep URLs semantic and meaningful
+
+## API Integration
+
+The app integrates with the Wikipedia REST API to fetch finance-related content:
+
+- `wikipediaService.js` contains functions to search for terms and fetch term details
+- Content is displayed in the TermDetailPage with links to full Wikipedia articles
+- Error handling is implemented for API failures
+
+## Current Features
+
+1. **Homepage**: Overview with progress tracking and feature highlights
+2. **Learning Page**: Structured lessons with completion tracking
+3. **Categories Page**: Browse finance topics by category
+4. **Search Page**: Search Wikipedia for finance terms
+5. **Term Detail Page**: Detailed view of finance terms with Wikipedia content
 
 ## Future Development Areas
 
 1. **Backend API**: Will need to be developed to handle user data, progress tracking, and content management
-2. **Wikipedia Integration**: API calls to fetch finance-related content from Wikipedia
-3. **Interactive Learning Features**: Quizzes, exercises, progress tracking
-4. **User Authentication**: Login/signup functionality
-5. **Database**: MongoDB for storing user progress and custom content
+2. **Interactive Learning Features**: Quizzes, exercises, progress tracking
+3. **User Authentication**: Login/signup functionality
+4. **Database**: MongoDB for storing user progress and custom content
+5. **Gamification**: Points, achievements, streaks
+6. **Offline Support**: Enhanced PWA capabilities for offline learning
 
 ## Content Strategy
 
-The app will use a hybrid approach:
+The app uses a hybrid approach:
 1. Base content from Wikipedia API for comprehensive finance terms and concepts
 2. Custom interactive exercises and quizzes built on top of that content
 3. Structured learning paths that guide users through finance topics systematically

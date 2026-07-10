@@ -1,0 +1,52 @@
+.lesson-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent;
+}
+
+.lesson-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.lesson-card.completed {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.lesson-content {
+  flex-grow: 1;
+}
+
+.lesson-title {
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.lesson-description {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.lesson-status {
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.completed-icon {
+  color: #28a745;
+}
+
+.pending-icon {
+  color: #ccc;
+}
