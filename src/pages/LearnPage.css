@@ -1,7 +1,8 @@
 .learn-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #333;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .learn-header {
@@ -9,135 +10,264 @@
   margin-bottom: 2rem;
 }
 
-.learn-header h2 {
-  margin-bottom: 0.5rem;
+.learn-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
   color: #2c3e50;
 }
 
 .learn-header p {
+  font-size: 1.2rem;
   color: #666;
-  font-size: 1.1rem;
-}
-
-.learn-progress {
-  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .search-section {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
-.search-section h3 {
-  margin-top: 0;
-  color: #2c3e50;
-}
-
-.search-results-section {
-  margin-top: 1.5rem;
-}
-
-.search-results-section h4 {
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-
-.search-results-list {
+.search-form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.search-result-link {
-  background-color: #f1f8ff;
-  color: #3498db;
-  padding: 0.5rem 1rem;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   border-radius: 50px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s;
+  overflow: hidden;
 }
 
-.search-result-link:hover {
-  background-color: #3498db;
+.search-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background: white;
+}
+
+.search-button {
+  background: linear-gradient(45deg, #3498db, #2980b9);
   color: white;
+  border: none;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.search-loading {
-  text-align: center;
-  padding: 1rem;
-  color: #3498db;
+.search-button:hover {
+  background: linear-gradient(45deg, #2980b9, #2573a7);
+}
+
+.progress-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progress-header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.progress-text {
+  color: #666;
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+  border-radius: 6px;
+  transition: width 0.5s ease;
 }
 
 .lessons-section {
-  margin-bottom: 2rem;
+  margin: 3rem 0;
 }
 
-.lessons-section h3 {
+.lessons-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
   color: #2c3e50;
+  font-size: 2rem;
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lesson-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.lesson-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.lesson-card.completed {
+  border-color: #4CAF50;
+  background: linear-gradient(135deg, #f8fff9 0%, #e8f5e9 100%);
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.lessons-list {
-  display: grid;
-  gap: 1rem;
+.difficulty {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.difficulty.beginner {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.difficulty.intermediate {
+  background: #fff8e1;
+  color: #f57f17;
+}
+
+.difficulty.advanced {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.category {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lesson-card h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.lesson-card p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.lesson-actions {
+  text-align: center;
+}
+
+.start-button {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.start-button:hover {
+  background: linear-gradient(45deg, #2980b9, #2573a7);
+  transform: translateY(-2px);
+}
+
+.completed-badge {
+  background: #4CAF50;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  display: inline-block;
 }
 
 .categories-section {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 3rem 0;
 }
 
-.categories-section h3 {
-  margin-top: 0;
+.categories-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
   color: #2c3e50;
+  font-size: 2rem;
 }
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.category-box {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.category-box h4 {
-  margin-top: 0;
-  color: #2c3e50;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-.category-box ul {
-  padding-left: 1.2rem;
-  margin: 0.5rem 0 1rem 0;
-}
-
-.category-box li {
-  margin-bottom: 0.3rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.explore-link {
-  display: inline-block;
-  color: #3498db;
+.category-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 
-.explore-link:hover {
-  text-decoration: underline;
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.category-card h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+}
+
+.category-card p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -145,6 +275,20 @@
     padding: 1rem;
   }
 
+  .learn-header h1 {
+    font-size: 2rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+    border-radius: 16px;
+  }
+
+  .search-button {
+    padding: 1rem;
+  }
+
+  .lessons-grid,
   .categories-grid {
     grid-template-columns: 1fr;
   }

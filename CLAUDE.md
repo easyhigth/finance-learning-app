@@ -12,17 +12,13 @@ This is a Progressive Web App (PWA) for finance education, designed similar to D
 - **Styling**: CSS modules and plain CSS
 - **Build Tool**: Create React App
 - **API Integration**: Wikipedia REST API
-- **Deployment**: Can be deployed as a PWA to any static hosting service
+- **Deployment**: Vercel (PWA capabilities)
 
 ## Project Structure
 
 ```
 src/
 ├── components/     # Reusable UI components
-│   ├── Header      # Navigation header
-│   ├── LessonCard  # Card component for displaying lessons
-│   ├── SearchBar   # Search input component
-│   ├── ProgressBar # Progress visualization component
 ├── pages/          # Page components (HomePage, LearnPage, etc.)
 ├── services/       # API service functions
 ├── data/           # Static data files
@@ -66,11 +62,18 @@ The app integrates with the Wikipedia REST API to fetch finance-related content:
 
 ## Current Features
 
-1. **Homepage**: Overview with progress tracking and feature highlights
+1. **Homepage**: Attractive landing page with clear call-to-action
 2. **Learning Page**: Structured lessons with completion tracking
 3. **Categories Page**: Browse finance topics by category
 4. **Search Page**: Search Wikipedia for finance terms
 5. **Term Detail Page**: Detailed view of finance terms with Wikipedia content
+
+## Design Principles
+
+1. **Mobile-First**: All designs are responsive and work well on mobile devices
+2. **PWA Ready**: Can be installed on mobile devices like a native app
+3. **Visual Appeal**: Modern gradient backgrounds, smooth animations, and card-based layouts
+4. **User Experience**: Clear navigation, intuitive interfaces, and engaging interactions
 
 ## Future Development Areas
 
