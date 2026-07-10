@@ -6,9 +6,10 @@ const Header = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to check if a link is active
   const isActive = (path) => {
-    return location.pathname === path;
+    if (path === '/') return location.pathname === '/';
+    if (path === '/categories') return location.pathname.startsWith('/categories') || location.pathname.startsWith('/category');
+    return location.pathname.startsWith(path);
   };
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -37,15 +38,15 @@ const Header = () => {
         </div>
 
         <nav className={`main-nav ${isMenuOpen ? 'open' : ''}`}>
-          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={closeMenu}>Home</Link>
-          <Link to="/learn" className={`nav-link ${isActive('/learn') ? 'active' : ''}`} onClick={closeMenu}>Learn</Link>
+          <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`} onClick={closeMenu}>Discover</Link>
           <Link to="/categories" className={`nav-link ${isActive('/categories') ? 'active' : ''}`} onClick={closeMenu}>Categories</Link>
           <Link to="/search" className={`nav-link ${isActive('/search') ? 'active' : ''}`} onClick={closeMenu}>Search</Link>
+          <Link to="/learn" className={`nav-link ${isActive('/learn') ? 'active' : ''}`} onClick={closeMenu}>Progress</Link>
         </nav>
 
         <div className="header-actions">
           <Link to="/search" className="search-icon" aria-label="Search">🔍</Link>
-          <button className="profile-button" aria-label="Profile" title="Profile">👤</button>
+          <Link to="/learn" className="profile-button" aria-label="Your progress" title="Your progress">📊</Link>
         </div>
       </div>
     </header>

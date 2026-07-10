@@ -50,6 +50,7 @@
 
   /* Spacing scale */
   --maxw: 1180px;
+  --header-h: 64px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 0.16s;

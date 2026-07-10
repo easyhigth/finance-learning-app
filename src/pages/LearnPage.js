@@ -1,188 +1,103 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { searchFinanceTerms, getFinanceCategories } from '../services/wikipediaService';
+import { concepts, categories, getConceptsByCategory } from '../data/concepts';
+import { getLearned, toggleLearned } from '../utils/progress';
 import './LearnPage.css';
 
 const LearnPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [learned, setLearned] = useState(new Set());
 
-  // Données d'exemple pour les leçons
-  const lessons = [
-    {
-      id: 1,
-      title: "Introduction to Finance",
-      description: "Learn the basics of finance and its importance in our daily lives",
-      category: "Basics",
-      completed: true,
-      difficulty: "Beginner",
-      time: "5 min"
-    },
-    {
-      id: 2,
-      title: "Time Value of Money",
-      description: "Understand how money's value changes over time",
-      category: "Basics",
-      completed: true,
-      difficulty: "Beginner",
-      time: "10 min"
-    },
-    {
-      id: 3,
-      title: "Interest Rates",
-      description: "Explore how interest rates work and their impact on investments",
-      category: "Investments",
-      completed: false,
-      difficulty: "Intermediate",
-      time: "15 min"
-    },
-    {
-      id: 4,
-      title: "Compound Interest",
-      description: "Discover the power of compound interest in growing wealth",
-      category: "Investments",
-      completed: false,
-      difficulty: "Beginner",
-      time: "8 min"
-    },
-    {
-      id: 5,
-      title: "Risk and Return",
-      description: "Learn about the relationship between risk and potential returns",
-      category: "Investments",
-      completed: false,
-      difficulty: "Intermediate",
-      time: "12 min"
-    }
-  ];
+  useEffect(() => {
+    setLearned(getLearned());
+  }, []);
 
-  const categories = getFinanceCategories();
+  const total = concepts.length;
+  const learnedCount = learned.size;
+  const pct = total > 0 ? Math.round((learnedCount / total) * 100) : 0;
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!searchTerm.trim()) return;
+  // First unlearned concept = "continue here"
+  const next = concepts.find((c) => !learned.has(c.id)) || concepts[0];
 
-    setLoading(true);
-    setError(null);
-    try {
-      const results = await searchFinanceTerms(searchTerm);
-      setSearchResults(results.slice(0, 6)); // Limit to 6 results
-    } catch (err) {
-      setError('Failed to search terms. Please try again.');
-      console.error('Search error:', err);
-    } finally {
-      setLoading(false);
-    }
+  const handleToggle = (id) => {
+    toggleLearned(id);
+    setLearned(new Set(getLearned()));
   };
-
-  // Calculate progress
-  const completedLessons = lessons.filter(lesson => lesson.completed).length;
-  const totalLessons = lessons.length;
-  const progressPercentage = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
   return (
     <div className="learn-page">
       <div className="learn-header">
-        <h1>Your Learning Journey</h1>
-        <p>Follow structured lessons to master finance concepts</p>
+        <span className="eyebrow">Your library</span>
+        <h1>Progress</h1>
+        <p>{learnedCount} of {total} concepts marked learned. Open any concept to read it in full, then check it off.</p>
       </div>
 
+      {/* Progress */}
       <div className="progress-section">
         <div className="progress-header">
-          <h2>Learning Progress</h2>
-          <span className="progress-text">{completedLessons}/{totalLessons} lessons completed</span>
+          <h2>Overall progress</h2>
+          <span className="progress-text">{learnedCount}/{total}</span>
         </div>
         <div className="progress-bar-container">
           <div className="progress-bar">
-            <div className="progress-fill" style={{width: `${progressPercentage}%`}}></div>
+            <div className="progress-fill" style={{ width: `${pct}%` }} />
           </div>
-          <div className="progress-percentage">{progressPercentage}%</div>
+          <div className="progress-percentage">{pct}%</div>
         </div>
+        <Link to={`/concept/${next.id}`} className="continue-btn">
+          {learnedCount === 0 ? 'Start with ' : 'Continue with '}
+          <strong>{next.title}</strong>
+          <span className="continue-arrow">→</span>
+        </Link>
       </div>
 
-      <div className="search-section">
-        <form onSubmit={handleSearch} className="search-form">
-          <input
-            type="text"
-            placeholder="Search finance terms..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-          <button type="submit" className="search-button" disabled={loading}>
-            {loading ? 'Searching...' : 'Search'}
-          </button>
-        </form>
-
-        {error && <div className="error-message">{error}</div>}
-
-        {searchResults.length > 0 && (
-          <div className="quick-results">
-            <h3>Quick Search Results</h3>
-            <div className="results-list">
-              {searchResults.map((result, index) => (
-                <Link
-                  key={index}
-                  to={`/term/${encodeURIComponent(result.title)}`}
-                  className="result-item"
-                >
-                  {result.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      <div className="lessons-section">
-        <div className="section-header">
-          <h2>Recommended Lessons</h2>
-          <Link to="/categories" className="view-all">View All Categories</Link>
-        </div>
-        <div className="lessons-grid">
-          {lessons.map(lesson => (
-            <div key={lesson.id} className={`lesson-card ${lesson.completed ? 'completed' : ''}`}>
-              <div className="lesson-header">
-                <span className={`difficulty ${lesson.difficulty.toLowerCase()}`}>
-                  {lesson.difficulty}
-                </span>
-                <span className="time-estimate">{lesson.time}</span>
-              </div>
-              <h3>{lesson.title}</h3>
-              <p>{lesson.description}</p>
-              <div className="lesson-actions">
-                {lesson.completed ? (
-                  <span className="completed-badge">✓ Completed</span>
-                ) : (
-                  <Link
-                    to={`/term/${encodeURIComponent(lesson.title)}`}
-                    className="start-button"
-                  >
-                    Start Lesson
-                  </Link>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      {/* Categories with per-track progress */}
       <div className="categories-section">
         <div className="section-header">
-          <h2>Explore Categories</h2>
-          <Link to="/categories" className="view-all">View All</Link>
+          <h2>Tracks</h2>
+          <Link to="/categories" className="view-all">All categories</Link>
         </div>
         <div className="categories-grid">
-          {categories.slice(0, 4).map((category, index) => (
-            <Link key={index} to="/categories" className="category-card">
-              <div className="category-icon">{category.icon}</div>
-              <h3>{category.name}</h3>
-              <p>{category.description}</p>
-              <div className="category-terms-count">{category.terms.length}+ terms</div>
-            </Link>
-          ))}
+          {categories.map((cat) => {
+            const terms = getConceptsByCategory(cat.id);
+            const done = terms.filter((t) => learned.has(t.id)).length;
+            const trackPct = Math.round((done / terms.length) * 100);
+            return (
+              <Link key={cat.id} to={`/category/${cat.id}`} className="category-card track-card">
+                <div className="category-icon">{cat.icon}</div>
+                <h3>{cat.name}</h3>
+                <p>{terms.length} concepts · {done} learned</p>
+                <div className="track-bar">
+                  <div className="track-fill" style={{ width: `${trackPct}%` }} />
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* All concepts */}
+      <div className="categories-section">
+        <div className="section-header">
+          <h2>All concepts</h2>
+        </div>
+        <div className="all-concepts-grid">
+          {concepts.map((c) => {
+            const isLearned = learned.has(c.id);
+            return (
+              <Link
+                key={c.id}
+                to={`/concept/${c.id}`}
+                className={`concept-tile ${isLearned ? 'learned' : ''}`}
+                style={{ background: isLearned ? undefined : `linear-gradient(135deg, ${c.color[0]}, ${c.color[1]})` }}
+              >
+                <span className="concept-tile-icon">{c.icon}</span>
+                <span className="concept-tile-name">{c.title}</span>
+                <span className={`concept-tile-check ${isLearned ? 'on' : ''}`} onClick={(e) => { e.preventDefault(); handleToggle(c.id); }} title={isLearned ? 'Mark as not learned' : 'Mark as learned'}>
+                  {isLearned ? '✓' : '○'}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </div>
 
@@ -190,8 +105,8 @@ const LearnPage = () => {
         <div className="tip-card">
           <div className="tip-icon">💡</div>
           <div className="tip-content">
-            <h3>Learning Tip</h3>
-            <p>Study for 15-20 minutes daily for better retention. Consistency beats intensity!</p>
+            <h3>How to use this</h3>
+            <p>Scroll the Discover feed for a TikTok-style tour, or open any concept above for the full single-page explainer. Mark concepts learned to track your path.</p>
           </div>
         </div>
       </div>

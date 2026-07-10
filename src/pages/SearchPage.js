@@ -1,101 +1,96 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { searchFinanceTerms, getPopularFinanceTerms } from '../services/wikipediaService';
+import { Link } from 'react-router-dom';
+import { searchConcepts, concepts } from '../data/concepts';
 import './SearchPage.css';
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const [results, setResults] = useState(null); // null = no search yet
 
-  const handleSearch = async (e, overrideQuery) => {
+  const handleSearch = (e, overrideQuery) => {
     if (e && e.preventDefault) e.preventDefault();
     const query = (overrideQuery ?? searchTerm).trim();
-    if (!query) return;
-
-    setLoading(true);
-    setError(null);
-    try {
-      const results = await searchFinanceTerms(query);
-      setSearchResults(results);
-    } catch (err) {
-      setError('Failed to search terms. Please try again.');
-      console.error('Search error:', err);
-    } finally {
-      setLoading(false);
+    if (!query) {
+      setResults(null);
+      return;
     }
+    setResults(searchConcepts(query));
   };
 
-  const handleTermClick = (termTitle) => {
-    // Navigate to term detail page
-    navigate(`/term/${encodeURIComponent(termTitle)}`);
-  };
-
-  const popularTerms = getPopularFinanceTerms();
+  // A few hand-picked concepts as quick-start chips
+  const quickPicks = ['compound-interest', 'time-value-of-money', 'diversification', 'budgeting-50-30-20', 'risk-vs-return']
+    .map((id) => concepts.find((c) => c.id === id))
+    .filter(Boolean);
 
   return (
     <div className="search-page">
       <div className="search-header">
-        <h1>Search Finance Terms</h1>
-        <p>Find any finance concept, theory, or term from our comprehensive database</p>
+        <span className="eyebrow">Search</span>
+        <h1>Find a concept</h1>
+        <p>Search the curated library by name, idea, or term. Everything opens as a full single-page explainer.</p>
       </div>
 
       <div className="search-section">
         <form onSubmit={handleSearch} className="search-form">
           <input
             type="text"
-            placeholder="Search for finance terms (e.g., 'Compound interest', 'Stock market')..."
+            placeholder="e.g. compound interest, inflation, leverage..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
+            autoFocus
           />
-          <button type="submit" className="search-button" disabled={loading}>
-            {loading ? 'Searching...' : 'Search'}
-          </button>
+          <button type="submit" className="search-button">Search</button>
         </form>
-
-        {error && <div className="error-message">{error}</div>}
       </div>
 
       <div className="content-section">
-        {searchResults.length > 0 ? (
-          <div className="results-section">
-            <div className="section-header">
-              <h2>Search Results for "{searchTerm}"</h2>
-              <span className="results-count">{searchResults.length} results</span>
+        {results ? (
+          results.length > 0 ? (
+            <div className="results-block">
+              <div className="section-header">
+                <h2>Results for &ldquo;{searchTerm}&rdquo;</h2>
+                <span className="results-count">{results.length} found</span>
+              </div>
+              <div className="results-grid">
+                {results.map((c) => (
+                  <Link key={c.id} to={`/concept/${c.id}`} className="result-card"
+                    style={{ borderTop: `3px solid ${c.color[0]}` }}>
+                    <div className="result-card-top">
+                      <span className="result-card-icon">{c.icon}</span>
+                      <span className="result-card-cat">{c.category}</span>
+                    </div>
+                    <h3>{c.title}</h3>
+                    <p>{c.tldr}</p>
+                    <span className="result-arrow">→</span>
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="results-grid">
-              {searchResults.map((result, index) => (
-                <div
-                  key={index}
-                  className="result-card"
-                  onClick={() => handleTermClick(result.title)}
-                >
-                  <h3>{result.title}</h3>
-                  <p>Click to learn more about this finance term</p>
-                  <div className="result-arrow">→</div>
-                </div>
-              ))}
+          ) : (
+            <div className="no-results-search">
+              <h3>No concept matches &ldquo;{searchTerm}&rdquo;</h3>
+              <p>The library is curated, so it won&apos;t have everything — but Wikipedia will.</p>
+              <a
+                className="wiki-fallback"
+                href={`https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(searchTerm)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Search &ldquo;{searchTerm}&rdquo; on Wikipedia ↗
+              </a>
             </div>
-          </div>
+          )
         ) : (
           <div className="popular-section">
-            <h2>Popular Finance Terms</h2>
-            <p className="popular-description">Start learning with these essential finance concepts</p>
+            <h2>Quick picks</h2>
+            <p className="popular-description">Tap a concept to jump straight in.</p>
             <div className="popular-grid">
-              {popularTerms.map((term, index) => (
-                <div
-                  key={index}
-                  className="popular-term"
-                  onClick={() => {
-                    setSearchTerm(term);
-                    handleSearch({ preventDefault: () => {} }, term);
-                  }}
-                >
-                  {term}
-                </div>
+              {quickPicks.map((c) => (
+                <Link key={c.id} to={`/concept/${c.id}`} className="popular-term">
+                  <span className="popular-term-icon">{c.icon}</span>
+                  <span className="popular-term-name">{c.title}</span>
+                </Link>
               ))}
             </div>
           </div>
@@ -104,19 +99,19 @@ const SearchPage = () => {
 
       <div className="search-tips">
         <div className="tips-content">
-          <h3>Search Tips</h3>
+          <h3>Search tips</h3>
           <div className="tips-grid">
             <div className="tip">
-              <span className="tip-icon">🔍</span>
-              <span>Try broad terms like "investment" or "banking"</span>
-            </div>
-            <div className="tip">
-              <span className="tip-icon">📝</span>
-              <span>Use specific terms like "compound interest formula"</span>
+              <span className="tip-icon">🧠</span>
+              <span>Search by idea, not just the exact title — &ldquo;risk&rdquo; finds &ldquo;Risk vs. Return&rdquo;.</span>
             </div>
             <div className="tip">
               <span className="tip-icon">📚</span>
-              <span>All content sourced from Wikipedia for accuracy</span>
+              <span>Each result is a complete explainer: formula, example, deep dive, glossary.</span>
+            </div>
+            <div className="tip">
+              <span className="tip-icon">↗</span>
+              <span>If it&apos;s not in the library yet, fall back to Wikipedia from the search results.</span>
             </div>
           </div>
         </div>
