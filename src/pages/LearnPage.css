@@ -43,6 +43,7 @@
 .progress-header h2 {
   margin: 0;
   color: var(--text);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -135,7 +136,7 @@
 
 .search-form:focus-within {
   border-color: var(--brand);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12), var(--shadow-sm);
+  box-shadow: var(--ring), var(--shadow-sm);
 }
 
 .search-input {
@@ -331,6 +332,7 @@
 .lesson-card h3 {
   margin: 0 0 0.6rem 0;
   color: var(--text);
+  font-family: var(--font-display);
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -413,15 +415,16 @@
 }
 
 .category-icon {
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   width: 60px;
   height: 60px;
   margin: 0 auto 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius);
-  background: var(--brand-soft);
+  border-radius: 18px;
+  background: var(--brand-grad);
+  box-shadow: var(--shadow-brand), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .category-card h3 {
