@@ -18,7 +18,7 @@ const TermDetailPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const data = await fetchFinanceTerm(decodeURIComponent(termName));
+        const data = await fetchFinanceTerm(termName);
         setTermData(data);
       } catch (err) {
         setError('Failed to load term details. Please try again.');

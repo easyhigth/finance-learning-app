@@ -10,14 +10,15 @@ const SearchPage = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!searchTerm.trim()) return;
+  const handleSearch = async (e, overrideQuery) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const query = (overrideQuery ?? searchTerm).trim();
+    if (!query) return;
 
     setLoading(true);
     setError(null);
     try {
-      const results = await searchFinanceTerms(searchTerm);
+      const results = await searchFinanceTerms(query);
       setSearchResults(results);
     } catch (err) {
       setError('Failed to search terms. Please try again.');
@@ -90,10 +91,7 @@ const SearchPage = () => {
                   className="popular-term"
                   onClick={() => {
                     setSearchTerm(term);
-                    // Simulate search
-                    setTimeout(() => {
-                      handleSearch({ preventDefault: () => {} });
-                    }, 100);
+                    handleSearch({ preventDefault: () => {} }, term);
                   }}
                 >
                   {term}

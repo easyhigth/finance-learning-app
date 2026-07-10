@@ -156,7 +156,12 @@ const LearnPage = () => {
                 {lesson.completed ? (
                   <span className="completed-badge">✓ Completed</span>
                 ) : (
-                  <button className="start-button">Start Lesson</button>
+                  <Link
+                    to={`/term/${encodeURIComponent(lesson.title)}`}
+                    className="start-button"
+                  >
+                    Start Lesson
+                  </Link>
                 )}
               </div>
             </div>

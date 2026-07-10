@@ -40,9 +40,26 @@ cd finance-learning-app
 # Install dependencies
 npm install
 
-# Start development server
+# Start development server (supports client-side routing automatically)
 npm start
+
+# Build for production
+npm run build
+
+# Preview the production build locally
+# Important: use the -s flag so React Router routes work on refresh.
+npm run serve
 ```
+
+## Deployment Notes
+
+This app uses React Router for client-side navigation. When serving the production build, the server must return `index.html` for every route so React Router can handle the URL. This is configured automatically for Vercel in `vercel.json`.
+
+If you see a 404 when refreshing or directly visiting a route like `/learn`, it means the static server is not configured for single-page applications. Use one of these options:
+
+- **Vercel**: connect the repository and deploy; `vercel.json` handles the rewrites.
+- **serve (local preview)**: run `npm run serve` (which uses `serve -s build`).
+- **Other static hosts**: set up a rewrite rule so all paths serve `index.html`.
 
 ## Project Structure
 
