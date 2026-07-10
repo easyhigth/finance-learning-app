@@ -20,6 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#3498db",
+  "background_color": "#ffffff",
+  "description": "Learn finance concepts like Duolingo with comprehensive Wikipedia-powered content"
 }

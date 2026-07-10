@@ -33,7 +33,7 @@ export const searchFinanceTerms = async (query) => {
       throw new Error(`Failed to search terms: ${response.status}`);
     }
     const data = await response.json();
-    // data[0] contains the search terms, data[1] contains the titles, data[3] contains the URLs
+    // data[1] contains the titles, data[3] contains the URLs
     return data[1].map((title, index) => ({
       title,
       url: data[3][index]
@@ -45,45 +45,81 @@ export const searchFinanceTerms = async (query) => {
 };
 
 /**
- * Get a list of finance-related categories
- * @returns {Array} - Array of finance categories
+ * Get popular finance terms for quick learning
+ * @returns {Array} - Array of popular finance terms
  */
-export const getFinanceCategories = () => {
+export const getPopularFinanceTerms = () => {
   return [
-    'Banking',
+    'Compound interest',
+    'Inflation',
+    'Stock market',
+    'Bond',
+    'Mutual fund',
+    'Portfolio',
+    'Diversification',
+    'Risk management',
+    'Credit score',
+    'Insurance',
+    'Budget',
+    'Savings account',
     'Investment',
-    'Financial Markets',
-    'Corporate Finance',
-    'Personal Finance',
-    'International Finance',
-    'Public Finance',
-    'Behavioral Finance',
-    'Financial Instruments',
-    'Risk Management',
-    'Financial Regulations',
-    'Cryptocurrency',
-    'Financial Analysis'
+    'Dividend',
+    'Capital gains',
+    'Liquidity',
+    'Leverage',
+    'Volatility',
+    'Bear market',
+    'Bull market'
   ];
 };
 
 /**
- * Get sample finance terms for each category
- * @returns {Object} - Object with categories as keys and arrays of terms as values
+ * Get finance categories with descriptions
+ * @returns {Array} - Array of finance categories
  */
-export const getSampleFinanceTerms = () => {
-  return {
-    'Banking': ['Central bank', 'Commercial bank', 'Credit union', 'Interest rate', 'Fractional reserve banking'],
-    'Investment': ['Stock', 'Bond', 'Mutual fund', 'Portfolio', 'Diversification'],
-    'Financial Markets': ['Stock exchange', 'Bond market', 'Foreign exchange market', 'Commodities market'],
-    'Corporate Finance': ['Capital structure', 'Working capital', 'Cash flow', 'Leverage'],
-    'Personal Finance': ['Budget', 'Savings', 'Credit score', 'Retirement planning', 'Insurance'],
-    'International Finance': ['Foreign exchange rate', 'Balance of payments', 'International trade'],
-    'Public Finance': ['Government budget', 'Taxation', 'Public debt', 'Fiscal policy'],
-    'Behavioral Finance': ['Cognitive bias', 'Anchoring', 'Loss aversion', 'Overconfidence'],
-    'Financial Instruments': ['Derivative', 'Option', 'Future', 'Swap'],
-    'Risk Management': ['Value at risk', 'Hedging', 'Insurance', 'Diversification'],
-    'Financial Regulations': ['SEC', 'Basel III', 'Dodd-Frank Act', 'Financial Conduct Authority'],
-    'Cryptocurrency': ['Bitcoin', 'Blockchain', 'Ethereum', 'Smart contract'],
-    'Financial Analysis': ['Ratio analysis', 'Valuation', 'Financial modeling', 'Technical analysis']
-  };
+export const getFinanceCategories = () => {
+  return [
+    {
+      id: 'banking',
+      name: 'Banking',
+      icon: '🏦',
+      description: 'Learn about banks, loans, and financial institutions',
+      terms: ['Central bank', 'Commercial bank', 'Credit union', 'Interest rate', 'Fractional reserve banking']
+    },
+    {
+      id: 'investment',
+      name: 'Investment',
+      icon: '📈',
+      description: 'Understand how to grow your money through investments',
+      terms: ['Stock', 'Bond', 'Mutual fund', 'Portfolio', 'Diversification']
+    },
+    {
+      id: 'markets',
+      name: 'Financial Markets',
+      icon: '📊',
+      description: 'Explore different financial markets and how they work',
+      terms: ['Stock exchange', 'Bond market', 'Foreign exchange market', 'Commodities market']
+    },
+    {
+      id: 'corporate',
+      name: 'Corporate Finance',
+      icon: '🏢',
+      description: 'Learn about business finance and corporate decisions',
+      terms: ['Capital structure', 'Working capital', 'Cash flow', 'Leverage']
+    },
+    {
+      id: 'personal',
+      name: 'Personal Finance',
+      icon: '👤',
+      description: 'Manage your personal money and financial planning',
+      terms: ['Budget', 'Savings', 'Credit score', 'Retirement planning', 'Insurance']
+    },
+    {
+      id: 'international',
+      name: 'International Finance',
+      icon: '🌍',
+      description: 'Understand global finance and currency exchange',
+      terms: ['Foreign exchange rate', 'Balance of payments', 'International trade']
+    }
+  ];
 };

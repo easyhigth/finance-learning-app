@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchBar from '../components/SearchBar/SearchBar';
-import LessonCard from '../components/LessonCard/LessonCard';
-import { searchFinanceTerms, fetchFinanceTerm } from '../services/wikipediaService';
+import { searchFinanceTerms, getPopularFinanceTerms } from '../services/wikipediaService';
 import './SearchPage.css';
 
-const SearchPage = ({ searchResults, setSearchResults, setSelectedTerm }) => {
+const SearchPage = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleSearch = async (query) => {
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) return;
+
     setLoading(true);
     setError(null);
     try {
-      const results = await searchFinanceTerms(query);
+      const results = await searchFinanceTerms(searchTerm);
       setSearchResults(results);
     } catch (err) {
       setError('Failed to search terms. Please try again.');
@@ -24,46 +27,79 @@ const SearchPage = ({ searchResults, setSearchResults, setSelectedTerm }) => {
     }
   };
 
-  const handleTermClick = async (termTitle) => {
-    try {
-      const termData = await fetchFinanceTerm(termTitle);
-      setSelectedTerm(termData);
-      navigate(`/term/${encodeURIComponent(termTitle)}`);
-    } catch (err) {
-      console.error('Failed to fetch term details:', err);
-    }
+  const handleTermClick = (termTitle) => {
+    // Navigate to term detail page
+    navigate(`/term/${encodeURIComponent(termTitle)}`);
   };
+
+  const popularTerms = getPopularFinanceTerms();
 
   return (
     <div className="search-page">
-      <h2>Search Finance Terms</h2>
-      <SearchBar onSearch={handleSearch} />
+      <div className="search-header">
+        <h1>Search Finance Terms</h1>
+        <p>Find any finance concept, theory, or term from our comprehensive database</p>
+      </div>
 
-      {loading && <div className="loading">Searching...</div>}
-      {error && <div className="error">{error}</div>}
+      <div className="search-section">
+        <form onSubmit={handleSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Search for finance terms (e.g., 'Compound interest', 'Stock market')..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+          <button type="submit" className="search-button" disabled={loading}>
+            {loading ? 'Searching...' : 'Search'}
+          </button>
+        </form>
 
-      {searchResults.length > 0 && (
-        <div className="search-results">
-          <h3>Search Results</h3>
-          <div className="results-list">
-            {searchResults.map((result, index) => (
-              <LessonCard
-                key={index}
-                title={result.title}
-                description={`Click to learn about ${result.title}`}
-                onClick={() => handleTermClick(result.title)}
-              />
-            ))}
+        {error && <div className="error-message">{error}</div>}
+      </div>
+
+      <div className="content-section">
+        {searchResults.length > 0 ? (
+          <div className="results-section">
+            <h2>Search Results</h2>
+            <div className="results-grid">
+              {searchResults.map((result, index) => (
+                <div
+                  key={index}
+                  className="result-card"
+                  onClick={() => handleTermClick(result.title)}
+                >
+                  <h3>{result.title}</h3>
+                  <p>Click to learn more about this finance term</p>
+                  <div className="result-arrow">→</div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
-
-      {searchResults.length === 0 && !loading && (
-        <div className="search-hint">
-          <p>Enter a finance term above to search Wikipedia's database</p>
-          <p>Try terms like: "Stock market", "Inflation", "Compound interest", "Derivative"</p>
-        </div>
-      )}
+        ) : (
+          <div className="popular-section">
+            <h2>Popular Finance Terms</h2>
+            <p className="popular-description">Start learning with these essential finance concepts</p>
+            <div className="popular-grid">
+              {popularTerms.map((term, index) => (
+                <div
+                  key={index}
+                  className="popular-term"
+                  onClick={() => {
+                    setSearchTerm(term);
+                    // Simulate search
+                    setTimeout(() => {
+                      handleSearch({ preventDefault: () => {} });
+                    }, 100);
+                  }}
+                >
+                  {term}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
