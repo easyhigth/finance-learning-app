@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { concepts, categories, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { concepts, categories, categoryColors, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
 import { buildFeed, localizeVocabItem } from '../data/vocab';
+import { localizeGlossaryEntry } from '../data/glossary';
 import { getFavorites } from '../utils/favorites';
 import { getFeedPosition, saveFeedPosition } from '../utils/feedPosition';
 import { useLang } from '../utils/lang';
@@ -88,6 +89,18 @@ const FeedPage = () => {
   const openConcept = (id) => navigate(`/concept/${id}`);
   const progress = list.length > 1 ? (activeIndex / (list.length - 1)) * 100 : 0;
 
+  // Virtualize: with the glossary folded in, "All" can hold 700+ cards —
+  // rendering every slide's DOM at once made first paint take 10+ seconds.
+  // Only mount slides near the current position; spacers (sized in the same
+  // 100%-of-container units each slide uses) keep scrollHeight/scrollTop math
+  // — and therefore scroll-snap and the resume/position logic — unchanged.
+  const WINDOW = 8;
+  const windowStart = Math.max(0, activeIndex - WINDOW);
+  const windowEnd = Math.min(list.length - 1, activeIndex + WINDOW);
+  const windowedList = list
+    .slice(windowStart, windowEnd + 1)
+    .map((item, offset) => ({ item, i: windowStart + offset }));
+
   return (
     <div className="feed-page">
       <div className="feed-progress-bar">
@@ -116,7 +129,8 @@ const FeedPage = () => {
       </div>
 
       <div className="feed-scroll" ref={scrollRef}>
-        {list.map((item, i) => {
+        {windowStart > 0 && <div className="feed-slide-spacer" style={{ height: `${windowStart * 100}%` }} aria-hidden="true" />}
+        {windowedList.map(({ item, i }) => {
           if (item.kind === 'concept') {
             const concept = localizeConcept(item.data, lang);
             const cat = localizeCategory(getCategory(concept.category), lang);
@@ -152,6 +166,59 @@ const FeedPage = () => {
 
                     <button className="feed-open" onClick={() => openConcept(concept.id)}>
                       {t('feed_open')}
+                      <span className="feed-open-arrow">→</span>
+                    </button>
+                  </div>
+
+                  {i < list.length - 1 && (
+                    <div className="feed-swipe-cue" aria-hidden="true">
+                      <span>{t('feed_scroll_more')}</span>
+                      <span className="feed-swipe-arrow">↑</span>
+                    </div>
+                  )}
+                </div>
+              </section>
+            );
+          }
+
+          if (item.kind === 'term') {
+            const term = localizeGlossaryEntry(item.data, lang);
+            const cat = localizeCategory(getCategory(term.category), lang);
+            const catColor = categoryColors[term.category] || ['#6366f1', '#8b5cf6'];
+            const openTerm = term.conceptId
+              ? () => openConcept(term.conceptId)
+              : () => window.open(
+                  `https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(item.data.term)}`,
+                  '_blank',
+                  'noopener noreferrer'
+                );
+            return (
+              <section
+                key={item.id}
+                className={`feed-slide feed-slide-term ${i === activeIndex ? 'active' : ''}`}
+                style={{ background: `linear-gradient(160deg, ${catColor[0]}, ${catColor[1]})` }}
+              >
+                <div className="feed-slide-overlay" />
+                <div className="feed-slide-inner">
+                  <div className="feed-slide-top">
+                    <span className="feed-chip feed-chip-term">📖 {t('feed_term_chip')} · {cat?.name}</span>
+                    <div className="feed-slide-top-right">
+                      <FavoriteStar id={term.conceptId || ('g:' + item.data.term)} tone="light" size="sm" className="feed-slide-star" />
+                      <span className="feed-counter">{i + 1} / {list.length}</span>
+                    </div>
+                  </div>
+
+                  <div className="feed-slide-body feed-term-body">
+                    <span className="feed-badge feed-badge-term">{cat?.icon || '📖'}</span>
+                    <h1 className="feed-title feed-title-term">{term.term}</h1>
+
+                    <div className="feed-vocab-block">
+                      <span className="feed-vocab-label">{t('feed_term_def')}</span>
+                      <p>{term.def}</p>
+                    </div>
+
+                    <button className="feed-open" onClick={openTerm}>
+                      {term.conceptId ? t('feed_open') : t('read_wiki')}
                       <span className="feed-open-arrow">→</span>
                     </button>
                   </div>
@@ -228,6 +295,7 @@ const FeedPage = () => {
             </section>
           );
         })}
+        {windowEnd < list.length - 1 && <div className="feed-slide-spacer" style={{ height: `${(list.length - 1 - windowEnd) * 100}%` }} aria-hidden="true" />}
 
         {isFavMode && list.length === 0 && (
           <section className="feed-slide feed-end">
@@ -258,6 +326,7 @@ const FeedPage = () => {
         )}
       </div>
 
+      {list.length <= 80 && (
       <div className="feed-dots" aria-hidden="true">
         {list.map((item, i) => (
           <span
@@ -270,6 +339,7 @@ const FeedPage = () => {
           />
         ))}
       </div>
+      )}
     </div>
   );
 };

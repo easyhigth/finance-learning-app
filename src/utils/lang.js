@@ -149,6 +149,8 @@ export const STRINGS = {
     en: 'Tap the star on any concept or vocabulary card to keep it here for quick review.',
     fr: 'Touchez l’étoile d’un concept ou d’une fiche pour le garder ici et le réviser.',
   },
+  feed_term_chip: { en: 'Term', fr: 'Terme' },
+  feed_term_def: { en: 'Definition', fr: 'Définition' },
   // Learn page
   learn_eyebrow: { en: 'Your progress', fr: 'Votre progression' },
   learn_title: { en: 'Keep learning', fr: 'Continuez à apprendre' },
