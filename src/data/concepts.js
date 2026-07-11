@@ -2117,7 +2117,7 @@ export const concepts = [
     category: 'investing',
     icon: '📐',
     color: ['#0ea5e9', '#8b5cf6'],
-    illustration: 'bars',
+    illustration: 'scatter',
     hook: 'Return per unit of risk — the one number that lets you fairly compare a hedge fund to a bond fund.',
     tldr: 'The Sharpe ratio measures risk-adjusted return: excess return (above the risk-free rate) divided by volatility. Higher is better.',
     definition: [

@@ -216,3 +216,7 @@ p {
     text-align: center;
   }
 }
+
+.route-fallback {
+  min-height: calc(100vh - var(--header-h));
+}

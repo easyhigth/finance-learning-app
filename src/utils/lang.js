@@ -24,6 +24,7 @@ export const STRINGS = {
   nav_favorites: { en: 'Favorites', fr: 'Favoris' },
   nav_progress: { en: 'Progress', fr: 'Progression' },
   nav_words: { en: 'Words', fr: 'Mots' },
+  nav_review: { en: 'Review', fr: 'Réviser' },
   // Header
   search_aria: { en: 'Search', fr: 'Rechercher' },
   favorites_aria: { en: 'Your favorites', fr: 'Vos favoris' },
@@ -169,6 +170,21 @@ export const STRINGS = {
     en: 'Scroll the Discover feed for a TikTok-style tour, or open any concept above for the full single-page explainer. Mark concepts learned to track your path.',
     fr: 'Défilez le flux Découvrir pour un tour façon TikTok, ou ouvrez un concept ci-dessus pour l’explainer complet. Marquez les concepts appris pour suivre votre parcours.',
   },
+  // Review page (flip-card self-test)
+  review_eyebrow: { en: 'Self-test', fr: 'Auto-test' },
+  review_title: { en: 'Review what you know', fr: 'Révisez ce que vous savez' },
+  review_sub: {
+    en: 'Flip through the concepts you\'ve marked as learned — tap a card to reveal the definition, then move to the next.',
+    fr: 'Parcourez les concepts que vous avez marqués comme appris — touchez une carte pour révéler la définition, puis passez à la suivante.',
+  },
+  review_empty_title: { en: 'Nothing to review yet', fr: 'Rien à réviser pour l’instant' },
+  review_empty_sub: {
+    en: 'Mark a few concepts as learned on the Progress page, and they\'ll show up here for quick self-testing.',
+    fr: 'Marquez quelques concepts comme appris sur la page Progression, ils apparaîtront ici pour un auto-test rapide.',
+  },
+  review_start_learning: { en: 'Go to Progress', fr: 'Aller à la progression' },
+  review_shuffle: { en: 'Shuffle', fr: 'Mélanger' },
+  review_flip_hint: { en: 'Tap to flip', fr: 'Touchez pour retourner' },
 };
 
 export const useLang = () => useContext(LangContext);

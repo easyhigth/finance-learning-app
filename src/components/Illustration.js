@@ -79,6 +79,22 @@ const Illustration = ({ type = 'growth', colors = ['#6366f1', '#8b5cf6'], classN
             <line x1="170" y1="40" x2="170" y2="165" stroke={c1} strokeWidth="2" strokeDasharray="4 5" opacity="0.6" />
           </>
         );
+      case 'scatter': {
+        const points = [
+          [45, 145], [70, 120], [60, 100], [95, 110], [110, 80],
+          [130, 95], [150, 60], [165, 75], [185, 45], [200, 55],
+        ];
+        return (
+          <>
+            <line x1="30" y1="150" x2="30" y2="30" stroke={c1} strokeWidth="3" strokeLinecap="round" opacity="0.35" />
+            <line x1="30" y1="150" x2="215" y2="150" stroke={c1} strokeWidth="3" strokeLinecap="round" opacity="0.35" />
+            <path d="M35 148 L205 42" fill="none" stroke={`url(#${gid})`} strokeWidth="4" strokeLinecap="round" opacity="0.55" strokeDasharray="1 9" />
+            {points.map(([x, y], i) => (
+              <circle key={i} cx={x} cy={y} r={i % 3 === 0 ? 7 : 5} fill={i % 2 === 0 ? c1 : c2} opacity={0.55 + (i / points.length) * 0.45} />
+            ))}
+          </>
+        );
+      }
       case 'cycle':
         return (
           <>

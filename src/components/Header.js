@@ -54,6 +54,7 @@ const Header = () => {
             {favCount > 0 && <span className="nav-fav-count">{favCount > 99 ? '99+' : favCount}</span>}
           </Link>
           <Link to="/learn" className={`nav-link ${isActive('/learn') ? 'active' : ''}`} onClick={closeMenu}>{t('nav_progress')}</Link>
+          <Link to="/review" className={`nav-link ${isActive('/review') ? 'active' : ''}`} onClick={closeMenu}>{t('nav_review')}</Link>
         </nav>
 
         <div className="header-actions">
