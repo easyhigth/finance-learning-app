@@ -1,9 +1,10 @@
-// Tiny theme (light/dark) store. Persists an explicit user choice to
-// localStorage; falls back to the OS preference (prefers-color-scheme)
-// when the user has never chosen one, via the CSS media query in index.css.
+// Tiny theme (light/dark) store. Dark is the default look; an explicit
+// user choice (via the header toggle) is persisted to localStorage and
+// always wins over that default.
 import { useState, useEffect, useCallback } from 'react';
 
 const KEY = 'financelearn:theme';
+const DEFAULT_THEME = 'dark';
 
 export const getStoredTheme = () => {
   try {
@@ -15,14 +16,12 @@ export const getStoredTheme = () => {
 };
 
 const apply = (theme) => {
-  const root = document.documentElement;
-  if (theme) root.setAttribute('data-theme', theme);
-  else root.removeAttribute('data-theme');
+  document.documentElement.setAttribute('data-theme', theme);
 };
 
-// Hook: [theme, setTheme]. `theme` is 'light' | 'dark' | null (null = follow OS).
+// Hook: { theme, isDark, setTheme, toggle }. `theme` is always 'light' | 'dark'.
 export const useTheme = () => {
-  const [theme, setThemeState] = useState(getStoredTheme);
+  const [theme, setThemeState] = useState(() => getStoredTheme() || DEFAULT_THEME);
 
   useEffect(() => {
     apply(theme);
@@ -31,17 +30,13 @@ export const useTheme = () => {
   const setTheme = useCallback((t) => {
     setThemeState(t);
     try {
-      if (t) localStorage.setItem(KEY, t);
-      else localStorage.removeItem(KEY);
+      localStorage.setItem(KEY, t);
     } catch {
       /* ignore quota / privacy errors */
     }
   }, []);
 
-  const isDark = theme
-    ? theme === 'dark'
-    : typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-
+  const isDark = theme === 'dark';
   const toggle = useCallback(() => setTheme(isDark ? 'light' : 'dark'), [isDark, setTheme]);
 
   return { theme, isDark, setTheme, toggle };

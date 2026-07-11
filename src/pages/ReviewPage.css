@@ -127,6 +127,20 @@
 
 .review-card-front {
   color: #fff;
+  position: relative;
+}
+
+.review-card-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
+.review-card-front > * {
+  position: relative;
 }
 
 .review-card-illustration {
