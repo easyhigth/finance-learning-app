@@ -3113,6 +3113,932 @@ export const concepts = [
     ],
     related: ['cryptocurrency', 'central-bank', 'dark-pool'],
   },
+
+  /* ---------------- NEW CONCEPTS ---------------- */
+  {
+      "id": "mortgage",
+      "title": "Mortgage",
+      "category": "personal",
+      "icon": "🏠",
+      "color": [
+          "#f59e0b",
+          "#16a34a"
+      ],
+      "illustration": "curve",
+      "hook": "The biggest loan most people will ever sign — and the biggest leveraged bet most people will ever make.",
+      "tldr": "A mortgage is a loan secured by real estate: you borrow most of a property's price, put down the rest as equity, and repay over decades — with the house itself as collateral if you stop paying.",
+      "definition": [
+          "A mortgage is a long-term loan used to buy property, where the property itself secures the debt. If the borrower stops paying, the lender can foreclose — take and sell the property to recover what is owed. Because the loan is secured, mortgage rates are usually far lower than unsecured debt like credit cards, and terms stretch to 15–30 years to keep monthly payments manageable relative to the size of the loan.",
+          "Buyers rarely pay 100% cash: they put down a deposit (the down payment) and borrow the rest. The split between what is borrowed and the property's value is the loan-to-value ratio (LTV), and it drives almost everything else — the interest rate offered, whether the lender requires mortgage insurance, and how much cushion the buyer has if prices fall. A mortgage is, in effect, using leverage to buy an asset: gains and losses on the property are magnified relative to the buyer's own cash invested."
+      ],
+      "keyPoints": [
+          "The property is collateral: miss enough payments and the lender can foreclose and sell it.",
+          "Loan-to-value (LTV) = loan amount ÷ property value; lower LTV usually means a better rate and no mandatory insurance.",
+          "Fixed-rate mortgages lock the rate for the whole term; adjustable/variable-rate mortgages reset periodically with the market.",
+          "Because a mortgage is leverage, a 10% drop in property value can wipe out 50%+ of the buyer's equity if they put down only 20%."
+      ],
+      "formula": {
+          "expression": "LTV = Loan Amount ÷ Property Value",
+          "legend": "LTV = loan-to-value ratio, expressed as a percentage",
+          "note": "Most lenders require private mortgage insurance (PMI) or an equivalent when LTV is above 80% — it protects the lender, not the borrower, until enough equity builds up."
+      },
+      "example": {
+          "scenario": "You buy a €300,000 home with a €30,000 down payment (10%), financing €270,000 over 30 years at 4.5%.",
+          "steps": [
+              "LTV = 270,000 ÷ 300,000 = 90% — above the 80% threshold, so the lender requires mortgage insurance.",
+              "Monthly payment (principal + interest) on €270,000 at 4.5% over 360 months ≈ €1,368.",
+              "Mortgage insurance at roughly 0.5%/year on the loan balance adds ≈ €112.50/month while LTV stays above 80%.",
+              "Once the balance falls to €240,000 (LTV = 80%) — through paydown, extra payments, or price appreciation — the insurance drops off, cutting the monthly cost back to ≈ €1,368."
+          ],
+          "result": "Total cost starts near €1,480/month and falls to €1,368/month once you cross the 80% LTV line — the same loan gets structurally cheaper as your equity share grows."
+      },
+      "deepDive": [
+          "The fixed-vs-adjustable choice is really a bet on rate direction and how long you will hold the loan. A fixed rate trades a (usually) higher starting rate for total certainty — useful if you plan to stay for the full term or rates might rise. An adjustable rate often starts cheaper but transfers rate risk to the borrower; it can make sense if you expect to sell or refinance before the reset, but it is a bet, not a free discount. Lenders are not doing borrowers a favor with either option — they are pricing risk they don't want to hold themselves.",
+          "A frequent, poorly-reasoned debate is \"pay down the mortgage early or invest the extra cash?\" The honest comparison is the mortgage's after-tax interest rate against the expected after-tax return of investing, adjusted for risk: paying down a 4.5% mortgage is a guaranteed 4.5% return, while investing in stocks offers a higher expected return but with real volatility and no guarantee. There is no universally correct answer — it depends on the rate, the borrower's other debt, their emergency fund, and their tolerance for a lumpy net worth versus a paid-off house. What is rarely justified is carrying a high-rate mortgage while holding idle cash earning less than the loan costs."
+      ],
+      "glossary": [
+          {
+              "term": "Down payment",
+              "def": "The upfront cash a buyer contributes toward the purchase price, reducing the loan needed."
+          },
+          {
+              "term": "Foreclosure",
+              "def": "The lender's legal process to seize and sell the property after sustained missed payments."
+          },
+          {
+              "term": "Equity (home)",
+              "def": "The portion of a property's value the owner actually owns: value minus remaining loan balance."
+          }
+      ],
+      "related": [
+          "amortization",
+          "interest-rate",
+          "credit-score",
+          "insurance"
+      ]
+  },
+  {
+      "id": "retirement-accounts",
+      "title": "Retirement Accounts",
+      "category": "personal",
+      "icon": "🌅",
+      "color": [
+          "#0ea5e9",
+          "#6366f1"
+      ],
+      "illustration": "growth",
+      "hook": "A regular investment account that pays taxes; a retirement account that mostly doesn't — same market, very different outcome.",
+      "tldr": "Retirement accounts are tax-advantaged wrappers for long-term savings — money grows tax-deferred or tax-free inside them, which compounds into a dramatically larger balance than an ordinary taxable account over decades.",
+      "definition": [
+          "A retirement account is not an investment itself — it is a special tax status wrapped around ordinary investments like stocks, bonds, and funds. Governments create these wrappers (401(k) and IRA in the US, PER in France, and similar vehicles elsewhere) to encourage long-term saving, usually with one of two tax deals: tax-deferred (contributions reduce taxable income now, and both contributions and growth are taxed only when withdrawn in retirement) or tax-exempt growth (contributions are made with already-taxed money, but growth and withdrawals are tax-free). Either way, the money inside is shielded from being taxed every single year, which is normally the case in an ordinary brokerage account.",
+          "The catch is access: these accounts typically restrict withdrawals before a set age (often around 60–65) with penalties for early access, precisely because the tax break is a deal for long-term retirement saving, not general-purpose liquidity. Many employers also add a match — contributing extra money on top of the employee's own contributions, up to a limit — which is as close to a guaranteed, instant return as exists in personal finance."
+      ],
+      "keyPoints": [
+          "Tax-deferred accounts save tax now and get taxed later; tax-exempt (Roth-style) accounts pay tax now and grow tax-free forever after.",
+          "Employer matching is effectively free money and an immediate, guaranteed return — prioritize capturing the full match before investing elsewhere.",
+          "Contribution limits and early-withdrawal penalties exist because the tax break is designed for retirement, not short-term saving.",
+          "Not paying yearly tax on growth lets the whole balance compound, not just the after-tax portion — the gap versus a taxable account widens every year."
+      ],
+      "formula": {
+          "expression": "FV(tax-deferred) = P(1+r)ⁿ vs. FV(taxable) = P(1+r(1−t))ⁿ",
+          "legend": "P = contribution · r = annual return · n = years · t = marginal tax rate applied yearly in a taxable account",
+          "note": "This isolates the pure compounding effect of not being taxed every year; a tax-deferred account still owes tax on withdrawal, which a fuller comparison must subtract."
+      },
+      "example": {
+          "scenario": "You contribute €6,000/year for 30 years at an average 7% annual return, in a 30% marginal tax bracket.",
+          "steps": [
+              "Tax-deferred account (grows at the full 7% every year): FV = 6,000 × [(1.07³⁰ − 1) / 0.07] ≈ 6,000 × 94.46 ≈ €566,800.",
+              "Equivalent taxable account (yearly gains taxed at 30%, so growth is effectively 7% × 0.70 = 4.9%): FV = 6,000 × [(1.049³⁰ − 1) / 0.049] ≈ 6,000 × 65.37 ≈ €392,200.",
+              "Gap from tax deferral alone ≈ €174,600 — money that never left the account to be taxed along the way.",
+              "Withdrawals from the tax-deferred account will still owe income tax eventually, so the real advantage is smaller than €174,600 — but because the whole balance compounded for 30 years, deferral wins in almost every realistic scenario."
+          ],
+          "result": "Sheltering growth from annual taxation turns the same €6,000/year habit into a meaningfully larger balance — the tax wrapper, not a smarter investment choice, accounts for a large share of the difference."
+      },
+      "deepDive": [
+          "The traditional-vs-Roth (tax-now vs tax-later) choice is fundamentally a bet on your future tax rate. If you expect to be in a lower tax bracket in retirement than during your working years, deferring tax (traditional-style) wins. If you expect similar or higher rates later — common for younger savers early in their careers, or if tax rates rise generally — paying tax now while your bracket is low (Roth-style) can come out ahead, and it also avoids forced withdrawals later. Since nobody can predict their future tax bracket or the government's future tax policy with confidence, holding a mix of both types of accounts is a reasonable hedge, not indecision.",
+          "The other underappreciated risk is timing near retirement itself: sequence-of-returns risk. A market crash the year before you retire, combined with starting withdrawals, can permanently impair a portfolio in a way that the same crash mid-career would not — because you are now selling depressed assets to fund living expenses instead of buying them cheap. This is why retirement glide paths shift toward bonds and cash as retirement nears: not because bonds outperform, but because a small, stable buffer removes the need to sell stocks at the worst possible moment."
+      ],
+      "glossary": [
+          {
+              "term": "Employer match",
+              "def": "Extra contributions an employer adds on top of an employee's own, up to a set limit — effectively an instant guaranteed return."
+          },
+          {
+              "term": "Vesting",
+              "def": "The schedule by which employer-contributed funds become fully and permanently the employee's own."
+          },
+          {
+              "term": "Required minimum distribution (RMD)",
+              "def": "A mandatory minimum withdrawal some tax-deferred accounts force after a certain age, to ensure the government eventually collects tax."
+          }
+      ],
+      "related": [
+          "compound-interest",
+          "time-value-of-money",
+          "dollar-cost-averaging",
+          "budgeting-50-30-20"
+      ]
+  },
+  {
+      "id": "insurance",
+      "title": "Insurance",
+      "category": "personal",
+      "icon": "🛡️",
+      "color": [
+          "#dc2626",
+          "#0ea5e9"
+      ],
+      "illustration": "distribution",
+      "hook": "You are not buying a good deal when you buy insurance — you are buying certainty, and certainty costs money.",
+      "tldr": "Insurance pools many people's small, certain premiums to cover the rare, large losses any one of them might suffer — trading a guaranteed small cost for protection against a catastrophic one.",
+      "definition": [
+          "Insurance works because of the law of large numbers: no one can predict whether any single house will burn down this year, but an insurer covering a million houses can predict the aggregate number of fires with real precision. That predictability lets the insurer collect a modest, calculable premium from everyone and use the pooled fund to fully cover the unlucky few who suffer a loss. Individually, buying insurance is nearly always a losing bet in pure expected-value terms — the insurer prices in its own costs and profit — but that is exactly the point: you are paying to remove a small chance of a loss you cannot afford, not to make money.",
+          "This is why the right heuristic for personal insurance is \"insure the losses you cannot absorb, self-insure the ones you can.\" A shattered phone screen is annoying but survivable without insurance; a house fire, a serious illness, or a lawsuit after a car accident can be financially ruinous. Deductibles exist for the same reason from the insurer's side: making the policyholder absorb the first, small, predictable slice of any loss removes the administrative cost of processing tiny claims and keeps premiums lower for everyone."
+      ],
+      "keyPoints": [
+          "Premiums are priced above the \"fair\" expected loss because insurers must cover claims handling, capital, and profit — insurance is deliberately expected-value negative for the buyer.",
+          "Adverse selection: people who know they are higher-risk are more likely to buy coverage, which pushes insurers toward medical exams, driving records, and other underwriting checks.",
+          "Moral hazard: being insured can itself change behavior (driving less carefully, delaying maintenance), which is why deductibles and co-insurance keep some risk with the policyholder.",
+          "The right amount of insurance scales with what you cannot afford to lose, not with what feels scary — catastrophic, low-probability risks are what insurance is for."
+      ],
+      "formula": {
+          "expression": "Premium ≈ (Probability of loss × Average loss severity) × (1 + Loading factor)",
+          "legend": "Probability × severity = the \"pure\" or actuarially fair premium · Loading factor = markup for expenses, capital cost, and profit",
+          "note": "The pure premium is what the insurer expects to pay out on average; the loading is why buying insurance is not, and is not meant to be, expected-value positive for the buyer."
+      },
+      "example": {
+          "scenario": "A home insurer estimates a 2% annual probability of a claim, with an average claim severity of €150,000, and applies a 50% loading factor.",
+          "steps": [
+              "Estimate the inputs: probability of loss = 2% per year, average severity = €150,000.",
+              "Pure (actuarially fair) premium = 0.02 × 150,000 = €3,000/year.",
+              "Apply the loading for claims handling, marketing, capital reserves, and profit: €3,000 × 1.50 = €4,500/year charged to the policyholder.",
+              "From the buyer's side: paying €4,500 to cover a risk whose expected cost is only €3,000 looks like a €1,500/year \"loss\" on average — but the alternative is a 2% chance of an unaffordable €150,000 loss with no cushion."
+          ],
+          "result": "The €1,500 gap between the fair premium and the price charged is the cost of transferring a catastrophic, low-probability risk off your own balance sheet — a bad trade in expectation, and a good trade in practice."
+      },
+      "deepDive": [
+          "Adverse selection and moral hazard are the two forces insurers spend the most effort fighting, and both are information problems. Adverse selection happens before the policy is sold: the people most eager to buy life or health insurance are disproportionately those who privately suspect they are higher risk, which would blow up an insurer's pricing if left unchecked — hence medical underwriting, driving records, and smoker declarations. Moral hazard happens after the policy is sold: once a loss is covered, the insured has less incentive to prevent it (leaving a car unlocked, skipping maintenance), which is why insurers keep some of the pain on the policyholder through deductibles, co-insurance percentages, and no-claims bonuses rather than covering every euro of every loss.",
+          "A subtler point is that insurance and an emergency fund are substitutes for the same underlying job — absorbing a shock without derailing your finances — but they cover different ranges of severity. An emergency fund is the right tool for the frequent, moderate, and largely predictable-in-aggregate disruptions (a job loss, a car repair, a broken appliance); insurance is the right tool for the rare but potentially ruinous tail (a house fire, a liability lawsuit, a serious illness). Buying insurance for small predictable costs — extended warranties on cheap appliances are the classic example — inverts this logic: you pay a persistent loading fee to insure a loss that a modest emergency fund could absorb outright, which is why that category of insurance is reliably profitable for the seller and reliably poor value for the buyer."
+      ],
+      "glossary": [
+          {
+              "term": "Deductible",
+              "def": "The amount the policyholder pays out of pocket before the insurer covers the rest of a claim."
+          },
+          {
+              "term": "Underwriting",
+              "def": "The insurer's process of assessing an applicant's risk to decide whether to cover them and at what price."
+          },
+          {
+              "term": "Premium",
+              "def": "The amount the policyholder pays, usually periodically, to keep an insurance policy active."
+          }
+      ],
+      "related": [
+          "risk-management",
+          "emergency-fund",
+          "mortgage"
+      ]
+  },
+  {
+      "id": "monetary-policy",
+      "title": "Monetary Policy",
+      "category": "economics",
+      "icon": "🏦",
+      "color": [
+          "#0ea5e9",
+          "#6366f1"
+      ],
+      "illustration": "curve",
+      "hook": "A handful of committee members move one number — the interest rate — and it ripples through every mortgage, business loan, and stock valuation in the economy.",
+      "tldr": "Monetary policy is a central bank's use of interest rates and money supply to keep inflation low and the economy stable.",
+      "definition": [
+          "Monetary policy is how a central bank (the Federal Reserve, the ECB, the Bank of England) manages the economy by controlling the price and quantity of money. The main lever is the short-term policy interest rate: raise it, and borrowing gets more expensive so spending and investment slow, cooling inflation; cut it, and borrowing gets cheaper so spending and investment pick up, supporting growth and jobs. Most central banks target a specific inflation rate (commonly around 2%) and adjust rates to steer the economy toward it.",
+          "When rates alone are not enough — most visibly during the 2008 financial crisis and the 2020 pandemic, when policy rates were already near zero — central banks turn to unconventional tools like quantitative easing (QE): buying large quantities of bonds to push money directly into the financial system and push down longer-term borrowing costs. Monetary policy works with a lag of many months, which is what makes it hard: a central bank must act on a forecast of where inflation and growth are heading, not just where they are today, and it can misjudge that timing badly in either direction."
+      ],
+      "keyPoints": [
+          "The main tool is the short-term policy interest rate: raise to cool inflation, cut to support growth.",
+          "Most central banks target roughly 2% inflation and set policy to hit it.",
+          "Quantitative easing (large-scale bond buying) is the backup tool when rates hit zero.",
+          "Policy acts with a long lag (often 12–18 months), so central banks act on forecasts, not just current data."
+      ],
+      "formula": {
+          "expression": "Real interest rate ≈ Nominal interest rate − Inflation rate",
+          "legend": "Nominal rate = the stated rate · Inflation rate = rate of price increases · Real rate = actual purchasing-power return",
+          "note": "What actually restrains or stimulates the economy is the real rate, not the nominal one — a 5% rate during 6% inflation is still stimulative."
+      },
+      "example": {
+          "scenario": "Inflation is running at 6%, well above the 2% target. The central bank raises its policy rate from 2% to 5.5% over a year. What happens?",
+          "steps": [
+              "Real rate before: 2% nominal − 6% inflation = −4% (deeply negative — borrowing is effectively free, fueling more spending).",
+              "Real rate after: 5.5% nominal − 6% inflation (initially) = −0.5%, still slightly negative but far tighter.",
+              "Mortgages, car loans, and business credit all reprice higher, so households and firms borrow and spend less.",
+              "Over the following year, cooler demand feeds through to slower price rises, and inflation begins falling back toward target."
+          ],
+          "result": "The rate hike from 2% to 5.5% turns a deeply negative real rate into a near-neutral one, cooling demand enough to bring inflation down — at the cost of more expensive mortgages and, often, slower growth or job losses along the way."
+      },
+      "deepDive": [
+          "Monetary policy is a blunt instrument aimed at a specific problem: it can slow an overheating economy or support a weak one, but it cannot fix a shortage of workers, a supply-chain break, or a war-driven spike in energy prices — the \"supply shocks\" that also cause inflation. Raising rates into a supply-driven inflation still cools demand, but it does so by making mortgages and business loans painfully expensive without touching the actual bottleneck, which is why the same tool that stops a demand-driven inflation can, if overused, tip a supply-driven one into an unnecessary recession. Central bankers walk this tightrope constantly, and reasonable economists disagree in real time about which kind of inflation they are facing.",
+          "The other deep tension is credibility versus discretion. A central bank that changes course unpredictably teaches markets and workers to distrust its inflation target, which makes the target self-defeating — if people expect 6% inflation, they demand 6% wage rises and set 6% prices, and the inflation becomes self-fulfilling regardless of what the data says. This is why central banks spend so much effort on communication (forward guidance, press conferences) and why independence from short-term political pressure is treated as sacred: a government facing an election has every incentive to demand low rates regardless of inflation, and a central bank that caves to that pressure loses the credibility that makes low inflation possible at low economic cost in the first place."
+      ],
+      "glossary": [
+          {
+              "term": "Policy rate",
+              "def": "The short-term interest rate a central bank sets, which anchors borrowing costs economy-wide."
+          },
+          {
+              "term": "Quantitative easing (QE)",
+              "def": "Large-scale central bank bond purchases used to push down longer-term rates when the policy rate is near zero."
+          },
+          {
+              "term": "Forward guidance",
+              "def": "A central bank's public signaling about its future rate path, used to shape expectations before it acts."
+          }
+      ],
+      "related": [
+          "central-bank",
+          "inflation",
+          "fiat-money",
+          "fiscal-policy"
+      ]
+  },
+  {
+      "id": "fiscal-policy",
+      "title": "Fiscal Policy",
+      "category": "economics",
+      "icon": "🏛️",
+      "color": [
+          "#f59e0b",
+          "#dc2626"
+      ],
+      "illustration": "bars",
+      "hook": "While central banks move interest rates, governments move something bigger — how much they tax and spend — and that alone can make or break an economy.",
+      "tldr": "Fiscal policy is a government's use of taxation and spending to influence economic growth, employment, and demand.",
+      "definition": [
+          "Fiscal policy is the government's side of steering the economy, distinct from the central bank's monetary policy. Governments can run expansionary fiscal policy — cutting taxes or increasing spending (infrastructure, welfare, direct payments) — to boost demand during a slowdown, or contractionary fiscal policy — raising taxes or cutting spending — to cool an overheating economy or rein in debt. Unlike monetary policy, which is usually set by an independent central bank, fiscal policy is set by elected governments and legislatures, which makes it slower to change but also more directly targeted (a specific tax cut or a specific spending program can be aimed at a specific group or sector).",
+          "The budget balance — revenue minus spending — is the running scoreboard of fiscal policy. A deficit (spending more than revenue) is normal and often useful during downturns, when the government is the only actor still willing to spend while households and businesses pull back; but persistent, large deficits accumulate into public debt, and debt service (interest payments) eventually competes with other priorities in the budget. The core fiscal question in any given year is not \"deficit or surplus\" in the abstract, but whether the current deficit is the right size for the current state of the economy."
+      ],
+      "keyPoints": [
+          "Levers are taxation and government spending, set by governments and legislatures, not central banks.",
+          "Expansionary policy (tax cuts, more spending) boosts demand; contractionary policy (tax rises, less spending) cools it.",
+          "Budget balance = revenue − spending; a deficit adds to the stock of public debt.",
+          "Fiscal policy is slower to enact than monetary policy but can target specific groups, sectors, or regions directly."
+      ],
+      "formula": {
+          "expression": "Budget balance = Government revenue − Government spending",
+          "legend": "Positive = surplus · Negative = deficit · Accumulated deficits = public debt",
+          "note": "Debt-to-GDP is the standard way to judge whether debt is sustainable relative to the size of the economy that has to service it."
+      },
+      "example": {
+          "scenario": "A government collects €900B in tax revenue and spends €1,050B (including €60B in interest on existing debt). What is the fiscal position, and what happens to debt?",
+          "steps": [
+              "Budget balance = 900 − 1,050 = −€150B, a deficit.",
+              "The €150B shortfall must be financed by issuing new government bonds — borrowing.",
+              "If GDP is €3,000B, this year's deficit alone is 5% of GDP — a meaningfully expansionary stance.",
+              "Next year, total public debt is €150B higher, and if rates are unchanged, next year's interest bill rises too, absent any offsetting growth in revenue."
+          ],
+          "result": "The government runs a 5%-of-GDP deficit, financed by new borrowing — supportive of demand today, but it enlarges the debt stock and next year's interest bill, illustrating the core trade-off between stimulus now and debt later."
+      },
+      "deepDive": [
+          "Fiscal and monetary policy can reinforce or fight each other, and when they fight, monetary policy usually wins the near-term battle over inflation because a central bank can move faster and more forcefully than a legislature. A government running large deficits (stimulus) while a central bank is raising rates to fight inflation is pushing in opposite directions — the fiscal spending adds demand that the central bank must then offset with even higher rates, which is a major reason economists watch the combination of the two, not either in isolation. Conversely, well-timed fiscal support can shorten a recession that monetary policy alone would take much longer to fix, especially when rates are already near zero and the central bank has little room left to cut.",
+          "The size of the fiscal \"multiplier\" — how much extra GDP each dollar of deficit spending generates — is genuinely disputed and depends on circumstance. Spending during a deep recession, when idle capacity and unemployed workers exist, tends to have a high multiplier because the money would otherwise not have been spent by anyone. The same spending during a fully employed economy mostly bids up prices or crowds out private borrowing (higher government demand for credit can push up interest rates for everyone else), producing a low multiplier and more inflation for the same deficit. This is why \"just spend more\" and \"just cut taxes\" are not universal answers — the right fiscal stance depends heavily on where the economy already stands, and getting that diagnosis wrong is one of the most common policy mistakes in both directions."
+      ],
+      "glossary": [
+          {
+              "term": "Budget deficit",
+              "def": "The shortfall when government spending exceeds revenue in a period, financed by borrowing."
+          },
+          {
+              "term": "Public debt",
+              "def": "The accumulated stock of past deficits a government owes, typically measured relative to GDP."
+          },
+          {
+              "term": "Fiscal multiplier",
+              "def": "The amount of extra economic output generated per unit of government spending or tax cut."
+          }
+      ],
+      "related": [
+          "monetary-policy",
+          "gdp",
+          "central-bank",
+          "yield-curve"
+      ]
+  },
+  {
+      "id": "exchange-rate",
+      "title": "Exchange Rate",
+      "category": "economics",
+      "icon": "💱",
+      "color": [
+          "#16a34a",
+          "#0891b2"
+      ],
+      "illustration": "scatter",
+      "hook": "The price of one country's money in terms of another's — and one of the few prices that can quietly make an entire nation richer or poorer overnight.",
+      "tldr": "An exchange rate is the price of one currency in terms of another, set mainly by relative supply, demand, interest rates, and trade flows.",
+      "definition": [
+          "An exchange rate expresses how much of one currency it takes to buy another — for example, 1 euro = 1.08 US dollars. Rates are mostly determined in enormous, continuously traded global currency markets, where the main forces are trade flows (countries that export more than they import see more demand for their currency), interest rate differentials (higher rates attract foreign capital seeking yield, which raises demand for that currency), and relative inflation and growth expectations. A currency that strengthens (\"appreciates\") makes a country's imports cheaper and its exports more expensive abroad; a currency that weakens (\"depreciates\") does the reverse.",
+          "Most major currencies (the dollar, euro, yen, pound) float freely, with their value set by the market rather than fixed by government decree. Some countries instead peg their currency to another (commonly the US dollar) at a fixed or managed rate, trading away independent monetary policy for exchange-rate stability — a central bank cannot simultaneously fix its exchange rate, control its own interest rate freely, and allow free movement of capital across its borders, a constraint known as the \"impossible trinity.\" Choosing which two of those three to prioritize is one of the fundamental decisions every country's monetary framework makes, explicitly or not."
+      ],
+      "keyPoints": [
+          "The exchange rate is the price of one currency in another; it is set by trade flows, interest rate differences, and relative growth/inflation.",
+          "A stronger currency cheapens imports and makes exports less competitive abroad; a weaker currency does the reverse.",
+          "Higher interest rates tend to attract foreign capital and strengthen a currency, all else equal.",
+          "The \"impossible trinity\": a country cannot have a fixed exchange rate, free capital flows, and independent monetary policy all at once."
+      ],
+      "formula": {
+          "expression": "PPP exchange rate = Price of basket in Country A ÷ Price of same basket in Country B",
+          "legend": "PPP = purchasing power parity · \"Basket\" = an identical set of goods priced in both countries",
+          "note": "The Big Mac Index is a famous informal PPP check: if a Big Mac costs $5 in the US and 60 pesos elsewhere, PPP implies a rate of 12 pesos per dollar — deviations from that hint a currency is over- or under-valued."
+      },
+      "example": {
+          "scenario": "The euro trades at 1.08 USD. The ECB then raises rates well above the Fed's, while US inflation cools faster than eurozone inflation. What is likely to happen to the euro?",
+          "steps": [
+              "Higher eurozone rates make euro-denominated bonds more attractive to global investors seeking yield.",
+              "Investors sell dollars to buy euros in order to hold those higher-yielding euro assets, raising demand for euros.",
+              "Faster-cooling US inflation also makes the dollar's real (inflation-adjusted) return look relatively less attractive.",
+              "The euro appreciates — say from 1.08 to 1.15 USD — making European exports pricier for US buyers and US imports cheaper for Europeans."
+          ],
+          "result": "The rate differential and inflation gap push the euro from 1.08 to 1.15 USD, a roughly 6.5% appreciation — good news for European consumers buying imports, but a headwind for European exporters competing on price."
+      },
+      "deepDive": [
+          "A weak currency is not simply \"bad\" nor a strong one simply \"good\" — it redistributes winners and losers within the same economy. A weaker currency benefits exporters and import-competing domestic producers (their goods look cheaper to foreign buyers, and imports look more expensive to domestic buyers, so people switch to local alternatives) but hurts consumers buying imported goods and companies with foreign-currency debt, whose repayments suddenly cost more in local currency. This is precisely the trap that has hit emerging-market governments and companies repeatedly: borrow in dollars because rates are lower, then watch the local currency depreciate and the debt burden balloon in local-currency terms even though nothing about the dollar amount owed has changed.",
+          "Exchange rates are also one of the clearest places where short-term market pricing and long-term economic reality diverge. Purchasing power parity suggests exchange rates should converge toward whatever rate equalizes the price of identical goods across countries, but in practice rates can deviate from that fair value for years at a time, driven by capital flows, interest rate speculation, safe-haven demand, and central bank intervention — deviations that eventually matter for trade competitiveness but can persist far longer than \"eventually\" is useful for anyone trying to plan around them. This is why exchange rate forecasting is notoriously unreliable even among professionals: the theory says where a currency should end up, but says very little about the path or the timing of getting there."
+      ],
+      "glossary": [
+          {
+              "term": "Appreciation / depreciation",
+              "def": "A currency strengthening or weakening in value relative to another currency."
+          },
+          {
+              "term": "Purchasing power parity (PPP)",
+              "def": "The theory that exchange rates should adjust so identical goods cost the same across countries."
+          },
+          {
+              "term": "Impossible trinity",
+              "def": "The constraint that a country cannot simultaneously have a fixed exchange rate, free capital flows, and independent monetary policy."
+          }
+      ],
+      "related": [
+          "monetary-policy",
+          "central-bank",
+          "inflation",
+          "gdp"
+      ]
+  },
+  {
+      "id": "capital-structure",
+      "title": "Capital Structure",
+      "category": "corporate",
+      "icon": "🏛️",
+      "color": [
+          "#0ea5e9",
+          "#f97316"
+      ],
+      "illustration": "pie",
+      "hook": "The mix of debt and equity a company chooses is a bet on its own survival — get it wrong and even a good business can be killed by its own financing.",
+      "tldr": "Capital structure is how a company funds itself — the mix of debt and equity — and that mix determines both its potential returns and its risk of failure.",
+      "definition": [
+          "Every company is funded by some combination of debt (loans, bonds — money that must be repaid with interest, regardless of how business goes) and equity (shareholder capital, which has no fixed repayment but shares in the profits and control). Capital structure is simply that mix, usually expressed as a debt-to-equity ratio or debt-to-total-capital percentage. A company funded entirely by equity is conservative and flexible but may be leaving value on the table; one funded heavily by debt magnifies returns to shareholders but must service that debt in good years and bad.",
+          "The choice is not just financial engineering — it shapes who bears risk and who has a claim on the company's future. Debt holders get paid first and get a fixed return; equity holders get what is left over, which can be a lot (upside) or nothing (bankruptcy). Because interest is tax-deductible in most jurisdictions while dividends are not, debt has a built-in cost advantage — the \"tax shield\" — which is why almost no healthy company runs on 100% equity. The art is finding the mix that captures that advantage without courting insolvency."
+      ],
+      "keyPoints": [
+          "Capital structure = the mix of debt and equity funding a company, usually measured as debt-to-equity or debt-to-capital.",
+          "Debt is cheaper (tax-deductible interest, fixed cost) but must be repaid regardless of performance; equity is more expensive but flexible.",
+          "The \"optimal\" structure balances the tax benefit of debt against the rising cost of financial distress as debt increases.",
+          "Industries with stable, predictable cash flow (utilities, telecoms) can safely carry far more debt than cyclical or R&D-heavy businesses."
+      ],
+      "formula": {
+          "expression": "Debt-to-equity ratio = Total debt ÷ Total shareholder equity",
+          "legend": "Total debt = short- and long-term interest-bearing obligations · Equity = book value of shareholder capital",
+          "note": "A ratio of 1.0 means the company is funded equally by debt and equity; higher ratios mean more leverage and more fixed obligations relative to the cushion that absorbs losses."
+      },
+      "example": {
+          "scenario": "Two identical companies each generate €100M operating profit on €1B of assets. Company A is funded with €800M equity / €200M debt (5% interest). Company B is funded with €300M equity / €700M debt (5% interest). Compare return on equity.",
+          "steps": [
+              "Company A: interest = 5% × €200M = €10M. Net profit = €100M − €10M = €90M. ROE = 90 ÷ 800 = 11.3%.",
+              "Company B: interest = 5% × €700M = €35M. Net profit = €100M − €35M = €65M. ROE = 65 ÷ 300 = 21.7%.",
+              "Company B's shareholders earn almost double the return on their capital from the identical underlying business.",
+              "Now assume operating profit falls to €20M in a downturn: A's net profit = €10M (ROE 1.25%, still positive); B's net profit = €20M − €35M = −€15M (ROE −5%, a loss, and B may struggle to pay interest at all)."
+          ],
+          "result": "The same operating business produces a much higher return for Company B's shareholders in good times — and a real loss, with debt-service risk, in bad times. Capital structure does not change the business; it redistributes its risk and reward between lenders and owners."
+      },
+      "deepDive": [
+          "The classic academic starting point (Modigliani-Miller) argues that in a frictionless world with no taxes and no bankruptcy costs, capital structure would not matter at all — the value of a company would be the same regardless of the debt/equity mix, because investors could replicate any leverage themselves. The theorem is famous precisely because reality violates its assumptions in ways that matter: taxes make debt cheaper (the interest tax shield), and bankruptcy is costly and disruptive, not a clean, frictionless event. So in practice, capital structure matters a great deal — the \"trade-off theory\" says firms should lever up until the marginal tax benefit of another euro of debt equals the marginal expected cost of financial distress it creates.",
+          "In the real world, capital structure decisions are also shaped by signaling and control, not just tax math. Issuing new equity often signals to the market that management thinks the stock is overvalued (why else sell shares instead of borrowing?), which is why stock prices frequently fall on equity-issuance announcements — a phenomenon \"pecking order theory\" explains by predicting firms prefer internal cash, then debt, then equity as a last resort. Debt also disciplines management: fixed interest payments cannot be skipped the way a discretionary dividend can, forcing more careful capital allocation — but that same rigidity is what turns a temporary cash-flow dip into a covenant breach or default. The right capital structure is therefore industry- and cycle-specific: a stable monopoly utility can run 60%+ debt safely, while a biotech burning cash pre-revenue would be reckless with any meaningful leverage at all."
+      ],
+      "glossary": [
+          {
+              "term": "Tax shield",
+              "def": "The reduction in taxable income created by deducting interest expense, which lowers the effective cost of debt."
+          },
+          {
+              "term": "Financial distress cost",
+              "def": "The direct and indirect costs (legal fees, lost customers, distracted management) that arise as default risk rises."
+          },
+          {
+              "term": "Covenant",
+              "def": "A condition in a loan agreement (e.g. a maximum debt/EBITDA ratio) that, if breached, can trigger default even without missing a payment."
+          }
+      ],
+      "related": [
+          "leverage",
+          "lbo",
+          "cost-of-capital",
+          "working-capital"
+      ]
+  },
+  {
+      "id": "mergers-acquisitions",
+      "title": "Mergers & Acquisitions",
+      "category": "corporate",
+      "icon": "🤝",
+      "color": [
+          "#8b5cf6",
+          "#06b6d4"
+      ],
+      "illustration": "cycle",
+      "hook": "Two companies become one on the promise that the combination is worth more than the parts — a promise that fails more often than it succeeds.",
+      "tldr": "M&A is companies combining through a merger (joining as equals) or an acquisition (one buys the other), usually to create value the two firms couldn't create alone.",
+      "definition": [
+          "A merger combines two companies into one, typically presented as a union of equals; an acquisition is one company (the acquirer) buying and absorbing another (the target), usually the more common real-world case. The acquirer pays with cash, stock, or a mix, often including a \"control premium\" — extra above the target's current share price — to persuade shareholders to sell and to compensate for losing independent control. The entire economic case rests on the deal creating more value together than the two companies were worth apart.",
+          "That extra value is called synergy, and it comes in two flavors: cost synergies (eliminating duplicate functions — one HR department instead of two, combined purchasing power, closed redundant factories) and revenue synergies (cross-selling products, combined distribution, new markets). Cost synergies are relatively predictable and often materialize; revenue synergies are notoriously optimistic in deal presentations and frequently disappoint, because customers, sales teams, and product roadmaps don't merge as smoothly as org charts do."
+      ],
+      "keyPoints": [
+          "Acquisitions (one firm buying another) are far more common in practice than true mergers of equals.",
+          "Acquirers typically pay a control premium above the target's pre-deal share price.",
+          "Deal value depends on synergies — cost synergies are more reliable than revenue synergies.",
+          "Most studies find a majority of acquisitions destroy value for the acquirer's shareholders, even when they benefit the target's."
+      ],
+      "formula": {
+          "expression": "Synergy value = Value of combined company − (Standalone value of acquirer + Standalone value of target)",
+          "legend": "Combined value = the merged entity's value post-integration · Standalone values = what each company was worth independently",
+          "note": "For the deal to create value for the acquirer, synergy value must exceed the control premium paid — a bar many deals fail to clear."
+      },
+      "example": {
+          "scenario": "Acquirer (worth €2B standalone) buys Target (worth €500M standalone, trading at that value) for €650M — a €150M (30%) control premium. Management projects €80M/year of annual cost synergies from day one, valued using a simple 5x multiple as a rough perpetuity proxy. Was the price justified?",
+          "steps": [
+              "Standalone combined value without synergies = €2B + €500M = €2.5B.",
+              "Projected synergy value ≈ €80M × 5 = €400M (using the rough multiple as a stand-in for a discounted perpetuity).",
+              "Total combined value with synergies ≈ €2.5B + €400M = €2.9B.",
+              "Price paid for Target = €650M (vs. €500M standalone) → premium paid = €150M, which is well below the €400M of synergy value — if synergies fully materialize, the deal creates roughly €250M of net value for the acquirer."
+          ],
+          "result": "The deal only makes sense if most of that €400M in projected synergies actually shows up; if only half materializes (€200M), the acquirer barely breaks even on the premium paid, which is exactly the risk that makes M&A execution — not the price negotiation — the real determinant of success."
+      },
+      "deepDive": [
+          "The uncomfortable statistic in M&A research is durable: somewhere between 50-70% of acquisitions fail to create value for the acquirer's shareholders, and the target's shareholders capture most or all of the announced gains through the premium alone. This happens for structural reasons, not just bad luck: acquirers routinely overpay in competitive auctions (\"winner's curse\" — the winning bidder is, almost by definition, the one who was most optimistic), management teams have career and ego incentives to grow through deals regardless of price discipline, and revenue synergies baked into the pitch to the board rarely survive contact with actual customers and sales teams who didn't ask to be merged.",
+          "The deals that do work share a pattern: disciplined valuation (walking away when the price exceeds realistic synergy value, not \"must win\" psychology), a clear integration plan before signing rather than after, and synergies that are mostly cost-based and therefore within management's direct control rather than dependent on customer behavior. The method of payment also matters as a signal: acquirers tend to offer stock when they believe their own shares are overvalued and cash when they believe the target is a genuine bargain, which is why markets often react more skeptically to stock-financed deals. Ultimately M&A is one of the few corporate decisions where the buyer's stock price on announcement day is a fairly honest, immediate referendum on whether the market believes the story — and more often than investment bankers' pitch decks would suggest, the market says no."
+      ],
+      "glossary": [
+          {
+              "term": "Control premium",
+              "def": "The extra amount paid above a target's standalone market value to acquire control of the company."
+          },
+          {
+              "term": "Synergy",
+              "def": "The additional value created by combining two companies beyond what each was worth separately."
+          },
+          {
+              "term": "Winner's curse",
+              "def": "The tendency for the winning bidder in a competitive sale to have overpaid, because winning requires being the most optimistic participant."
+          }
+      ],
+      "related": [
+          "valuation",
+          "capital-structure",
+          "private-equity",
+          "lbo"
+      ]
+  },
+  {
+      "id": "cost-of-capital",
+      "title": "Cost of Capital",
+      "category": "corporate",
+      "icon": "⚖️",
+      "color": [
+          "#22c55e",
+          "#6366f1"
+      ],
+      "illustration": "scale",
+      "hook": "The minimum return a company must earn just to justify existing — fall short of it and you are destroying value even while turning a profit.",
+      "tldr": "Cost of capital is the blended return a company must pay its lenders and shareholders — the hurdle rate every investment must clear to create value.",
+      "definition": [
+          "Cost of capital is the weighted-average return a company must generate on its investments to satisfy both its lenders (who require interest) and its shareholders (who require a return commensurate with the risk of owning equity, since they have no guaranteed payment). It is usually calculated as the Weighted Average Cost of Capital (WACC), blending the after-tax cost of debt and the cost of equity in proportion to how the company is actually financed. WACC is the discount rate used to value future cash flows and the hurdle rate a project must clear to be worth undertaking.",
+          "The cost of equity is harder to observe than the cost of debt, since shareholders never sign a contract stating what return they require — it must be estimated, typically with the Capital Asset Pricing Model (CAPM), based on the risk-free rate plus a premium for the stock's volatility relative to the market. This means cost of capital is never a fixed, known number; it is an estimate that shifts with interest rates, market risk appetite, and a company's own leverage and business risk — but getting the estimate roughly right is one of the most consequential judgments in corporate finance, because it decides which investments look attractive and which don't."
+      ],
+      "keyPoints": [
+          "WACC blends the after-tax cost of debt and the cost of equity, weighted by how the company is actually funded.",
+          "It serves as both the discount rate for valuation and the minimum hurdle rate for new investments.",
+          "Cost of equity (via CAPM) is an estimate, not an observable number, and is always higher than the cost of debt because equity bears more risk.",
+          "A project earning above WACC creates value; a project earning below it destroys value even if it is \"profitable\" in accounting terms."
+      ],
+      "formula": {
+          "expression": "WACC = (E/V) × Re + (D/V) × Rd × (1 − Tc)",
+          "legend": "E = market value of equity · D = market value of debt · V = E + D · Re = cost of equity · Rd = cost of debt · Tc = corporate tax rate",
+          "note": "The (1 − Tc) term reflects the tax shield: after-tax debt is cheaper than its stated interest rate, which is why debt usually lowers WACC — up to the point where added risk of distress offsets it."
+      },
+      "example": {
+          "scenario": "A company has €600M equity (market value) and €400M debt. Cost of equity (from CAPM) is 11%. Cost of debt is 6%. Corporate tax rate is 25%. Calculate WACC, and evaluate a project expected to return 8%.",
+          "steps": [
+              "V = E + D = 600 + 400 = €1,000M. Weight of equity = 600/1000 = 0.6. Weight of debt = 400/1000 = 0.4.",
+              "After-tax cost of debt = 6% × (1 − 0.25) = 4.5%.",
+              "WACC = (0.6 × 11%) + (0.4 × 4.5%) = 6.6% + 1.8% = 8.4%.",
+              "The project's expected 8% return is below the 8.4% WACC hurdle rate."
+          ],
+          "result": "Even though the project returns a positive 8%, it falls short of the 8.4% the company must earn to compensate its lenders and shareholders for the capital and risk involved — undertaking it would destroy value, not create it, despite looking \"profitable\" on paper."
+      },
+      "deepDive": [
+          "WACC is deceptively simple as a formula but treacherous in practice because every input is an estimate riddled with judgment calls. The cost of equity via CAPM depends on beta (a backward-looking measure of volatility that can shift with the estimation window and shows real instability for smaller or thinly traded stocks), the equity risk premium (a number reasonable economists disagree on by several percentage points), and the risk-free rate (which itself moves with monetary policy). Small differences compound: shifting the assumed equity risk premium by just 1 percentage point can swing a valuation by 10-20% or more, meaning the same company can look cheap or expensive depending purely on which analyst's WACC assumptions are used — a warning against treating any single WACC calculation as more precise than it really is.",
+          "A subtler and more common error is using one company-wide WACC to evaluate all of a company's projects, regardless of how risky each one actually is. A stable, mature division and a speculative new venture inside the same company do not share the same risk profile, so discounting both at the corporate average WACC systematically over-invests in the risky venture (its true hurdle rate should be higher) and under-invests in the safe division (its true hurdle rate should be lower). Sophisticated capital budgeting uses project-specific or divisional discount rates for exactly this reason. Cost of capital is also not static: as a company adds debt, its cost of equity typically rises too (more financial risk falls on a smaller equity cushion), which is why simply layering on cheap debt does not mechanically lower WACC forever — beyond a certain point, rising distress risk and a higher required equity return offset the tax benefit, and WACC turns back upward."
+      ],
+      "glossary": [
+          {
+              "term": "CAPM",
+              "def": "Capital Asset Pricing Model — estimates required return on equity as the risk-free rate plus beta times the equity risk premium."
+          },
+          {
+              "term": "Hurdle rate",
+              "def": "The minimum acceptable rate of return a project or investment must clear to be worth undertaking."
+          },
+          {
+              "term": "Beta",
+              "def": "A measure of a stock's volatility relative to the overall market, used to estimate the risk premium demanded by equity investors."
+          }
+      ],
+      "related": [
+          "capm",
+          "capital-structure",
+          "leverage",
+          "valuation"
+      ]
+  },
+  {
+      "id": "defi",
+      "title": "DeFi (Decentralized Finance)",
+      "category": "fintech",
+      "icon": "🏦",
+      "color": [
+          "#8b5cf6",
+          "#22d3ee"
+      ],
+      "illustration": "cycle",
+      "hook": "Banking without a bank — lending, trading, and borrowing run entirely by code on a public blockchain.",
+      "tldr": "DeFi rebuilds financial services — lending, trading, insurance — as open-source smart contracts on public blockchains, replacing banks and brokers with code and collateral.",
+      "definition": [
+          "Decentralized finance (DeFi) is a set of financial applications built on public blockchains, mostly Ethereum, that replicate services traditionally provided by banks and brokers — lending, borrowing, trading, earning interest — without a central company holding your money or approving your transaction. Instead, self-executing programs called smart contracts hold funds in shared pools and execute rules automatically: deposit collateral, borrow against it, trade one token for another, all governed by code that anyone can inspect and no one can unilaterally change. Users interact directly from their own wallets, so there is no account to open and, in principle, no gatekeeper to say no.",
+          "The mechanics differ sharply from traditional finance. A DeFi lending pool sets interest rates algorithmically based on supply and demand for each asset, adjusting every block instead of every quarter. A decentralized exchange matches trades not against a human market maker but against a pool of tokens deposited by other users (a \"liquidity pool\"), who earn fees in return. Because there is no credit department to assess your trustworthiness, DeFi loans are typically over-collateralized — you must post more value than you borrow — which sidesteps the need for credit scores but also caps the loan size and shuts out anyone who lacks capital to lock up in the first place."
+      ],
+      "keyPoints": [
+          "Financial services (lending, trading, borrowing) run by smart contracts instead of banks or brokers.",
+          "Users keep custody of funds in their own wallet — no account, but also no one to call if something breaks.",
+          "Loans are over-collateralized (post more than you borrow) since there is no credit check.",
+          "Composability lets protocols plug into each other automatically — but also means one failure can cascade."
+      ],
+      "example": {
+          "scenario": "You want to earn yield on €10,000 of a stablecoin without using a bank. You deposit it into a DeFi lending protocol.",
+          "steps": [
+              "You connect your crypto wallet to the lending protocol's app and deposit €10,000 of stablecoin into its shared pool.",
+              "The smart contract records your deposit and starts accruing interest, set algorithmically by how much of the pool is currently borrowed (say 4% APY when 80% is borrowed out).",
+              "A separate user wants to borrow against their Ethereum holdings: they must deposit, say, €15,000 of ETH as collateral to borrow your €10,000 — over-collateralized so the pool stays solvent even if ETH's price drops somewhat.",
+              "If ETH's price falls too far, the smart contract automatically liquidates the borrower's collateral to repay the pool — no phone call, no grace period, just code executing the rule instantly."
+          ],
+          "result": "You earned yield without a bank account, KYC form, or credit committee — but you also have no deposit insurance, no ombudsman, and no recourse if the smart contract has a bug or the collateral asset crashes faster than the liquidation can keep up."
+      },
+      "deepDive": [
+          "The honest bull case is that DeFi genuinely removes friction and gatekeeping that traditional finance has layered on for decades. Anyone with an internet connection and a wallet can lend, borrow, or trade at any hour, without minimum balances, geographic restrictions, or a bank deciding they are not profitable enough to serve. Rates are transparent and set by visible supply and demand rather than negotiated behind closed doors, and the code is open-source and auditable rather than a black box. \"Composability\" — protocols plugging into each other like software libraries — lets developers build sophisticated products (automated yield strategies, synthetic assets) in weeks that would take a bank years to ship through compliance and legacy systems.",
+          "The bear case is that DeFi has, in practice, reintroduced most of the risks traditional finance was built to manage — without the safety nets. Billions of dollars have been lost to smart contract bugs, exploited flash-loan attacks, and outright rug pulls where developers simply walk off with pooled funds; unlike a bank failure, there is no deposit insurance, no regulator, and often no identifiable party to sue. Over-collateralization, while it removes the need for credit scoring, is deeply capital-inefficient and excludes exactly the people traditional lending is meant to serve — those without spare capital to lock up. And composability cuts both ways: when one protocol breaks (as several have during market crashes), the interconnections that made DeFi elegant also transmit the failure instantly across every protocol built on top of it. The technology solves real problems of access and transparency; whether it can do so without periodically vaporizing users' capital is still an open, unresolved question."
+      ],
+      "glossary": [
+          {
+              "term": "Liquidity pool",
+              "def": "A shared pot of tokens deposited by users that a protocol uses to facilitate trades or loans, earning depositors a share of the fees."
+          },
+          {
+              "term": "Over-collateralization",
+              "def": "Requiring a borrower to post more value than they borrow, since there is no credit check to assess default risk."
+          },
+          {
+              "term": "Flash loan",
+              "def": "An uncollateralized loan that must be borrowed and repaid within a single blockchain transaction — useful for arbitrage, but also a common attack vector."
+          }
+      ],
+      "related": [
+          "blockchain",
+          "cryptocurrency",
+          "smart-contracts",
+          "liquidity"
+      ]
+  },
+  {
+      "id": "smart-contracts",
+      "title": "Smart Contracts",
+      "category": "fintech",
+      "icon": "📜",
+      "color": [
+          "#10b981",
+          "#6366f1"
+      ],
+      "illustration": "bars",
+      "hook": "A contract that executes itself — no lawyer, no signature, no way to argue with the code once it runs.",
+      "tldr": "A smart contract is code stored on a blockchain that automatically executes agreed-upon rules when conditions are met, replacing manual enforcement with automatic, tamper-resistant execution.",
+      "definition": [
+          "A smart contract is a program deployed on a blockchain that runs exactly as written, with no ability for any single party — including its creator — to alter it once it is live (unless that ability was deliberately coded in). It encodes an agreement as logic: \"if condition X is met, execute action Y\" — release payment when goods are confirmed delivered, liquidate collateral when its value falls below a threshold, distribute dividends proportionally to token holders on a set date. Because the code runs on a distributed network rather than a single company's server, its execution is very difficult to censor, and its rules are visible to anyone who can read the code, in principle removing the need to trust a counterparty's promise or a court's eventual enforcement.",
+          "The name is somewhat misleading on both words: a smart contract is not especially \"smart\" — it does exactly and only what its code says, with no judgment or discretion — and it is not always a \"contract\" in the legal sense, since courts in most jurisdictions have not fully settled how its execution interacts with traditional contract law. What it reliably does is convert an agreement that would normally require a trusted intermediary to enforce (an escrow agent, a bank, a court) into something enforced by the network's consensus mechanism itself. This is powerful when the conditions are objective and machine-readable (a price crossing a threshold); it is far less reliable when the conditions require judgment, occur off-chain, or depend on real-world data the blockchain cannot see directly."
+      ],
+      "keyPoints": [
+          "Code on a blockchain that executes automatically when its conditions are met — no manual enforcement needed.",
+          "Immutable once deployed (usually) — powerful for trust, unforgiving of bugs or ambiguity.",
+          "Works best for objective, machine-readable conditions; struggles with judgment calls or off-chain facts.",
+          "Depends on \"oracles\" to bring real-world data on-chain, which reintroduces a point of trust and failure."
+      ],
+      "formula": {
+          "expression": "IF (condition met on-chain) THEN (execute action) — no discretion, no appeal",
+          "legend": "Condition = a rule written into the code (e.g. price, date, signature count) · Action = automatic execution (transfer, liquidation, payout)",
+          "note": "Unlike a legal contract, there is no judge to interpret intent — only the literal code that was deployed."
+      },
+      "example": {
+          "scenario": "Two companies agree that Company A will pay Company B €50,000 the moment a shipment's tracking data confirms delivery — enforced by a smart contract instead of a manual invoice process.",
+          "steps": [
+              "The smart contract is deployed holding €50,000 (or its token equivalent) in escrow, with a rule: release funds when a delivery-confirmation signal is received.",
+              "A trusted data feed (\"oracle\") reports the shipment's GPS and customs data as it crosses the final checkpoint.",
+              "The smart contract checks the oracle's data against its condition — delivery confirmed at the agreed location and time.",
+              "The condition is met, so the contract automatically releases the €50,000 to Company B, with no invoice, approval step, or bank transfer delay."
+          ],
+          "result": "Payment happened within minutes of delivery instead of the usual 30-to-60-day invoice cycle — but note the whole arrangement now depends on the oracle reporting accurately; if the tracking data is wrong or manipulated, the contract will pay out (or withhold payment) exactly as coded, with no human able to intervene."
+      },
+      "deepDive": [
+          "The honest bull case is that smart contracts remove a real cost in finance: the cost of trusting someone to do what they promised, and the legal and administrative apparatus built to enforce that trust when they don't. Escrow agents, clearing houses, and swathes of back-office reconciliation exist largely to manage counterparty risk and manual verification; a well-designed smart contract can perform the same function instantly, continuously, and for a fraction of the cost, without a company in the middle that could go bankrupt, get hacked internally, or simply refuse to pay. For agreements with clear, objective, on-chain conditions — token swaps, collateralized loans, scheduled payouts — this is a genuine and already-proven efficiency gain.",
+          "The bear case is that \"the code is the contract\" is a much harder promise to keep than it sounds. Bugs in smart contract code have caused hundreds of millions of dollars in losses — funds frozen forever, or drained by an attacker exploiting an edge case the developers never anticipated — and because the code is often immutable by design, there is frequently no way to patch the error after the fact. Real-world conditions (was the shipment actually as described, was the collateral genuinely delivered) still require trusted data feeds called oracles, which reintroduces exactly the single point of trust and failure that smart contracts were meant to eliminate — if the oracle is wrong or manipulated, the contract executes the wrong outcome with total confidence and no recourse. And courts have not settled how a smart contract's literal execution relates to the parties' actual intent, so disputes about what should have happened, rather than what the code did, remain genuinely unresolved legal territory. The technology is best understood as a powerful enforcement tool for narrow, well-specified agreements — not yet a wholesale replacement for contract law."
+      ],
+      "glossary": [
+          {
+              "term": "Oracle",
+              "def": "A service that feeds real-world data (prices, events, shipment status) into a blockchain so smart contracts can act on it."
+          },
+          {
+              "term": "Immutability",
+              "def": "The property that deployed contract code generally cannot be changed — reliable for trust, dangerous if it contains a bug."
+          },
+          {
+              "term": "Gas fee",
+              "def": "The cost paid to the network to execute a smart contract's code, varying with network congestion and computational complexity."
+          }
+      ],
+      "related": [
+          "blockchain",
+          "defi",
+          "counterparty",
+          "cryptocurrency"
+      ]
+  },
+  {
+      "id": "payment-systems",
+      "title": "Payment Systems",
+      "category": "fintech",
+      "icon": "💳",
+      "color": [
+          "#f97316",
+          "#0ea5e9"
+      ],
+      "illustration": "scatter",
+      "hook": "Moving money looks instant on your screen — behind it is a relay race of banks, networks, and clearing houses that can take days.",
+      "tldr": "A payment system is the network of rails, rules, and intermediaries that move money between payer and payee — ranging from slow but cheap bank transfers to fast but costly card networks to near-instant but nascent blockchain rails.",
+      "definition": [
+          "A payment system is the infrastructure that moves money from a payer's account to a payee's — the rails underneath every card swipe, bank transfer, and mobile payment. Different rails trade off speed, cost, and reach in different ways. Card networks (Visa, Mastercard) are fast at the point of sale but expensive, charging merchants 1.5-3% per transaction to cover fraud protection, chargebacks, and the multiple banks involved. Bank transfers (wire, ACH, SEPA) are cheap but historically slow, often taking one to three business days because they batch and reconcile through intermediary banks and clearing houses rather than settling instantly. Newer real-time payment rails (instant bank transfers, mobile wallets) aim to combine the low cost of bank transfers with the speed of cards, and are rapidly gaining share, especially outside the United States.",
+          "Every payment system must solve the same core problem: how do you move value between two parties who don't fully trust each other, verify the payer actually has the funds, prevent fraud, and finalize the transaction so it cannot be reversed or double-spent — all while keeping the cost low enough that the transaction still makes economic sense. Card networks solve this with a web of contractual relationships and a costly but effective fraud/dispute system; bank transfers solve it through slower but cheaper bilateral clearing between regulated banks; and blockchain-based payment rails attempt to solve it with cryptographic consensus instead of institutional trust, at the cost of volatility, complexity, and, so far, limited merchant acceptance."
+      ],
+      "keyPoints": [
+          "Payment rails trade off speed, cost, and reach — cards are fast but expensive; bank transfers are cheap but slower.",
+          "Every system must verify funds, prevent fraud, and finalize the transaction — the mechanisms just differ.",
+          "Real-time payment rails are closing the gap between the speed of cards and the cost of bank transfers.",
+          "Cross-border payments remain the most expensive and slowest case, since multiple currencies and jurisdictions stack costs."
+      ],
+      "formula": {
+          "expression": "Effective transaction cost = fee % × amount + (float cost from settlement delay)",
+          "legend": "Fee % = network/interchange fee charged per transaction · Float cost = the opportunity cost of funds tied up until settlement completes",
+          "note": "A \"free\" bank transfer that settles in 3 days still has a hidden cost: the money sits idle and unusable during that time."
+      },
+      "example": {
+          "scenario": "A merchant compares three ways to receive a €1,000 payment: a credit card, a standard bank transfer, and an instant payment rail.",
+          "steps": [
+              "Credit card: the merchant receives roughly €970 instantly usable in 1-2 days, after a 2.5% interchange and network fee (€25), plus the risk of a future chargeback.",
+              "Standard bank transfer (SEPA credit transfer): the merchant receives the full €1,000, but funds may not clear and be usable for 1 business day, and the payer had to manually initiate it.",
+              "Instant payment rail (e.g. SEPA Instant, or a real-time mobile transfer): the merchant receives the full €1,000 usable within seconds, typically for a fee far below card interchange (often under €0.50).",
+              "The merchant compares: cards cost €25 for instant liquidity and dispute protection; bank transfer costs nothing but ties up funds for a day; instant rails give speed and low cost, but adoption and payer familiarity are still catching up to cards."
+          ],
+          "result": "Instant payment rails look like the obvious winner on cost and speed, and merchants are shifting toward them — but cards retain the fraud-protection, chargeback, and near-universal payer familiarity that took decades to build, which is why they still dominate at the point of sale."
+      },
+      "deepDive": [
+          "The honest bull case for modern payment systems is that competition and technology are steadily squeezing out the cost and delay that used to be accepted as unavoidable. Real-time payment rails, now live in dozens of countries, let a payment clear and settle in seconds for a fraction of a card's interchange fee, which matters enormously for thin-margin merchants and for people who live paycheck to paycheck and cannot afford a multi-day hold on their funds. Mobile-money systems have brought basic payment and savings infrastructure to hundreds of millions of people who never had a bank account, by riding on phone networks instead of branch infrastructure. And open banking regulations in some regions now let third-party apps initiate bank transfers directly, bypassing card networks' fees entirely — a genuine structural threat to the card duopoly's economics.",
+          "The bear case is that payments infrastructure is a graveyard of well-intentioned standards that never achieved the network effects needed to displace the incumbents. Card networks remain dominant not because they are cheap or fast, but because they solved trust and dispute resolution at scale decades ago, and merchants and consumers alike are reluctant to switch away from something that reliably works, chargebacks and all. Cross-border payments are still slow and expensive — often taking days and costing several percent — because they must chain together correspondent banks across currencies and jurisdictions, each adding a fee and a delay, and no single new rail has yet achieved the global reach to bypass that chain entirely. And every faster, cheaper rail introduces new fraud vectors: instant, irreversible transfers are a gift to scammers, since the speed that benefits legitimate users also means stolen funds move and vanish before a bank can intervene. The unglamorous truth is that payments progress happens in decades, not years, gated less by the technology (which is mostly ready) than by the slow, essential work of building trust, regulation, and universal acceptance around any new rail."
+      ],
+      "glossary": [
+          {
+              "term": "Interchange fee",
+              "def": "The fee a merchant's bank pays to the cardholder's bank on every card transaction, ultimately passed on to the merchant."
+          },
+          {
+              "term": "Settlement",
+              "def": "The point at which a payment is final and funds are actually transferred between banks, as opposed to merely authorized."
+          },
+          {
+              "term": "Correspondent banking",
+              "def": "The chain of intermediary banks that relay a cross-border payment between the payer's and payee's banks, each adding cost and delay."
+          }
+      ],
+      "related": [
+          "central-bank",
+          "clearing-house",
+          "fiat-money",
+          "liquidity"
+      ]
+  },
+  {
+      "id": "cash-flow-statement",
+      "title": "Cash Flow Statement",
+      "category": "accounting",
+      "icon": "💧",
+      "color": [
+          "#0891b2",
+          "#22c55e"
+      ],
+      "illustration": "bars",
+      "hook": "Profit is an opinion; cash is a fact — this statement tracks the fact.",
+      "tldr": "The cash flow statement shows how much actual cash moved in and out of a business over a period, split into operating, investing, and financing activities.",
+      "definition": [
+          "The cash flow statement reconciles net income (an accrual-accounting figure, full of estimates and non-cash items) with what actually happened to the company's cash balance. It splits all cash movement into three buckets: operating activities (cash from the core business — starts with net income, then adds back non-cash charges like depreciation and adjusts for changes in working capital), investing activities (cash spent on or received from long-term assets — buying equipment, acquiring a company, selling a division), and financing activities (cash from or to lenders and owners — issuing or repaying debt, issuing stock, paying dividends, buybacks). The three sum to the net change in cash for the period, which ties the beginning and ending cash balances on the balance sheet together.",
+          "Its purpose is to answer a question the income statement cannot: did the profit turn into cash? A company can report a growing profit while its cash balance shrinks — because customers are paying slowly, inventory is piling up, or it is investing heavily in growth. Conversely, a company can report a loss while generating strong cash — heavy depreciation is a real expense on paper but no cash left the building this year. Investors and lenders lean on this statement precisely because net income can be shaped by accounting choices, while cash, largely, cannot be argued with."
+      ],
+      "keyPoints": [
+          "Splits cash movement into operating, investing, and financing activities.",
+          "Starts from net income but adds back non-cash items and working-capital changes.",
+          "The three sections sum to the net change in cash for the period.",
+          "Exposes the gap between reported profit and actual cash generation."
+      ],
+      "formula": {
+          "expression": "Net change in cash = CFO + CFI + CFF",
+          "legend": "CFO = cash from operations · CFI = cash from investing · CFF = cash from financing",
+          "note": "CFO typically starts as Net income + Depreciation/Amortization − Increase in working capital."
+      },
+      "example": {
+          "scenario": "A company has net income €175k and depreciation €40k, but receivables grew €20k (CFO). It bought equipment for €60k (CFI). It repaid €30k of debt and paid €25k in dividends (CFF). What is the net change in cash?",
+          "steps": [
+              "CFO = 175 + 40 − 20 = €195k — profit plus the non-cash depreciation, minus cash tied up in unpaid customer bills.",
+              "CFI = −€60k — cash spent buying equipment, a long-term investment.",
+              "CFF = −30 − 25 = −€55k — cash paid out to lenders and shareholders.",
+              "Net change in cash = 195 − 60 − 55 = €80k."
+          ],
+          "result": "Cash rose €80k even though €20k of the reported profit is still sitting uncollected in receivables — the statement shows exactly where the money really came from and went."
+      },
+      "deepDive": [
+          "The cash flow statement is the classic tool for catching a \"profitable but cash-poor\" company before it becomes a solvency crisis. A business can report rising profits quarter after quarter while its receivables balloon (customers not paying), its inventory swells (product not selling), or it capitalizes costs that should arguably be expensed — all of which flatter net income while operating cash flow stagnates or turns negative. This divergence between net income and operating cash flow, sustained over several quarters, is one of the more reliable red flags in financial analysis; several well-known accounting frauds and near-collapses (energy trading firms, retailers stuffing channels) showed exactly this pattern for years before the market caught on. A company can literally run out of cash and go bankrupt while reporting a profit — profit does not pay payroll or suppliers, cash does.",
+          "The three sections also tell a story about a company's life stage when read together. A young, fast-growing company often shows negative operating cash flow (still building the business), heavily negative investing cash flow (funding growth with capex or acquisitions), and positive financing cash flow (raising money from investors or lenders to cover the gap) — normal and even healthy, provided the growth story holds. A mature, healthy company typically shows strongly positive operating cash flow, modest investing outflows (maintenance capex), and negative financing cash flow (paying down debt, buying back stock, returning cash to owners). A company burning cash from operations while relying on financing cash flow to stay afloat — with no clear path to positive CFO — is signaling something the income statement alone would never reveal."
+      ],
+      "glossary": [
+          {
+              "term": "CFO (operating cash flow)",
+              "def": "Cash generated by the core business — the most scrutinized of the three sections."
+          },
+          {
+              "term": "Capex",
+              "def": "Capital expenditure — cash spent on long-term assets, the main driver of investing activities."
+          },
+          {
+              "term": "Free cash flow",
+              "def": "CFO minus capex — the cash left over after maintaining and growing the asset base, often used to value a company."
+          }
+      ],
+      "related": [
+          "income-statement",
+          "balance-sheet",
+          "working-capital",
+          "valuation"
+      ]
+  },
+  {
+      "id": "ebitda",
+      "title": "EBITDA",
+      "category": "accounting",
+      "icon": "📈",
+      "color": [
+          "#7c3aed",
+          "#f59e0b"
+      ],
+      "illustration": "bars",
+      "hook": "Strip out interest, taxes, and non-cash charges, and you get a rough proxy for the cash the core business throws off.",
+      "tldr": "EBITDA — earnings before interest, taxes, depreciation, and amortization — approximates a company's core operating cash-generating power, stripped of financing and accounting choices.",
+      "definition": [
+          "EBITDA takes net income and adds back interest, taxes, depreciation, and amortization — four items that either reflect financing/tax decisions (interest, taxes) rather than operating performance, or are non-cash accounting charges (depreciation, amortization) rather than actual cash outflows. The result is meant to approximate the cash-generating power of the core business, independent of how it is financed (debt vs. equity), where it is taxed, or how aggressively it depreciates its assets. Because it strips out these differences, EBITDA is widely used to compare companies with different capital structures, tax jurisdictions, or asset ages on a more level footing.",
+          "It became the default metric in leveraged buyouts and private equity because lenders care about the cash available to service debt, and EBITDA is a reasonable first approximation before capex and working-capital needs are considered. It is quick to compute from a standard income statement and travels easily across industries and borders, which is part of why it spread from private-equity circles into mainstream equity research, earnings calls, and loan covenants. But its popularity has outpaced its rigor: EBITDA is not defined by GAAP or IFRS, so companies have latitude in what they add back, and two companies both reporting \"EBITDA\" may not be comparable at all."
+      ],
+      "keyPoints": [
+          "Adds back interest, taxes, depreciation, and amortization to net income.",
+          "Approximates core operating cash-generating power, before financing and tax choices.",
+          "Central to leveraged buyouts and debt-covenant analysis (cash available to service debt).",
+          "Not a GAAP/IFRS-defined metric — companies have discretion, so comparability is limited."
+      ],
+      "formula": {
+          "expression": "EBITDA = Net Income + Interest + Taxes + Depreciation + Amortization",
+          "legend": "Interest = cost of debt · Taxes = income tax · D&A = non-cash charges for wearing-out or aging-out assets",
+          "note": "Equivalently, EBITDA = EBIT (operating income) + Depreciation + Amortization."
+      },
+      "example": {
+          "scenario": "A company reports net income €175k, interest expense €50k, taxes €75k, depreciation €40k, and amortization €10k. What is its EBITDA?",
+          "steps": [
+              "Start from net income: €175k.",
+              "Add back interest and taxes: 175 + 50 + 75 = €300k (this is EBIT, operating income).",
+              "Add back depreciation and amortization: 300 + 40 + 10 = €350k.",
+              "EBITDA = €350k, versus reported net income of €175k — exactly double, because financing costs, taxes, and non-cash charges consumed the other half."
+          ],
+          "result": "EBITDA of €350k suggests the core business generates roughly twice the cash flow that the bottom-line profit figure implies — useful for a lender or acquirer sizing up debt capacity, but only if the non-cash charges are genuinely discretionary and not masking real future costs."
+      },
+      "deepDive": [
+          "EBITDA's most quoted critic, Charlie Munger, called references to it a euphemism for \"bullshit earnings\" — a sharp but pointed jab at its central flaw: depreciation and amortization are added back as if they were fictional, but the assets being depreciated (factories, trucks, servers, software) genuinely wear out and must eventually be replaced with real cash. A capital-intensive business (an airline, a telecom, a manufacturer) can show impressive EBITDA while its actual free cash flow is thin or negative once realistic maintenance capex is subtracted. EBITDA also excludes interest — fine for comparing operating performance, but dangerous when used loosely to assess a highly leveraged company's ability to survive, since the interest bill is very real and due in cash, on schedule, regardless of what EBITDA says.",
+          "The metric is also vulnerable to manipulation precisely because it is not standardized: companies report \"adjusted EBITDA\" that strips out stock-based compensation, restructuring charges, \"one-time\" losses that recur suspiciously often, and other items management deems non-representative. Each addback pushes the number further from cash reality and closer to a story management wants told — which is why sophisticated lenders and analysts read the reconciliation from net income to EBITDA line by line rather than accepting the headline figure, and why EBITDA is best used as one input among several (alongside free cash flow and the cash flow statement) rather than a standalone verdict on a company's health."
+      ],
+      "glossary": [
+          {
+              "term": "EBIT",
+              "def": "Earnings before interest and taxes — operating income, EBITDA before adding back D&A."
+          },
+          {
+              "term": "Adjusted EBITDA",
+              "def": "A further-modified EBITDA with company-chosen addbacks — less standardized, more prone to flattery."
+          },
+          {
+              "term": "EV/EBITDA",
+              "def": "A common valuation multiple comparing enterprise value to EBITDA, popular because it ignores capital-structure differences."
+          }
+      ],
+      "related": [
+          "income-statement",
+          "cash-flow-statement",
+          "depreciation",
+          "valuation"
+      ]
+  },
+  {
+      "id": "depreciation",
+      "title": "Depreciation",
+      "category": "accounting",
+      "icon": "🏚️",
+      "color": [
+          "#78716c",
+          "#f97316"
+      ],
+      "illustration": "curve",
+      "hook": "The accounting rule that admits every asset is quietly dying — and spreads that cost over its useful life.",
+      "tldr": "Depreciation spreads the cost of a long-term physical asset over its useful life, matching the expense to the periods it actually helps generate revenue.",
+      "definition": [
+          "Depreciation allocates the cost of a tangible asset (machinery, buildings, vehicles, equipment) over the years it is expected to be used, rather than expensing the full purchase price the moment it is bought. This follows the matching principle in accrual accounting: if a machine helps generate revenue for ten years, its cost should be recognized as an expense across those ten years, not dumped entirely into the year of purchase — otherwise a single year would look artificially unprofitable and the following nine would look artificially profitable. (Amortization is the identical concept applied to intangible assets, like patents or acquired trademarks, rather than physical ones.)",
+          "Depreciation is a non-cash expense: the cash left the company when the asset was purchased, but the expense is recognized gradually afterward. This is why it gets added back in both the cash flow statement and EBITDA calculations — it reduces reported profit without reducing cash in the period it is recorded. Companies choose among several methods (straight-line, spreading the cost evenly; declining-balance, front-loading the expense; units-of-production, tied to actual usage), and the choice of method, useful life, and salvage value all involve real judgment that shapes reported profit, taxes, and the book value of assets on the balance sheet."
+      ],
+      "keyPoints": [
+          "Spreads an asset's cost over its useful life instead of expensing it all upfront.",
+          "Follows the matching principle: expense recognized alongside the revenue it helps produce.",
+          "A non-cash expense — added back in cash flow statements and EBITDA.",
+          "Method, useful life, and salvage value are judgment calls that shape reported profit and taxes."
+      ],
+      "formula": {
+          "expression": "Straight-line depreciation = (Cost − Salvage value) / Useful life",
+          "legend": "Cost = purchase price · Salvage value = expected value at end of life · Useful life = years the asset is expected to be used",
+          "note": "The most common method; declining-balance and units-of-production allocate the same total cost differently over time."
+      },
+      "example": {
+          "scenario": "A bakery buys an oven for €50,000, expects to use it for 9 years, and estimates it will be worth €5,000 in scrap value at the end. Using straight-line depreciation, what is the annual expense?",
+          "steps": [
+              "Depreciable amount = Cost − Salvage value = 50,000 − 5,000 = €45,000.",
+              "Annual depreciation = 45,000 / 9 = €5,000 per year.",
+              "Each year, the income statement records €5,000 as an expense, even though no cash left the business that year.",
+              "After 9 years, the oven's book value on the balance sheet has fallen from €50,000 to its €5,000 salvage value."
+          ],
+          "result": "The €50,000 cash outflow (spent entirely in year one) is instead recognized as a €5,000 expense across nine years — matching the cost to the years the oven actually helps bake and sell bread."
+      },
+      "deepDive": [
+          "A subtlety that trips up many learners: the depreciation used for financial reporting (book depreciation, shown to shareholders) is often different from the depreciation used for tax filings (tax depreciation, shown to the tax authority) — and both are legal, simultaneously, for the same asset. Tax rules in many jurisdictions permit accelerated depreciation methods or bonus depreciation that front-load the expense far faster than straight-line, letting companies defer taxes into later years (a real, valuable, interest-free loan from the government). This creates a \"deferred tax liability\" on the balance sheet — the gap between what was expensed for book purposes versus tax purposes — and explains why a profitable, growing company can report a healthy pre-tax income yet pay very little actual cash tax in a given year: it is not evasion, it is timing, and it reverses in later years as the tax depreciation runs out faster than the book depreciation.",
+          "Depreciation also hands management real discretion to shape reported earnings without touching the underlying business: extending an asset's assumed useful life, raising its assumed salvage value, or switching methods all lower the annual depreciation expense and boost reported profit, even though nothing about the physical asset changed. Aggressive assumptions can flatter earnings for years — until the asset must be replaced sooner than assumed, forcing a sudden write-down or a burst of unusually high capex that catches investors off guard. This is precisely why EBITDA, which adds depreciation back entirely, can be misleading for capital-intensive businesses: the assets really are wearing out, real cash will eventually be needed to replace them, and depreciation — however imperfect an estimate — is accounting's attempt to recognize that ongoing, real economic cost before the bill actually comes due."
+      ],
+      "glossary": [
+          {
+              "term": "Salvage value",
+              "def": "The estimated residual worth of an asset at the end of its useful life — subtracted before spreading the cost."
+          },
+          {
+              "term": "Accelerated depreciation",
+              "def": "Methods that front-load the expense, often used for tax purposes to defer cash taxes owed."
+          },
+          {
+              "term": "Book value",
+              "def": "An asset's original cost minus accumulated depreciation — its carrying value on the balance sheet."
+          }
+      ],
+      "related": [
+          "ebitda",
+          "income-statement",
+          "balance-sheet",
+          "cash-flow-statement"
+      ]
+  },
 ];
 
 /* ---------------- Helpers ---------------- */
