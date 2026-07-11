@@ -3015,8 +3015,6 @@ export const searchConcepts = (query) => {
   const tokens = q.split(/\s+/).filter(Boolean);
   const rank = (c) => {
     const title = (c.title || '').toLowerCase();
-    const tldr = (c.tldr || '').toLowerCase();
-    const hook = (c.hook || '').toLowerCase();
     const body = [
       c.title,
       c.hook,

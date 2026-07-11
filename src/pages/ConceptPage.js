@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getConcept, getCategory, getRelatedConcepts, getAdjacent } from '../data/concepts';
-import { isLearned, toggleLearned } from '../utils/progress';
+import { useLearned } from '../utils/progress';
 import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
@@ -11,11 +11,10 @@ const ConceptPage = () => {
   const { slug } = useParams();
   const { t } = useLang();
   const concept = getConcept(slug);
-  const [learned, setLearned] = useState(false);
+  const [learned, toggleLearned] = useLearned(concept ? concept.id : null);
 
   useEffect(() => {
     if (concept) {
-      setLearned(isLearned(concept.id));
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
   }, [concept]);
@@ -36,10 +35,6 @@ const ConceptPage = () => {
   const category = getCategory(concept.category);
   const related = getRelatedConcepts(concept);
   const { prev, next } = getAdjacent(concept);
-
-  const handleLearned = () => {
-    setLearned(toggleLearned(concept.id));
-  };
 
   return (
     <article className="concept-page">
@@ -144,7 +139,7 @@ const ConceptPage = () => {
         <section className="concept-section concept-actions-row">
           <button
             className={`concept-learned-btn ${learned ? 'on' : ''}`}
-            onClick={handleLearned}
+            onClick={toggleLearned}
           >
             {learned ? t('concept_marked') : t('concept_mark')}
           </button>

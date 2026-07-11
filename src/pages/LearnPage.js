@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { concepts, categories, getConceptsByCategory } from '../data/concepts';
-import { getLearned, toggleLearned } from '../utils/progress';
+import { useLearnedSet, toggleLearned } from '../utils/progress';
 import { useLang } from '../utils/lang';
 import './LearnPage.css';
 
 const LearnPage = () => {
   const { t } = useLang();
-  const [learned, setLearned] = useState(new Set());
-
-  useEffect(() => {
-    setLearned(getLearned());
-  }, []);
+  const learned = useLearnedSet();
 
   const total = concepts.length;
   const learnedCount = learned.size;
@@ -22,7 +18,6 @@ const LearnPage = () => {
 
   const handleToggle = (id) => {
     toggleLearned(id);
-    setLearned(new Set(getLearned()));
   };
 
   return (
@@ -30,13 +25,13 @@ const LearnPage = () => {
       <div className="learn-header">
         <span className="eyebrow">{t('learn_eyebrow')}</span>
         <h1>{t('learn_title')}</h1>
-        <p>{learnedCount} of {total} concepts marked learned. Open any concept to read it in full, then check it off.</p>
+        <p>{t('learn_progress_sub', { done: learnedCount, total })}</p>
       </div>
 
       {/* Progress */}
       <div className="progress-section">
         <div className="progress-header">
-          <h2>Overall progress</h2>
+          <h2>{t('learn_overall')}</h2>
           <span className="progress-text">{learnedCount}/{total}</span>
         </div>
         <div className="progress-bar-container">
@@ -46,7 +41,7 @@ const LearnPage = () => {
           <div className="progress-percentage">{pct}%</div>
         </div>
         <Link to={`/concept/${next.id}`} className="continue-btn">
-          {learnedCount === 0 ? 'Start with ' : 'Continue with '}
+          {learnedCount === 0 ? t('learn_start_with') : t('learn_continue_with')}
           <strong>{next.title}</strong>
           <span className="continue-arrow">→</span>
         </Link>
@@ -55,19 +50,19 @@ const LearnPage = () => {
       {/* Categories with per-track progress */}
       <div className="categories-section">
         <div className="section-header">
-          <h2>Tracks</h2>
-          <Link to="/categories" className="view-all">All categories</Link>
+          <h2>{t('learn_tracks')}</h2>
+          <Link to="/categories" className="view-all">{t('learn_all_categories')}</Link>
         </div>
         <div className="categories-grid">
           {categories.map((cat) => {
             const terms = getConceptsByCategory(cat.id);
             const done = terms.filter((t) => learned.has(t.id)).length;
-            const trackPct = Math.round((done / terms.length) * 100);
+            const trackPct = terms.length > 0 ? Math.round((done / terms.length) * 100) : 0;
             return (
               <Link key={cat.id} to={`/category/${cat.id}`} className="category-card track-card">
                 <div className="category-icon">{cat.icon}</div>
                 <h3>{cat.name}</h3>
-                <p>{terms.length} concepts · {done} learned</p>
+                <p>{terms.length} {t('cat_concepts')} · {done} {t('learn_learned_count')}</p>
                 <div className="track-bar">
                   <div className="track-fill" style={{ width: `${trackPct}%` }} />
                 </div>
@@ -80,7 +75,7 @@ const LearnPage = () => {
       {/* All concepts */}
       <div className="categories-section">
         <div className="section-header">
-          <h2>All concepts</h2>
+          <h2>{t('learn_all_concepts')}</h2>
         </div>
         <div className="all-concepts-grid">
           {concepts.map((c) => {
@@ -94,7 +89,7 @@ const LearnPage = () => {
               >
                 <span className="concept-tile-icon">{c.icon}</span>
                 <span className="concept-tile-name">{c.title}</span>
-                <span className={`concept-tile-check ${isLearned ? 'on' : ''}`} onClick={(e) => { e.preventDefault(); handleToggle(c.id); }} title={isLearned ? 'Mark as not learned' : 'Mark as learned'}>
+                <span className={`concept-tile-check ${isLearned ? 'on' : ''}`} onClick={(e) => { e.preventDefault(); handleToggle(c.id); }} title={isLearned ? t('learn_unmark') : t('learn_mark')}>
                   {isLearned ? '✓' : '○'}
                 </span>
               </Link>
@@ -107,8 +102,8 @@ const LearnPage = () => {
         <div className="tip-card">
           <div className="tip-icon">💡</div>
           <div className="tip-content">
-            <h3>How to use this</h3>
-            <p>Scroll the Discover feed for a TikTok-style tour, or open any concept above for the full single-page explainer. Mark concepts learned to track your path.</p>
+            <h3>{t('learn_tip_title')}</h3>
+            <p>{t('learn_tip_sub')}</p>
           </div>
         </div>
       </div>
