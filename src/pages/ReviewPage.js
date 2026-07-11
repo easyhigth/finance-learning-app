@@ -3,17 +3,9 @@ import { Link } from 'react-router-dom';
 import { getConcept, localizeConcept } from '../data/concepts';
 import { useLearnedSet } from '../utils/progress';
 import { useLang } from '../utils/lang';
+import { shuffle } from '../utils/shuffle';
 import Illustration from '../components/Illustration';
 import './ReviewPage.css';
-
-const shuffle = (arr) => {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-};
 
 const ReviewPage = () => {
   const { lang, t } = useLang();
