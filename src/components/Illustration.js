@@ -62,6 +62,23 @@ const Illustration = ({ type = 'growth', colors = ['#6366f1', '#8b5cf6'], classN
             <line x1="80" y1="160" x2="160" y2="160" stroke={c1} strokeWidth="6" strokeLinecap="round" />
           </>
         );
+      case 'distribution':
+        return (
+          <>
+            <path d="M20 165 L220 165" stroke={c1} strokeWidth="3" strokeLinecap="round" opacity="0.35" />
+            <path
+              d="M20 165 C55 165 65 40 120 40 C175 40 178 130 200 160 L200 165 L20 165 Z"
+              fill={c2} opacity="0.22"
+            />
+            <path
+              d="M20 165 C55 165 65 40 120 40 C165 40 172 108 190 165"
+              fill="none" stroke={`url(#${gid})`} strokeWidth="6" strokeLinecap="round" />
+            <path
+              d="M170 165 C176 138 182 118 190 165 Z"
+              fill={c1} opacity="0.75" />
+            <line x1="170" y1="40" x2="170" y2="165" stroke={c1} strokeWidth="2" strokeDasharray="4 5" opacity="0.6" />
+          </>
+        );
       case 'cycle':
         return (
           <>

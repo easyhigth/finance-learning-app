@@ -27,6 +27,8 @@ export const STRINGS = {
   // Header
   search_aria: { en: 'Search', fr: 'Rechercher' },
   favorites_aria: { en: 'Your favorites', fr: 'Vos favoris' },
+  theme_dark: { en: 'Switch to dark mode', fr: 'Passer en mode sombre' },
+  theme_light: { en: 'Switch to light mode', fr: 'Passer en mode clair' },
   // Favorites page
   fav_eyebrow: { en: '★ Favorites', fr: '★ Favoris' },
   fav_title: { en: 'Your favorites', fr: 'Vos favoris' },

@@ -2659,7 +2659,97 @@ export const concepts = [
       { term: 'Fat tails', def: 'Extreme events occurring more often than a normal distribution predicts.' },
       { term: 'Implied volatility', def: 'The market\'s expectation of future volatility, embedded in option prices.' },
     ],
-    related: ['options', 'bull-bear-market', 'risk-vs-return'],
+    related: ['options', 'bull-bear-market', 'risk-vs-return', 'value-at-risk'],
+  },
+  {
+    id: 'value-at-risk',
+    title: 'Value at Risk (VaR)',
+    category: 'risk',
+    icon: '📉',
+    color: ['#dc2626', '#f97316'],
+    illustration: 'distribution',
+    hook: 'One number that tries to answer "how much could I lose on a bad day?" — powerful, and dangerously easy to over-trust.',
+    tldr: 'VaR estimates the maximum loss a portfolio is unlikely to exceed over a set period, at a chosen confidence level — e.g. "95% VaR of €10,000" means a worse-than-€10,000 day happens about 5% of the time.',
+    definition: [
+      'Value at Risk (VaR) answers a specific question: over a given time horizon (a day, a month), what is the loss threshold that returns will not exceed, X% of the time? A "1-day 95% VaR of €50,000" means that on 95 days out of 100, the portfolio should not lose more than €50,000 in a day. Equivalently, it says nothing about the other 5% — the bad days — beyond the fact that they exist.',
+      'VaR is computed three main ways: historical (replay actual past returns and read off the relevant percentile), parametric/variance-covariance (assume returns are normally distributed and use volatility and correlations to compute the threshold analytically), and Monte Carlo (simulate thousands of random future paths from a model and read off the percentile). Banks, funds, and regulators use VaR to set capital requirements and risk limits because it compresses a whole distribution of outcomes into one comparable number.',
+    ],
+    keyPoints: [
+      'VaR = a loss threshold at a confidence level over a time horizon (e.g. 95%, 1 day).',
+      'It tells you the boundary of the bad outcomes — not how bad the worst ones actually are.',
+      'Three main methods: historical simulation, parametric (variance-covariance), Monte Carlo.',
+      'Widely used for bank capital rules and trading-desk risk limits, and widely criticized.',
+    ],
+    formula: {
+      expression: 'Parametric VaR = z × σ × Portfolio value',
+      legend: 'z = confidence multiplier (1.645 for 95%, 2.33 for 99%) · σ = portfolio return volatility over the horizon',
+      note: 'This parametric form assumes normally distributed returns — real markets have fatter tails than that.',
+    },
+    example: {
+      scenario: 'A €1,000,000 portfolio has a daily return volatility (σ) of 1.2%. What is its 1-day 95% VaR?',
+      steps: [
+        'z for 95% confidence ≈ 1.645.',
+        'VaR = 1.645 × 1.2% × €1,000,000 ≈ €19,740.',
+        'Interpretation: on a normal bad day (the worst ~5%), expect to lose up to roughly €19,740.',
+        'On the worst ~1% of days (the tail beyond VaR), losses can be — and historically have been — far larger than this number.',
+      ],
+      result: 'VaR gives a clean, comparable risk number for reporting and limits — but by construction it says nothing about how severe the losses beyond the threshold can get. That is exactly the gap Expected Shortfall is built to close.',
+    },
+    deepDive: [
+      'VaR\'s most cited weakness is that it is not a "coherent" risk measure — it fails subadditivity, meaning the VaR of a combined portfolio can, in some cases, exceed the sum of the VaRs of its parts. That defeats the whole intuition of diversification reducing risk. It also gives a false sense of precision: a 95% VaR calculated from two years of calm markets will badly understate risk once a regime shifts, because the historical window it was estimated from simply never contained the shock that is coming.',
+      'The 2008 financial crisis is the textbook cautionary tale: banks reported comfortable VaR numbers built on pre-crisis volatility and correlations, right up until the correlations broke down and losses blew far past what any VaR model implied was plausible. The lesson regulators eventually acted on was to require Expected Shortfall alongside or instead of VaR for capital purposes (Basel III/FRTB), precisely because VaR ignores the shape and severity of the tail beyond its own threshold.',
+    ],
+    glossary: [
+      { term: 'Confidence level', def: 'The probability (e.g. 95%, 99%) that losses stay within the VaR threshold.' },
+      { term: 'Time horizon', def: 'The period the VaR estimate covers — commonly 1 day or 10 days.' },
+      { term: 'Backtesting', def: 'Checking how often actual losses exceeded VaR, to validate the model.' },
+    ],
+    related: ['expected-shortfall', 'volatility', 'diversification'],
+  },
+  {
+    id: 'expected-shortfall',
+    title: 'Expected Shortfall (CVaR)',
+    category: 'risk',
+    icon: '🌪️',
+    color: ['#7c2d12', '#dc2626'],
+    illustration: 'distribution',
+    hook: 'VaR tells you where the bad days start. Expected Shortfall tells you how bad they get once they start.',
+    tldr: 'Expected Shortfall (also called Conditional VaR) is the average loss in the worst-case scenarios beyond the VaR threshold — it measures the severity of the tail, not just where it begins.',
+    definition: [
+      'Expected Shortfall (ES), also known as Conditional Value at Risk (CVaR), answers the question VaR leaves open: given that a loss exceeds the VaR threshold, how bad is it on average? Where a 95% VaR marks the boundary of the worst 5% of outcomes, the 95% Expected Shortfall is the average loss across that entire worst 5% — it looks past the boundary and into the tail itself.',
+      'Because it averages over the whole tail rather than reading a single point, Expected Shortfall is mathematically "coherent" — unlike VaR, it always respects diversification (combining portfolios never increases ES more than the sum of their parts) and it is sensitive to how extreme the worst outcomes are, not just how often losses cross a line. This is why post-2008 banking regulation (Basel III\'s FRTB rules) shifted capital calculations from VaR toward Expected Shortfall.',
+    ],
+    keyPoints: [
+      'ES = the average loss within the worst X% of outcomes, not just the boundary of them.',
+      'Also called Conditional VaR (CVaR) — "conditional on being in the tail".',
+      'Mathematically coherent: unlike VaR, it always rewards diversification.',
+      'ES is always at least as large as VaR at the same confidence level, since it averages the tail beyond it.',
+    ],
+    formula: {
+      expression: 'ES₉₅ = average loss of the worst 5% of outcomes',
+      legend: 'Computed by averaging all simulated/historical losses that exceed the VaR₉₅ threshold',
+      note: 'Under a normal distribution, ES₉₅ ≈ VaR₉₅ × 1.16 — but real fat-tailed markets often make the gap much larger.',
+    },
+    example: {
+      scenario: 'Same €1,000,000 portfolio: 1-day 95% VaR ≈ €19,740. A historical simulation of the worst 5% of days shows losses averaging €31,000. What does this tell you?',
+      steps: [
+        'VaR says: 95% of days, you will not lose more than about €19,740.',
+        'ES says: on the 5% of days you do exceed that line, the average loss is €31,000 — well beyond the VaR figure.',
+        'The gap between €19,740 and €31,000 is exactly the tail severity VaR alone hides.',
+        'A risk manager relying only on VaR would size positions and capital as if €19,740 were close to the worst case — it is not.',
+      ],
+      result: 'Expected Shortfall exposes how much worse the bad days can be than the VaR headline number suggests, which is precisely why it is now the preferred measure for setting bank capital buffers.',
+    },
+    deepDive: [
+      'The choice between VaR and ES is really a choice about what question you want answered. VaR answers "how often" (frequency of breaches); ES answers "how much" (severity once breached). For anyone managing catastrophic risk — a bank\'s solvency, a fund\'s survival — severity is what actually kills you, so ES is the more honest number even though it requires more data and modeling care to estimate reliably (its tail-averaging nature makes it noisier to estimate from limited historical samples than VaR\'s single percentile).',
+      'Both measures share a deeper limitation: they are only as good as the data and distributional assumptions feeding them. A historical ES built from a decade without a crash will still understate the risk of the next crash. This is the same lesson as Volatility and VaR: no single-number risk measure replaces stress testing against scenarios that have not yet happened. ES narrows the blind spot VaR leaves in the tail, but it does not eliminate the more fundamental problem that markets can do things the recent past never showed you.',
+    ],
+    glossary: [
+      { term: 'Conditional VaR (CVaR)', def: 'Another name for Expected Shortfall — the loss conditional on being past VaR.' },
+      { term: 'Coherent risk measure', def: 'A measure that satisfies mathematical properties (like rewarding diversification) that VaR fails.' },
+      { term: 'Tail severity', def: 'How large losses are once you are already in the worst-case scenarios, as opposed to how often they occur.' },
+    ],
+    related: ['value-at-risk', 'volatility', 'risk-management'],
   },
 
   /* ---------------- INSTITUTIONS (cont.) ---------------- */
