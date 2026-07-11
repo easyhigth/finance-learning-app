@@ -14,8 +14,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.2), transparent 45%),
-    radial-gradient(circle at 5% 100%, rgba(0, 0, 0, 0.25), transparent 50%);
+    radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.06), transparent 45%),
+    radial-gradient(circle at 5% 100%, rgba(0, 0, 0, 0.4), transparent 50%),
+    rgba(0, 0, 0, 0.28);
   pointer-events: none;
 }
 

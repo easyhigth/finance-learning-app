@@ -1,3 +1,6 @@
+/* Dark is the default look (set directly in :root, so there's no
+   flash-of-light before JS runs). :root[data-theme="light"] below is the
+   override for anyone who explicitly picks light via the header toggle. */
 :root {
   /* Typography */
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -8,42 +11,42 @@
   --brand: #6366f1;
   --brand-600: #4f46e5;
   --brand-700: #4338ca;
-  --brand-soft: #eef0ff;
+  --brand-soft: #23213f;
   --brand-grad: linear-gradient(135deg, #6366f1 0%, #8b5cf6 55%, #d946ef 100%);
   --brand-grad-strong: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #c026d3 100%);
   --accent: #06b6d4;
-  --accent-soft: #ecfeff;
+  --accent-soft: #0b2b30;
 
   /* Surfaces */
-  --bg: #f6f6fb;
+  --bg: #0f1017;
   --bg-grad:
-    radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
-    radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.10), transparent 55%),
-    radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.08), transparent 60%),
-    linear-gradient(180deg, #f7f7fc 0%, #f3f3f9 100%);
-  --surface: #ffffff;
-  --surface-2: #f7f8fc;
-  --surface-3: #eef0f6;
+    radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+    radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.12), transparent 55%),
+    radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.10), transparent 60%),
+    linear-gradient(180deg, #0f1017 0%, #0b0c12 100%);
+  --surface: #161824;
+  --surface-2: #1c1e2c;
+  --surface-3: #262838;
 
   /* Text */
-  --text: #14172a;
-  --text-2: #525a72;
-  --text-3: #8a90a6;
+  --text: #eef0fa;
+  --text-2: #b3b8d1;
+  --text-3: #7c82a0;
   --text-inv: #ffffff;
 
   /* Borders */
-  --border: #e8e9f2;
-  --border-strong: #d3d6e4;
+  --border: #2a2c3e;
+  --border-strong: #383b52;
 
   /* Semantic */
   --success: #16a34a;
-  --success-soft: #e8f7ee;
+  --success-soft: #123321;
   --warning: #d97706;
-  --warning-soft: #fdf3e3;
+  --warning-soft: #33270e;
   --danger: #dc2626;
-  --danger-soft: #fdecec;
+  --danger-soft: #3a1616;
   --info: #2563eb;
-  --info-soft: #e6f0ff;
+  --info-soft: #142a4a;
 
   /* Radius */
   --radius-sm: 12px;
@@ -53,10 +56,10 @@
   --radius-pill: 999px;
 
   /* Shadows — layered, soft, premium */
-  --shadow-xs: 0 1px 2px rgba(20, 23, 60, 0.05);
-  --shadow-sm: 0 2px 6px rgba(20, 23, 60, 0.06), 0 1px 2px rgba(20, 23, 60, 0.04);
-  --shadow-md: 0 8px 24px rgba(20, 23, 60, 0.08), 0 2px 6px rgba(20, 23, 60, 0.04);
-  --shadow-lg: 0 24px 56px rgba(20, 23, 60, 0.12), 0 6px 16px rgba(20, 23, 60, 0.06);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.34), 0 1px 2px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.22);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.3);
   --shadow-brand: 0 16px 40px rgba(99, 102, 241, 0.30), 0 4px 12px rgba(139, 92, 246, 0.18);
   --ring: 0 0 0 4px rgba(99, 102, 241, 0.14);
 
@@ -69,72 +72,36 @@
   --t: 0.28s;
 }
 
-/* Dark theme overrides — applied automatically via OS preference, or
-   forced by the header toggle setting data-theme on <html>. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --brand-soft: #23213f;
-    --accent-soft: #0b2b30;
+:root[data-theme="light"] {
+  --brand-soft: #eef0ff;
+  --accent-soft: #ecfeff;
 
-    --bg: #0f1017;
-    --bg-grad:
-      radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
-      radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.12), transparent 55%),
-      radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.10), transparent 60%),
-      linear-gradient(180deg, #0f1017 0%, #0b0c12 100%);
-    --surface: #161824;
-    --surface-2: #1c1e2c;
-    --surface-3: #262838;
-
-    --text: #eef0fa;
-    --text-2: #b3b8d1;
-    --text-3: #7c82a0;
-
-    --border: #2a2c3e;
-    --border-strong: #383b52;
-
-    --success-soft: #123321;
-    --warning-soft: #33270e;
-    --danger-soft: #3a1616;
-    --info-soft: #142a4a;
-
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.34), 0 1px 2px rgba(0, 0, 0, 0.22);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.22);
-    --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.3);
-  }
-}
-
-:root[data-theme="dark"] {
-  --brand-soft: #23213f;
-  --accent-soft: #0b2b30;
-
-  --bg: #0f1017;
+  --bg: #f6f6fb;
   --bg-grad:
-    radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
-    radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.12), transparent 55%),
-    radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.10), transparent 60%),
-    linear-gradient(180deg, #0f1017 0%, #0b0c12 100%);
-  --surface: #161824;
-  --surface-2: #1c1e2c;
-  --surface-3: #262838;
+    radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
+    radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.10), transparent 55%),
+    radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.08), transparent 60%),
+    linear-gradient(180deg, #f7f7fc 0%, #f3f3f9 100%);
+  --surface: #ffffff;
+  --surface-2: #f7f8fc;
+  --surface-3: #eef0f6;
 
-  --text: #eef0fa;
-  --text-2: #b3b8d1;
-  --text-3: #7c82a0;
+  --text: #14172a;
+  --text-2: #525a72;
+  --text-3: #8a90a6;
 
-  --border: #2a2c3e;
-  --border-strong: #383b52;
+  --border: #e8e9f2;
+  --border-strong: #d3d6e4;
 
-  --success-soft: #123321;
-  --warning-soft: #33270e;
-  --danger-soft: #3a1616;
-  --info-soft: #142a4a;
+  --success-soft: #e8f7ee;
+  --warning-soft: #fdf3e3;
+  --danger-soft: #fdecec;
+  --info-soft: #e6f0ff;
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.34), 0 1px 2px rgba(0, 0, 0, 0.22);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.22);
-  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5), 0 6px 16px rgba(0, 0, 0, 0.3);
+  --shadow-xs: 0 1px 2px rgba(20, 23, 60, 0.05);
+  --shadow-sm: 0 2px 6px rgba(20, 23, 60, 0.06), 0 1px 2px rgba(20, 23, 60, 0.04);
+  --shadow-md: 0 8px 24px rgba(20, 23, 60, 0.08), 0 2px 6px rgba(20, 23, 60, 0.04);
+  --shadow-lg: 0 24px 56px rgba(20, 23, 60, 0.12), 0 6px 16px rgba(20, 23, 60, 0.06);
 }
 
 html {
