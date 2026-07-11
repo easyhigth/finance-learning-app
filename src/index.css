@@ -9,20 +9,20 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
 
   /* Brand — terminal orange */
-  --brand: #ff9500;
-  --brand-600: #e67e00;
-  --brand-700: #c66900;
+  --brand: #ffd400;
+  --brand-600: #e6b800;
+  --brand-700: #cc9f00;
   --brand-soft: #2a1c08;
-  --brand-grad: linear-gradient(135deg, #ffb340 0%, #ff9500 55%, #e66800 100%);
-  --brand-grad-strong: linear-gradient(135deg, #ff9500 0%, #e67e00 55%, #c66900 100%);
-  --accent: #ffb347;
+  --brand-grad: linear-gradient(135deg, #ffe066 0%, #ffd400 55%, #e6b800 100%);
+  --brand-grad-strong: linear-gradient(135deg, #ffd400 0%, #e6b800 55%, #cc9f00 100%);
+  --accent: #ffe066;
   --accent-soft: #2a1c08;
 
   /* Surfaces — near-black terminal panels */
   --bg: #000000;
   --bg-grad:
-    radial-gradient(1100px 700px at 10% -10%, rgba(255, 149, 0, 0.08), transparent 60%),
-    radial-gradient(900px 600px at 100% 5%, rgba(255, 149, 0, 0.05), transparent 55%),
+    radial-gradient(1100px 700px at 10% -10%, rgba(255, 212, 0, 0.08), transparent 60%),
+    radial-gradient(900px 600px at 100% 5%, rgba(255, 212, 0, 0.05), transparent 55%),
     linear-gradient(180deg, #000000 0%, #060504 100%);
   --surface: #0c0b09;
   --surface-2: #131210;
@@ -41,7 +41,7 @@
   /* Semantic */
   --success: #00c853;
   --success-soft: #0e2415;
-  --warning: #ff9500;
+  --warning: #ffd400;
   --warning-soft: #2a1c08;
   --danger: #ff3b30;
   --danger-soft: #2b1210;
@@ -60,8 +60,8 @@
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.44), 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.6), 0 6px 16px rgba(0, 0, 0, 0.4);
-  --shadow-brand: 0 16px 40px rgba(255, 149, 0, 0.28), 0 4px 12px rgba(255, 149, 0, 0.16);
-  --ring: 0 0 0 4px rgba(255, 149, 0, 0.22);
+  --shadow-brand: 0 16px 40px rgba(255, 212, 0, 0.28), 0 4px 12px rgba(255, 212, 0, 0.16);
+  --ring: 0 0 0 4px rgba(255, 212, 0, 0.22);
 
   /* Spacing scale */
   --maxw: 1180px;
@@ -78,8 +78,8 @@
 
   --bg: #faf9f7;
   --bg-grad:
-    radial-gradient(1100px 700px at 10% -10%, rgba(255, 149, 0, 0.08), transparent 60%),
-    radial-gradient(900px 600px at 100% 5%, rgba(255, 149, 0, 0.05), transparent 55%),
+    radial-gradient(1100px 700px at 10% -10%, rgba(255, 212, 0, 0.08), transparent 60%),
+    radial-gradient(900px 600px at 100% 5%, rgba(255, 212, 0, 0.05), transparent 55%),
     linear-gradient(180deg, #fbfaf8 0%, #f4f2ee 100%);
   --surface: #ffffff;
   --surface-2: #f7f5f1;
@@ -127,7 +127,7 @@ code {
 }
 
 ::selection {
-  background: rgba(255, 149, 0, 0.28);
+  background: rgba(255, 212, 0, 0.28);
 }
 
 /* Subtle entrance animation for cards */
@@ -138,7 +138,7 @@ code {
 
 /* Accessible focus ring for keyboard users */
 :focus-visible {
-  outline: 3px solid rgba(255, 149, 0, 0.55);
+  outline: 3px solid rgba(255, 212, 0, 0.55);
   outline-offset: 2px;
   border-radius: 8px;
 }

@@ -13,7 +13,7 @@ import './FeedPage.css';
 // Terminal theme: every card shares the same black/orange treatment
 // instead of a per-concept color, so the icon illustration uses a fixed
 // amber duotone rather than each concept's individual color pair.
-const TERMINAL_COLORS = ['#ff9500', '#ffb347'];
+const TERMINAL_COLORS = ['#ffd400', '#ffe066'];
 
 const FeedPage = () => {
   const { catId } = useParams();
