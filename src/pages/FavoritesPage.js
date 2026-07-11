@@ -4,10 +4,12 @@ import { concepts, getCategory } from '../data/concepts';
 import { vocab } from '../data/vocab';
 import { glossary } from '../data/glossary';
 import { getFavorites, useFavoritesCount } from '../utils/favorites';
+import { useLang } from '../utils/lang';
 import FavoriteStar from '../components/FavoriteStar';
 import './FavoritesPage.css';
 
 const FavoritesPage = () => {
+  const { t } = useLang();
   const count = useFavoritesCount();
   const favs = getFavorites();
 
@@ -18,22 +20,19 @@ const FavoritesPage = () => {
   return (
     <div className="favorites-page">
       <div className="favorites-header">
-        <span className="eyebrow">★ Favoris</span>
-        <h1>Your favorites</h1>
-        <p>
-          Everything you starred for later — concepts and vocabulary in one place.
-          Tap the star on any item to add or remove it.
-        </p>
+        <span className="eyebrow">{t('fav_eyebrow')}</span>
+        <h1>{t('fav_title')}</h1>
+        <p>{t('fav_sub')}</p>
       </div>
 
       {count === 0 ? (
         <div className="fav-empty">
           <div className="fav-empty-emoji">⭐</div>
-          <h2>No favorites yet</h2>
-          <p>Star the concepts and terms you want to keep close — they will appear here.</p>
+          <h2>{t('fav_empty_title')}</h2>
+          <p>{t('fav_empty_sub')}</p>
           <div className="fav-empty-actions">
-            <Link to="/" className="fav-empty-btn primary">Discover concepts</Link>
-            <Link to="/search" className="fav-empty-btn">Search a term</Link>
+            <Link to="/" className="fav-empty-btn primary">{t('fav_empty_discover')}</Link>
+            <Link to="/search" className="fav-empty-btn">{t('fav_empty_search')}</Link>
           </div>
         </div>
       ) : (
@@ -41,7 +40,7 @@ const FavoritesPage = () => {
           {favConcepts.length > 0 && (
             <section className="fav-section">
               <div className="fav-section-head">
-                <h2>Concepts</h2>
+                <h2>{t('fav_concepts')}</h2>
                 <span className="fav-count">{favConcepts.length}</span>
               </div>
               <div className="fav-grid">
@@ -68,7 +67,7 @@ const FavoritesPage = () => {
           {favVocab.length > 0 && (
             <section className="fav-section">
               <div className="fav-section-head">
-                <h2>Vocabulary</h2>
+                <h2>{t('fav_vocabulary')}</h2>
                 <span className="fav-count">{favVocab.length}</span>
               </div>
               <div className="fav-vocab-grid">
@@ -85,7 +84,7 @@ const FavoritesPage = () => {
                       <p>{v.simple}</p>
                       {related && (
                         <Link to={`/concept/${related.id}`} className="fav-vocab-link">
-                          {related.icon} Open {related.title} →
+                          {related.icon} {t('open_full')}: {related.title} →
                         </Link>
                       )}
                     </div>
@@ -98,7 +97,7 @@ const FavoritesPage = () => {
           {favGlossary.length > 0 && (
             <section className="fav-section">
               <div className="fav-section-head">
-                <h2>Terms</h2>
+                <h2>{t('fav_terms')}</h2>
                 <span className="fav-count">{favGlossary.length}</span>
               </div>
               <div className="fav-vocab-grid">
@@ -115,7 +114,7 @@ const FavoritesPage = () => {
                       <p>{g.def}</p>
                       {related && (
                         <Link to={`/concept/${related.id}`} className="fav-vocab-link">
-                          {related.icon} Open {related.title} →
+                          {related.icon} {t('open_full')}: {related.title} →
                         </Link>
                       )}
                     </div>

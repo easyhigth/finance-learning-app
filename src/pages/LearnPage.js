@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { concepts, categories, getConceptsByCategory } from '../data/concepts';
 import { getLearned, toggleLearned } from '../utils/progress';
+import { useLang } from '../utils/lang';
 import './LearnPage.css';
 
 const LearnPage = () => {
+  const { t } = useLang();
   const [learned, setLearned] = useState(new Set());
 
   useEffect(() => {
@@ -26,8 +28,8 @@ const LearnPage = () => {
   return (
     <div className="learn-page">
       <div className="learn-header">
-        <span className="eyebrow">Your library</span>
-        <h1>Progress</h1>
+        <span className="eyebrow">{t('learn_eyebrow')}</span>
+        <h1>{t('learn_title')}</h1>
         <p>{learnedCount} of {total} concepts marked learned. Open any concept to read it in full, then check it off.</p>
       </div>
 

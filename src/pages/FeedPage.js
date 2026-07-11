@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { concepts, categories, getCategory } from '../data/concepts';
 import { buildFeed } from '../data/vocab';
 import { getFavorites } from '../utils/favorites';
+import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
 import './FeedPage.css';
@@ -10,6 +11,7 @@ import './FeedPage.css';
 const FeedPage = () => {
   const { catId } = useParams();
   const navigate = useNavigate();
+  const { t } = useLang();
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -59,10 +61,10 @@ const FeedPage = () => {
       </div>
 
       <div className="feed-filters">
-        <Link to="/" className={`feed-pill ${!catId ? 'active' : ''}`}>All</Link>
+        <Link to="/" className={`feed-pill ${!catId ? 'active' : ''}`}>{t('feed_all')}</Link>
         <Link to="/category/favorites" className={`feed-pill feed-pill-fav ${isFavMode ? 'active' : ''}`}>
           <span className="feed-pill-icon">★</span>
-          Favoris
+          {t('nav_favorites')}
         </Link>
         {categories.map((cat) => (
           <Link
@@ -107,19 +109,19 @@ const FeedPage = () => {
                     <p className="feed-hook">{concept.hook}</p>
 
                     <div className="feed-preview">
-                      <span className="feed-preview-label">In one line</span>
+                      <span className="feed-preview-label">{t('feed_in_one_line')}</span>
                       <p>{concept.tldr}</p>
                     </div>
 
                     <button className="feed-open" onClick={() => openConcept(concept.id)}>
-                      Open full concept
+                      {t('feed_open')}
                       <span className="feed-open-arrow">→</span>
                     </button>
                   </div>
 
                   {i < list.length - 1 && (
                     <div className="feed-swipe-cue" aria-hidden="true">
-                      <span>Scroll for more</span>
+                      <span>{t('feed_scroll_more')}</span>
                       <span className="feed-swipe-arrow">↑</span>
                     </div>
                   )}
@@ -147,7 +149,7 @@ const FeedPage = () => {
               <div className="feed-slide-overlay" />
               <div className="feed-slide-inner">
                 <div className="feed-slide-top">
-                  <span className="feed-chip feed-chip-vocab">📚 Vocabulaire · {cat?.name}</span>
+                  <span className="feed-chip feed-chip-vocab">📚 {t('feed_vocab_chip')} · {cat?.name}</span>
                   <div className="feed-slide-top-right">
                     <FavoriteStar id={v.id} tone="light" size="sm" className="feed-slide-star" />
                     <span className="feed-counter">{i + 1} / {list.length}</span>
@@ -159,29 +161,29 @@ const FeedPage = () => {
                   <h1 className="feed-title feed-title-vocab">{v.term}</h1>
 
                   <div className="feed-vocab-block">
-                    <span className="feed-vocab-label">En simple</span>
+                    <span className="feed-vocab-label">{t('feed_simple')}</span>
                     <p>{v.simple}</p>
                   </div>
 
                   <div className="feed-vocab-block">
-                    <span className="feed-vocab-label">Exemple</span>
+                    <span className="feed-vocab-label">{t('feed_example')}</span>
                     <p>{v.example}</p>
                   </div>
 
                   <div className="feed-vocab-remember">
-                    <span className="feed-vocab-label">Pour retenir</span>
+                    <span className="feed-vocab-label">{t('feed_remember')}</span>
                     <p>{v.remember}</p>
                   </div>
 
                   <button className="feed-open" onClick={open}>
-                    {v.conceptId ? 'Open full concept' : 'Read on Wikipedia'}
+                    {v.conceptId ? t('feed_open') : t('read_wiki')}
                     <span className="feed-open-arrow">→</span>
                   </button>
                 </div>
 
                 {i < list.length - 1 && (
                   <div className="feed-swipe-cue" aria-hidden="true">
-                    <span>Scroll for more</span>
+                    <span>{t('feed_scroll_more')}</span>
                     <span className="feed-swipe-arrow">↑</span>
                   </div>
                 )}
@@ -194,11 +196,11 @@ const FeedPage = () => {
           <section className="feed-slide feed-end">
             <div className="feed-end-inner">
               <div className="feed-end-emoji">⭐</div>
-              <h2>No favorites yet</h2>
-              <p>Tap the star on any concept or vocabulary card to keep it here for quick review.</p>
+              <h2>{t('feed_fav_empty_title')}</h2>
+              <p>{t('feed_fav_empty_sub')}</p>
               <div className="feed-end-actions">
-                <Link to="/" className="feed-end-btn primary">Discover concepts</Link>
-                <Link to="/search" className="feed-end-btn">Search a term</Link>
+                <Link to="/" className="feed-end-btn primary">{t('fav_empty_discover')}</Link>
+                <Link to="/search" className="feed-end-btn">{t('fav_empty_search')}</Link>
               </div>
             </div>
           </section>
@@ -208,11 +210,11 @@ const FeedPage = () => {
         <section className="feed-slide feed-end">
           <div className="feed-end-inner">
             <div className="feed-end-emoji">🎉</div>
-            <h2>You&apos;ve seen them all</h2>
-            <p>{activeCat ? `That was every concept and term in ${activeCat.name}.` : 'That was the whole library — concepts and vocabulary.'} Keep learning by opening any item, or jump to a category.</p>
+            <h2>{t('feed_end_title')}</h2>
+            <p>{activeCat ? t('feed_end_cat', { name: activeCat.name }) : t('feed_end_all')} {t('feed_end_keep')}</p>
             <div className="feed-end-actions">
-              <Link to="/" className="feed-end-btn primary">All concepts</Link>
-              <Link to="/categories" className="feed-end-btn">Browse categories</Link>
+              <Link to="/" className="feed-end-btn primary">{t('feed_all_btn')}</Link>
+              <Link to="/categories" className="feed-end-btn">{t('feed_browse')}</Link>
             </div>
           </div>
         </section>

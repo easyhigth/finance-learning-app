@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { searchConcepts, concepts, getCategory } from '../data/concepts';
 import { searchGlossary } from '../data/glossary';
 import FavoriteStar from '../components/FavoriteStar';
+import { useLang } from '../utils/lang';
 import './SearchPage.css';
 
 const SearchPage = () => {
+  const { t } = useLang();
   const [searchTerm, setSearchTerm] = useState('');
   const [submitted, setSubmitted] = useState(''); // the last query actually searched
 
@@ -53,21 +55,16 @@ const SearchPage = () => {
   return (
     <div className="search-page">
       <div className="search-header">
-        <span className="eyebrow">Search</span>
-        <h1>Find a concept or term</h1>
-        <p>
-          Search the full library by name, idea, or vocabulary — in English or French.
-          Concepts open a complete single-page explainer; vocabulary terms give you a
-          quick fiche with a definition, a link to the deep concept when one exists, and
-          a Wikipedia fallback for everything else.
-        </p>
+        <span className="eyebrow">{t('search_eyebrow')}</span>
+        <h1>{t('search_title')}</h1>
+        <p>{t('search_sub')}</p>
       </div>
 
       <div className="search-section">
         <form onSubmit={handleSearch} className="search-form">
           <input
             type="text"
-            placeholder="e.g. compound interest, fond, obligation, swap, hedge…"
+            placeholder={t('search_placeholder')}
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
@@ -76,7 +73,7 @@ const SearchPage = () => {
             className="search-input"
             autoFocus
           />
-          <button type="submit" className="search-button">Search</button>
+          <button type="submit" className="search-button">{t('search_btn')}</button>
         </form>
       </div>
 
@@ -84,25 +81,25 @@ const SearchPage = () => {
         {results && (
           <div className="results-block">
             <div className="section-header">
-              <h2>Results for &ldquo;{activeQuery}&rdquo;</h2>
+              <h2>{t('results_for')} &ldquo;{activeQuery}&rdquo;</h2>
               <span className="results-count">
-                {totalResults} found
-                {results.concepts.length > 0 && ` · ${results.concepts.length} concept${results.concepts.length > 1 ? 's' : ''}`}
-                {vocabTerms.length > 0 && ` · ${vocabTerms.length} term${vocabTerms.length > 1 ? 's' : ''}`}
+                {totalResults} {t('found')}
+                {results.concepts.length > 0 && ` · ${results.concepts.length} ${t('concept_s')}`}
+                {vocabTerms.length > 0 && ` · ${vocabTerms.length} ${t('term_s')}`}
               </span>
             </div>
 
             {totalResults === 0 && (
               <div className="no-results-search">
-                <h3>No match for &ldquo;{activeQuery}&rdquo;</h3>
-                <p>The library is curated, so it won&apos;t have everything — but Wikipedia will.</p>
+                <h3>{t('no_match')} &ldquo;{activeQuery}&rdquo;</h3>
+                <p>{t('no_match_sub')}</p>
                 <a
                   className="wiki-fallback"
                   href={wikiLink(activeQuery)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Search &ldquo;{activeQuery}&rdquo; on Wikipedia ↗
+                  {t('search_wiki')} &ldquo;{activeQuery}&rdquo; ↗
                 </a>
               </div>
             )}
@@ -110,7 +107,7 @@ const SearchPage = () => {
             {/* Concept results — full explainers */}
             {results.concepts.length > 0 && (
               <>
-                <h3 className="results-subhead">Concepts</h3>
+                <h3 className="results-subhead">{t('concepts_sub')}</h3>
                 <div className="results-grid">
                   {results.concepts.map((c) => {
                     const cat = getCategory(c.category);
@@ -135,7 +132,7 @@ const SearchPage = () => {
             {/* Vocabulary results — quick fiches */}
             {vocabTerms.length > 0 && (
               <>
-                <h3 className="results-subhead">Vocabulary</h3>
+                <h3 className="results-subhead">{t('vocab_sub')}</h3>
                 <div className="vocab-grid">
                   {vocabTerms.map((t, i) => {
                     const cat = getCategory(t.category);
@@ -161,7 +158,7 @@ const SearchPage = () => {
                           {related ? (
                             <Link to={`/concept/${related.id}`} className="vocab-deep-link">
                               <span className="vocab-deep-icon">{related.icon}</span>
-                              Open full concept: {related.title}
+                              {t('open_full')}: {related.title}
                               <span className="vocab-deep-arrow">→</span>
                             </Link>
                           ) : (
@@ -171,7 +168,7 @@ const SearchPage = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              Read on Wikipedia ↗
+                              {t('read_wiki')} ↗
                             </a>
                           )}
                         </div>
@@ -186,8 +183,8 @@ const SearchPage = () => {
 
         {!results && (
           <div className="popular-section">
-            <h2>Quick picks</h2>
-            <p className="popular-description">Tap a concept to jump straight in.</p>
+            <h2>{t('quick_picks')}</h2>
+            <p className="popular-description">{t('quick_picks_sub')}</p>
             <div className="popular-grid">
               {quickPicks.map((c) => (
                 <Link key={c.id} to={`/concept/${c.id}`} className="popular-term">
@@ -202,23 +199,23 @@ const SearchPage = () => {
 
       <div className="search-tips">
         <div className="tips-content">
-          <h3>Search tips</h3>
+          <h3>{t('search_tips')}</h3>
           <div className="tips-grid">
             <div className="tip">
               <span className="tip-icon">🇫🇷</span>
-              <span>Type in French or English — &ldquo;fond&rdquo; finds the Fund fiche, &ldquo;obligation&rdquo; finds Bond.</span>
+              <span>{t('tip_lang')}</span>
             </div>
             <div className="tip">
               <span className="tip-icon">🧠</span>
-              <span>Search by idea, not just the exact title — &ldquo;risk&rdquo; finds &ldquo;Risk vs. Return&rdquo;.</span>
+              <span>{t('tip_idea')}</span>
             </div>
             <div className="tip">
               <span className="tip-icon">📚</span>
-              <span>Two kinds of results: full concepts (with formula, example, deep dive) and quick vocabulary fiches.</span>
+              <span>{t('tip_kinds')}</span>
             </div>
             <div className="tip">
               <span className="tip-icon">↗</span>
-              <span>Terms without a deep concept link straight to Wikipedia, so nothing is ever missing.</span>
+              <span>{t('tip_wiki')}</span>
             </div>
           </div>
         </div>

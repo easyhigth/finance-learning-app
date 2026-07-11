@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { categories, getConceptsByCategory } from '../data/concepts';
+import { useLang } from '../utils/lang';
 import './CategoriesPage.css';
 
 const CategoriesPage = () => {
+  const { t } = useLang();
   const [searchTerm, setSearchTerm] = useState('');
 
   const enriched = categories.map((cat) => ({
@@ -20,16 +22,16 @@ const CategoriesPage = () => {
   return (
     <div className="categories-page">
       <div className="categories-header">
-        <span className="eyebrow">Browse</span>
-        <h1>Finance Categories</h1>
-        <p>Pick a track and scroll through every concept in it — each one opens a full single-page explainer.</p>
+        <span className="eyebrow">{t('cat_eyebrow')}</span>
+        <h1>{t('cat_title')}</h1>
+        <p>{t('cat_sub')}</p>
       </div>
 
       <div className="search-section">
         <div className="search-box">
           <input
             type="text"
-            placeholder="Search categories or concepts..."
+            placeholder={t('cat_search_ph')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
@@ -48,7 +50,7 @@ const CategoriesPage = () => {
             <p className="category-description">{category.blurb}</p>
 
             <div className="category-terms">
-              <h4>{category.terms.length} concepts</h4>
+              <h4>{category.terms.length} {t('cat_concepts')}</h4>
               <div className="terms-list">
                 {category.terms.map((term) => (
                   <Link key={term.id} to={`/concept/${term.id}`} className="term-tag">
@@ -59,7 +61,7 @@ const CategoriesPage = () => {
             </div>
 
             <Link to={`/category/${category.id}`} className="explore-button">
-              Scroll this track →
+              {t('cat_scroll')} →
             </Link>
           </div>
         ))}
@@ -67,15 +69,15 @@ const CategoriesPage = () => {
 
       {filtered.length === 0 && (
         <div className="no-results">
-          <h3>No matches</h3>
-          <p>Nothing fits "{searchTerm}" — try a broader word.</p>
+          <h3>{t('cat_no_matches')}</h3>
+          <p>{t('cat_no_matches_sub', { q: searchTerm })}</p>
         </div>
       )}
 
       <div className="learning-path-section">
         <div className="path-content">
-          <h2>Not sure where to start?</h2>
-          <p>Foundations first — the five ideas every other concept leans on.</p>
+          <h2>{t('cat_path_title')}</h2>
+          <p>{t('cat_path_sub')}</p>
           <div className="path-steps">
             <div className="step">
               <div className="step-number">1</div>
@@ -94,7 +96,7 @@ const CategoriesPage = () => {
               <div className="step-text">Risk</div>
             </div>
           </div>
-          <Link to="/category/foundations" className="cta-button">Start with Foundations →</Link>
+          <Link to="/category/foundations" className="cta-button">{t('cat_path_cta')} →</Link>
         </div>
       </div>
     </div>

@@ -111,6 +111,39 @@
   gap: 0.5rem;
 }
 
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn.active {
+  background: var(--brand-grad);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
 .search-icon {
   font-size: 1.1rem;
   text-decoration: none;
@@ -258,7 +291,8 @@
     border-radius: var(--radius);
   }
 
-  .header-actions {
+  .header-actions .search-icon,
+  .header-actions .profile-button {
     display: none;
   }
 }

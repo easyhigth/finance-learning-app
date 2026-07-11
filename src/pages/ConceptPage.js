@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getConcept, getCategory, getRelatedConcepts, getAdjacent } from '../data/concepts';
 import { isLearned, toggleLearned } from '../utils/progress';
+import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
 import './ConceptPage.css';
 
 const ConceptPage = () => {
   const { slug } = useParams();
+  const { t } = useLang();
   const concept = getConcept(slug);
   const [learned, setLearned] = useState(false);
 
@@ -23,9 +25,9 @@ const ConceptPage = () => {
       <div className="concept-page concept-missing">
         <div className="concept-missing-inner">
           <div className="concept-missing-emoji">🤔</div>
-          <h1>Concept not found</h1>
-          <p>We don&apos;t have that one in the library yet.</p>
-          <Link to="/" className="concept-back-home">← Back to the feed</Link>
+          <h1>{t('concept_missing_title')}</h1>
+          <p>{t('concept_missing_sub')}</p>
+          <Link to="/" className="concept-back-home">{t('concept_back_home')}</Link>
         </div>
       </div>
     );
@@ -49,7 +51,7 @@ const ConceptPage = () => {
         <div className="concept-hero-overlay" />
         <div className="concept-hero-inner">
           <div className="concept-topbar">
-            <Link to={prev ? `/concept/${prev.id}` : '/'} className="concept-back">← {prev ? `Prev: ${prev.title}` : 'Feed'}</Link>
+            <Link to={prev ? `/concept/${prev.id}` : '/'} className="concept-back">← {prev ? `${t('concept_previn')}: ${prev.title}` : t('concept_feed')}</Link>
             <Link to={`/category/${concept.category}`} className="concept-cat-chip">
               {category.icon} {category.name}
             </Link>
@@ -68,13 +70,13 @@ const ConceptPage = () => {
       <div className="concept-body">
         {/* TL;DR */}
         <section className="concept-section concept-tldr">
-          <h2 className="concept-h2">In one line</h2>
+          <h2 className="concept-h2">{t('concept_in_one_line')}</h2>
           <p className="concept-tldr-text">{concept.tldr}</p>
         </section>
 
         {/* Definition */}
         <section className="concept-section">
-          <h2 className="concept-h2">What it is</h2>
+          <h2 className="concept-h2">{t('concept_what')}</h2>
           {concept.definition.map((p, i) => (
             <p key={i} className="concept-p">{p}</p>
           ))}
@@ -82,7 +84,7 @@ const ConceptPage = () => {
 
         {/* Key points */}
         <section className="concept-section">
-          <h2 className="concept-h2">Key points</h2>
+          <h2 className="concept-h2">{t('concept_key')}</h2>
           <ul className="concept-keypoints">
             {concept.keyPoints.map((pt, i) => (
               <li key={i}><span className="concept-kp-bullet">{i + 1}</span>{pt}</li>
@@ -93,7 +95,7 @@ const ConceptPage = () => {
         {/* Formula + example */}
         {(concept.formula || concept.example) && (
           <section className="concept-section concept-formula-block">
-            <h2 className="concept-h2">The formula &amp; a worked example</h2>
+            <h2 className="concept-h2">{t('concept_formula')}</h2>
             {concept.formula && (
               <div className="concept-formula-card">
                 <div className="concept-formula-expr">{concept.formula.expression}</div>
@@ -117,7 +119,7 @@ const ConceptPage = () => {
 
         {/* Deep dive */}
         <section className="concept-section">
-          <h2 className="concept-h2">Going deeper</h2>
+          <h2 className="concept-h2">{t('concept_deep')}</h2>
           {concept.deepDive.map((p, i) => (
             <p key={i} className="concept-p">{p}</p>
           ))}
@@ -126,7 +128,7 @@ const ConceptPage = () => {
         {/* Glossary */}
         {concept.glossary && concept.glossary.length > 0 && (
           <section className="concept-section">
-            <h2 className="concept-h2">Terms to know</h2>
+            <h2 className="concept-h2">{t('concept_terms')}</h2>
             <div className="concept-glossary">
               {concept.glossary.map((g, i) => (
                 <div key={i} className="concept-glossary-item">
@@ -144,7 +146,7 @@ const ConceptPage = () => {
             className={`concept-learned-btn ${learned ? 'on' : ''}`}
             onClick={handleLearned}
           >
-            {learned ? '✓ Marked as learned' : 'Mark as learned'}
+            {learned ? t('concept_marked') : t('concept_mark')}
           </button>
           <FavoriteStar id={concept.id} size="lg" className="concept-fav-star" />
           <a
@@ -153,14 +155,14 @@ const ConceptPage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read full article on Wikipedia ↗
+            {t('concept_wiki')} ↗
           </a>
         </section>
 
         {/* Related */}
         {related.length > 0 && (
           <section className="concept-section">
-            <h2 className="concept-h2">Related concepts</h2>
+            <h2 className="concept-h2">{t('concept_related')}</h2>
             <div className="concept-related-grid">
               {related.map((r) => (
                 <Link
@@ -182,13 +184,13 @@ const ConceptPage = () => {
         <nav className="concept-prevnext">
           {prev ? (
             <Link to={`/concept/${prev.id}`} className="concept-pn-link prev">
-              <span className="concept-pn-label">← Previous in {category.name}</span>
+              <span className="concept-pn-label">← {t('concept_previn')} {category.name}</span>
               <span className="concept-pn-title">{prev.title}</span>
             </Link>
           ) : <span className="concept-pn-spacer" />}
           {next ? (
             <Link to={`/concept/${next.id}`} className="concept-pn-link next">
-              <span className="concept-pn-label">Next in {category.name} →</span>
+              <span className="concept-pn-label">{t('concept_nextin')} {category.name} →</span>
               <span className="concept-pn-title">{next.title}</span>
             </Link>
           ) : <span className="concept-pn-spacer" />}
