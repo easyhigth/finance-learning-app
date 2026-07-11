@@ -87,7 +87,6 @@ const LearnPage = () => {
                 key={c.id}
                 to={`/concept/${c.id}`}
                 className={`concept-tile ${isLearned ? 'learned' : ''}`}
-                style={{ background: isLearned ? undefined : `linear-gradient(135deg, ${c.color[0]}, ${c.color[1]})` }}
               >
                 <span className="concept-tile-icon">{c.icon}</span>
                 <span className="concept-tile-name">{c.title}</span>

@@ -48,8 +48,7 @@ const FavoritesPage = () => {
                   const c = localizeConcept(rawC, lang);
                   const cat = localizeCategory(getCategory(c.category), lang);
                   return (
-                    <Link key={c.id} to={`/concept/${c.id}`} className="fav-card"
-                      style={{ borderTop: `3px solid ${c.color[0]}` }}>
+                    <Link key={c.id} to={`/concept/${c.id}`} className="fav-card">
                       <div className="fav-card-top">
                         <span className="fav-card-icon">{c.icon}</span>
                         <span className="fav-card-cat">{cat ? cat.name : c.category}</span>

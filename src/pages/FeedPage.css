@@ -4,21 +4,21 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background: #0d1020;
+  background: #000000;
   overflow: hidden;
 }
 
 /* ---------- Top progress ---------- */
 .feed-progress-bar {
   height: 3px;
-  background: rgba(255, 255, 255, 0.10);
+  background: rgba(255, 149, 0, 0.14);
   flex-shrink: 0;
   z-index: 5;
 }
 
 .feed-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #a5b4fc, #e9d5ff, #f5d0fe);
+  background: linear-gradient(90deg, #ffb347, #ff9500, #e67e00);
   transition: width 0.2s linear;
 }
 
@@ -29,10 +29,10 @@
   padding: 0.7rem 1rem;
   overflow-x: auto;
   flex-shrink: 0;
-  background: rgba(13, 16, 32, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 149, 0, 0.14);
   scrollbar-width: none;
 }
 
@@ -47,24 +47,24 @@
   border-radius: var(--radius-pill);
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.62);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(245, 241, 234, 0.62);
+  background: rgba(255, 149, 0, 0.06);
+  border: 1px solid rgba(255, 149, 0, 0.14);
   text-decoration: none;
   transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
 .feed-pill:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 149, 0, 0.16);
   color: #fff;
   transform: translateY(-1px);
 }
 
 .feed-pill.active {
-  background: #fff;
-  color: #1c1639;
-  border-color: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  background: var(--brand-grad);
+  color: #14110c;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(255, 149, 0, 0.28);
 }
 
 .feed-pill-icon {
@@ -90,17 +90,20 @@
   scroll-snap-align: start;
   scroll-snap-stop: always;
   display: flex;
-  color: #fff;
+  color: #f5f1ea;
   overflow: hidden;
+  /* Terminal look: every card is the same black panel with a faint amber
+     glow, regardless of concept — no more per-topic color gradients. */
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(255, 149, 0, 0.16), transparent 55%),
+    radial-gradient(700px 500px at 10% 110%, rgba(255, 149, 0, 0.08), transparent 55%),
+    linear-gradient(160deg, #14110c 0%, #000000 100%);
 }
 
 .feed-slide-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.06), transparent 45%),
-    radial-gradient(circle at 10% 100%, rgba(0, 0, 0, 0.45), transparent 55%),
-    rgba(0, 0, 0, 0.28);
+  background: radial-gradient(circle at 10% 100%, rgba(0, 0, 0, 0.35), transparent 55%);
   pointer-events: none;
 }
 
@@ -142,14 +145,15 @@
   text-transform: uppercase;
   padding: 0.32rem 0.7rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 149, 0, 0.14);
+  border: 1px solid rgba(255, 149, 0, 0.35);
+  color: #ffb347;
 }
 
 .feed-counter {
   font-size: 0.8rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(245, 241, 234, 0.6);
 }
 
 .feed-illustration {
@@ -182,11 +186,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 149, 0, 0.12);
+  border: 1px solid rgba(255, 149, 0, 0.3);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 149, 0, 0.15);
 }
 
 .feed-title {
@@ -197,20 +201,20 @@
   line-height: 1.04;
   color: #fff;
   margin: 0;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
 }
 
 .feed-hook {
   font-size: clamp(1rem, 2.4vw, 1.2rem);
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(245, 241, 234, 0.85);
   margin: 0;
   max-width: 36ch;
 }
 
 .feed-preview {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 149, 0, 0.07);
+  border: 1px solid rgba(255, 149, 0, 0.22);
   border-radius: var(--radius);
   padding: 0.95rem 1.05rem;
   margin-top: 0.4rem;
@@ -224,7 +228,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: #ffb347;
   margin-bottom: 0.3rem;
 }
 
@@ -242,21 +246,21 @@
   gap: 0.5rem;
   margin-top: 0.5rem;
   padding: 0.85rem 1.5rem;
-  background: #fff;
-  color: #14172a;
+  background: var(--brand-grad);
+  color: #14110c;
   border: none;
   border-radius: var(--radius-pill);
   font-size: 0.98rem;
   font-weight: 700;
   cursor: pointer;
   align-self: flex-start;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 28px rgba(255, 149, 0, 0.22);
   transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
 }
 
 .feed-open:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 16px 36px rgba(255, 149, 0, 0.32);
 }
 
 .feed-open-arrow {
@@ -299,8 +303,8 @@
 .feed-slide-term .feed-slide-inner::-webkit-scrollbar { display: none; }
 
 .feed-chip-term {
-  background: rgba(255, 255, 255, 0.26);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 149, 0, 0.22);
+  border-color: rgba(255, 149, 0, 0.5);
 }
 
 .feed-badge-term {
@@ -318,8 +322,8 @@
 }
 
 .feed-chip-vocab {
-  background: rgba(255, 255, 255, 0.26);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 149, 0, 0.22);
+  border-color: rgba(255, 149, 0, 0.5);
 }
 
 .feed-badge-vocab {
@@ -337,8 +341,8 @@
 }
 
 .feed-vocab-block {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 149, 0, 0.07);
+  border: 1px solid rgba(255, 149, 0, 0.2);
   border-radius: var(--radius);
   padding: 0.65rem 0.85rem;
   backdrop-filter: blur(6px);
@@ -353,12 +357,12 @@
 }
 
 .feed-vocab-remember {
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-left: 4px solid #fff;
+  background: rgba(255, 149, 0, 0.14);
+  border: 1px solid rgba(255, 149, 0, 0.4);
+  border-left: 4px solid #ff9500;
   border-radius: var(--radius);
   padding: 0.65rem 0.85rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .feed-vocab-remember p {
@@ -375,7 +379,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
+  color: #ffb347;
   margin-bottom: 0.25rem;
 }
 
@@ -386,7 +390,9 @@
 
 /* ---------- End card ---------- */
 .feed-slide.feed-end {
-  background: linear-gradient(160deg, #31296b, #1e1b4b);
+  background:
+    radial-gradient(900px 500px at 50% -10%, rgba(255, 149, 0, 0.14), transparent 60%),
+    linear-gradient(160deg, #14110c, #000000);
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -429,21 +435,21 @@
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 149, 0, 0.1);
+  border: 1px solid rgba(255, 149, 0, 0.3);
   color: #fff;
   transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
 .feed-end-btn:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 149, 0, 0.2);
   transform: translateY(-2px);
 }
 
 .feed-end-btn.primary {
-  background: #fff;
-  color: #31296b;
-  border-color: #fff;
+  background: var(--brand-grad);
+  color: #14110c;
+  border-color: transparent;
 }
 
 /* ---------- Side dots ---------- */
@@ -462,17 +468,17 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 149, 0, 0.3);
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
 .feed-dot:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 149, 0, 0.55);
 }
 
 .feed-dot.active {
-  background: #fff;
+  background: #ff9500;
   transform: scale(1.5);
 }
 

@@ -42,10 +42,7 @@ const ConceptPage = () => {
   return (
     <article className="concept-page">
       {/* Hero */}
-      <header
-        className="concept-hero"
-        style={{ background: `linear-gradient(155deg, ${concept.color[0]}, ${concept.color[1]})` }}
-      >
+      <header className="concept-hero">
         <div className="concept-hero-overlay" />
         <div className="concept-hero-inner">
           <div className="concept-topbar">
@@ -57,7 +54,7 @@ const ConceptPage = () => {
           <div className="concept-hero-visual">
             <span className="concept-hero-badge">{concept.icon}</span>
             <div className="concept-hero-illustration">
-              <Illustration type={concept.illustration} colors={concept.color} />
+              <Illustration type={concept.illustration} colors={['#ff9500', '#ffb347']} />
             </div>
           </div>
           <h1 className="concept-title">{concept.title}</h1>
@@ -167,7 +164,6 @@ const ConceptPage = () => {
                   key={r.id}
                   to={`/concept/${r.id}`}
                   className="concept-related-card"
-                  style={{ background: `linear-gradient(135deg, ${r.color[0]}, ${r.color[1]})` }}
                 >
                   <span className="concept-related-icon">{r.icon}</span>
                   <span className="concept-related-name">{r.title}</span>

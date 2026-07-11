@@ -113,8 +113,7 @@ const SearchPage = () => {
                     const c = localizeConcept(rawC, lang);
                     const cat = localizeCategory(getCategory(c.category), lang);
                     return (
-                      <Link key={c.id} to={`/concept/${c.id}`} className="result-card"
-                        style={{ borderTop: `3px solid ${c.color[0]}` }}>
+                      <Link key={c.id} to={`/concept/${c.id}`} className="result-card">
                         <div className="result-card-top">
                           <span className="result-card-icon">{c.icon}</span>
                           <span className="result-card-cat">{cat ? cat.name : c.category}</span>

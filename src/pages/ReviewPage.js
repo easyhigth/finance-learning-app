@@ -65,12 +65,9 @@ const ReviewPage = () => {
             aria-label={t('review_flip_hint')}
           >
             <div className="review-card-inner">
-              <div
-                className="review-card-face review-card-front"
-                style={{ background: `linear-gradient(155deg, ${card.color[0]}, ${card.color[1]})` }}
-              >
+              <div className="review-card-face review-card-front">
                 <div className="review-card-illustration">
-                  <Illustration type={card.illustration} colors={card.color} />
+                  <Illustration type={card.illustration} colors={['#ff9500', '#ffb347']} />
                 </div>
                 <span className="review-card-icon">{card.icon}</span>
                 <h2>{card.title}</h2>
