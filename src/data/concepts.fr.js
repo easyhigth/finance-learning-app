@@ -3234,5 +3234,720 @@ export const conceptsFr = {
         "def": "Comment les nœuds s'accordent sur le bloc suivant — preuve de travail, preuve d'enjeu, etc."
       }
     ]
+  },
+  "mortgage": {
+    "title": "Prêt hypothécaire",
+    "hook": "Le plus gros emprunt que la plupart des gens signeront jamais — et le plus gros pari à effet de levier qu'ils feront jamais.",
+    "tldr": "Un prêt hypothécaire est un emprunt garanti par un bien immobilier : vous empruntez la majeure partie du prix du bien, apportez le reste en fonds propres, et remboursez sur plusieurs décennies — la maison servant elle-même de garantie en cas de défaut de paiement.",
+    "definition": [
+      "Un prêt hypothécaire est un emprunt à long terme utilisé pour acheter un bien immobilier, où le bien lui-même garantit la dette. Si l'emprunteur cesse de payer, le prêteur peut saisir le bien — le prendre et le vendre pour récupérer les sommes dues. Parce que le prêt est garanti, les taux hypothécaires sont généralement bien inférieurs à ceux d'une dette non garantie comme les cartes de crédit, et les durées s'étendent sur 15 à 30 ans pour maintenir des mensualités supportables au regard du montant emprunté.",
+      "Les acheteurs paient rarement 100% comptant : ils versent un apport personnel (l'acompte) et empruntent le reste. Le rapport entre le montant emprunté et la valeur du bien est le ratio prêt/valeur (LTV), et il détermine presque tout le reste — le taux d'intérêt proposé, l'obligation ou non de souscrire une assurance emprunteur, et la marge de sécurité dont dispose l'acheteur si les prix baissent. Un prêt hypothécaire revient, en pratique, à utiliser l'effet de levier pour acheter un actif : les gains et les pertes sur le bien sont amplifiés par rapport à la mise de fonds propre de l'acheteur."
+    ],
+    "keyPoints": [
+      "Le bien immobilier sert de garantie : suffisamment d'impayés et le prêteur peut saisir puis vendre le bien.",
+      "Ratio prêt/valeur (LTV) = montant emprunté ÷ valeur du bien ; un LTV plus faible donne généralement un meilleur taux et dispense d'assurance obligatoire.",
+      "Les prêts à taux fixe verrouillent le taux pour toute la durée ; les prêts à taux variable/ajustable se réajustent périodiquement selon le marché.",
+      "Comme un prêt hypothécaire est un effet de levier, une baisse de 10% de la valeur du bien peut effacer plus de 50% des fonds propres de l'acheteur s'il n'a apporté que 20%."
+    ],
+    "formula": {
+      "expression": "LTV = Montant emprunté ÷ Valeur du bien",
+      "legend": "LTV = ratio prêt/valeur, exprimé en pourcentage",
+      "note": "La plupart des prêteurs exigent une assurance emprunteur privée (équivalent français : assurance de prêt) lorsque le LTV dépasse 80% — elle protège le prêteur, pas l'emprunteur, jusqu'à ce que suffisamment de fonds propres se soient constitués."
+    },
+    "example": {
+      "scenario": "Vous achetez une maison à 300 000 € avec un apport de 30 000 € (10%), en finançant 270 000 € sur 30 ans à 4,5%.",
+      "steps": [
+        "LTV = 270 000 ÷ 300 000 = 90% — au-dessus du seuil de 80%, le prêteur exige donc une assurance emprunteur.",
+        "Mensualité (capital + intérêts) sur 270 000 € à 4,5% sur 360 mois ≈ 1 368 €.",
+        "L'assurance emprunteur, à environ 0,5%/an du capital restant dû, ajoute ≈ 112,50 €/mois tant que le LTV reste au-dessus de 80%.",
+        "Une fois le capital restant dû tombé à 240 000 € (LTV = 80%) — grâce au remboursement, à des versements supplémentaires ou à la hausse des prix — l'assurance disparaît, ramenant le coût mensuel à ≈ 1 368 €."
+      ],
+      "result": "Le coût total démarre près de 1 480 €/mois et retombe à 1 368 €/mois une fois le seuil des 80% de LTV franchi — le même prêt devient structurellement moins cher à mesure que votre part de fonds propres augmente."
+    },
+    "deepDive": [
+      "Le choix entre taux fixe et taux variable est en réalité un pari sur la direction des taux et sur la durée pendant laquelle vous conserverez le prêt. Un taux fixe échange un taux de départ (généralement) plus élevé contre une certitude totale — utile si vous comptez rester pour toute la durée du prêt ou si les taux risquent de monter. Un taux variable démarre souvent moins cher mais transfère le risque de taux à l'emprunteur ; cela peut être pertinent si vous prévoyez de vendre ou de renégocier avant le premier ajustement, mais c'est un pari, pas une remise gratuite. Les prêteurs ne rendent service à personne avec l'une ou l'autre option — ils tarifient un risque qu'ils ne veulent pas porter eux-mêmes.",
+      "Un débat fréquent et souvent mal posé est : « faut-il rembourser le prêt par anticipation ou investir l'argent disponible ? » La comparaison honnête oppose le taux d'intérêt après impôt du prêt au rendement attendu après impôt d'un placement, ajusté du risque : rembourser un prêt à 4,5% garantit un rendement de 4,5%, tandis qu'investir en actions offre un rendement attendu plus élevé mais avec une réelle volatilité et aucune garantie. Il n'existe pas de réponse universelle — cela dépend du taux, des autres dettes de l'emprunteur, de son épargne de précaution, et de sa tolérance à un patrimoine net irrégulier plutôt qu'à une maison entièrement payée. Ce qui se justifie rarement, en revanche, c'est de conserver un prêt à taux élevé tout en gardant des liquidités inactives rapportant moins que ce que coûte le prêt."
+    ],
+    "glossary": [
+      {
+        "term": "Apport personnel",
+        "def": "Le montant en liquide qu'un acheteur verse d'avance sur le prix d'achat, réduisant d'autant le prêt nécessaire."
+      },
+      {
+        "term": "Saisie immobilière",
+        "def": "La procédure juridique par laquelle le prêteur s'approprie et vend le bien après des impayés prolongés."
+      },
+      {
+        "term": "Fonds propres (immobilier)",
+        "def": "La part de la valeur d'un bien réellement détenue par le propriétaire : la valeur moins le capital restant dû."
+      }
+    ]
+  },
+  "retirement-accounts": {
+    "title": "Comptes de retraite",
+    "hook": "Un compte d'investissement classique paie des impôts ; un compte de retraite, presque pas — même marché, résultat très différent.",
+    "tldr": "Les comptes de retraite sont des enveloppes fiscalement avantageuses pour l'épargne de long terme — l'argent y fructifie en franchise d'impôt ou avec un report d'imposition, ce qui, par capitalisation, aboutit sur plusieurs décennies à un solde nettement plus élevé qu'un compte imposable classique.",
+    "definition": [
+      "Un compte de retraite n'est pas un placement en soi — c'est un statut fiscal particulier qui enveloppe des placements ordinaires comme des actions, des obligations ou des fonds. Les États créent ces enveloppes (401(k) et IRA aux États-Unis, PER en France, et des dispositifs similaires ailleurs) pour encourager l'épargne de long terme, généralement selon l'un de deux régimes fiscaux : l'imposition différée (les versements réduisent le revenu imposable dès maintenant, et versements comme gains ne sont taxés qu'au retrait, à la retraite) ou la croissance exonérée (les versements sont effectués avec de l'argent déjà taxé, mais les gains et les retraits sont exonérés d'impôt). Dans les deux cas, l'argent placé est protégé d'une imposition chaque année, ce qui est normalement le cas sur un compte-titres ordinaire.",
+      "La contrepartie, c'est l'accès : ces comptes limitent en général les retraits avant un âge fixé (souvent autour de 60-65 ans), avec des pénalités en cas de retrait anticipé, précisément parce que l'avantage fiscal est une contrepartie à une épargne retraite de long terme, pas à une liquidité disponible à tout moment. De nombreux employeurs ajoutent aussi un abondement — des versements supplémentaires en plus des cotisations propres du salarié, jusqu'à un certain plafond — ce qui se rapproche le plus, en finance personnelle, d'un rendement garanti et immédiat."
+    ],
+    "keyPoints": [
+      "Les comptes à imposition différée font économiser de l'impôt maintenant et sont taxés plus tard ; les comptes à croissance exonérée (type Roth) sont taxés maintenant et fructifient ensuite sans impôt pour toujours.",
+      "L'abondement de l'employeur est en pratique de l'argent gratuit et un rendement immédiat garanti — il faut prioriser la captation de l'abondement maximal avant d'investir ailleurs.",
+      "Les plafonds de versement et les pénalités de retrait anticipé existent parce que l'avantage fiscal est conçu pour la retraite, pas pour l'épargne de court terme.",
+      "Ne pas payer d'impôt chaque année sur les gains permet à l'ensemble du solde de se capitaliser, et non seulement la part nette d'impôt — l'écart avec un compte imposable se creuse chaque année."
+    ],
+    "formula": {
+      "expression": "VF(imposition différée) = P(1+r)ⁿ vs. VF(imposable) = P(1+r(1−t))ⁿ",
+      "legend": "P = versement · r = rendement annuel · n = nombre d'années · t = taux marginal d'imposition appliqué chaque année sur un compte imposable",
+      "note": "Ceci isole le pur effet de capitalisation lié à l'absence d'imposition annuelle ; un compte à imposition différée devra tout de même acquitter l'impôt au retrait, ce qu'une comparaison plus complète doit déduire."
+    },
+    "example": {
+      "scenario": "Vous versez 6 000 €/an pendant 30 ans, avec un rendement annuel moyen de 7%, dans une tranche marginale d'imposition de 30%.",
+      "steps": [
+        "Compte à imposition différée (fructifie au plein taux de 7% chaque année) : VF = 6 000 × [(1,07³⁰ − 1) / 0,07] ≈ 6 000 × 94,46 ≈ 566 800 €.",
+        "Compte imposable équivalent (gains annuels taxés à 30%, donc croissance effective de 7% × 0,70 = 4,9%) : VF = 6 000 × [(1,049³⁰ − 1) / 0,049] ≈ 6 000 × 65,37 ≈ 392 200 €.",
+        "Écart dû au seul report d'imposition ≈ 174 600 € — de l'argent qui n'a jamais quitté le compte pour être taxé en cours de route.",
+        "Les retraits du compte à imposition différée seront tout de même soumis à l'impôt sur le revenu à terme, donc l'avantage réel est inférieur à 174 600 € — mais comme l'ensemble du solde s'est capitalisé pendant 30 ans, le report l'emporte dans presque tous les scénarios réalistes."
+      ],
+      "result": "Mettre les gains à l'abri de l'imposition annuelle transforme la même habitude de 6 000 €/an en un solde nettement plus élevé — c'est l'enveloppe fiscale, et non un choix de placement plus astucieux, qui explique l'essentiel de la différence."
+    },
+    "deepDive": [
+      "Le choix entre imposition différée (type traditionnel) et exonération (type Roth) — payer l'impôt maintenant ou plus tard — est fondamentalement un pari sur votre future tranche d'imposition. Si vous anticipez une tranche plus basse à la retraite que pendant votre vie active, différer l'impôt (type traditionnel) l'emporte. Si vous anticipez des taux similaires ou plus élevés plus tard — un cas fréquent pour les jeunes épargnants en début de carrière, ou si les taux d'imposition augmentent globalement — payer l'impôt maintenant pendant que votre tranche est basse (type Roth) peut s'avérer plus avantageux, et évite aussi des retraits obligatoires plus tard. Comme personne ne peut prédire avec certitude sa future tranche d'imposition ni la politique fiscale future de l'État, détenir un mélange des deux types de comptes est un arbitrage raisonnable, pas de l'indécision.",
+      "L'autre risque sous-estimé se situe à l'approche de la retraite elle-même : le risque de séquence des rendements. Un krach boursier survenant l'année précédant votre départ à la retraite, combiné au début des retraits, peut fragiliser durablement un portefeuille d'une manière que le même krach en milieu de carrière ne ferait pas — parce que vous vendez alors des actifs dépréciés pour financer vos dépenses courantes au lieu de les acheter à bas prix. C'est pourquoi les trajectoires de désensibilisation vers la retraite déplacent progressivement l'allocation vers les obligations et les liquidités à l'approche de la retraite : non parce que les obligations surperforment, mais parce qu'un petit coussin stable élimine le besoin de vendre des actions au pire moment possible."
+    ],
+    "glossary": [
+      {
+        "term": "Abondement de l'employeur",
+        "def": "Les versements supplémentaires qu'un employeur ajoute en complément des cotisations propres du salarié, jusqu'à un plafond fixé — un rendement garanti et immédiat en pratique."
+      },
+      {
+        "term": "Acquisition des droits (vesting)",
+        "def": "Le calendrier selon lequel les sommes versées par l'employeur deviennent pleinement et définitivement la propriété du salarié."
+      },
+      {
+        "term": "Retrait minimum obligatoire",
+        "def": "Un retrait minimal imposé par certains comptes à imposition différée à partir d'un certain âge, pour garantir que l'État finisse par percevoir l'impôt."
+      }
+    ]
+  },
+  "insurance": {
+    "title": "Assurance",
+    "hook": "Vous n'achetez pas une bonne affaire en souscrivant une assurance — vous achetez de la certitude, et la certitude a un prix.",
+    "tldr": "L'assurance mutualise les primes modestes et certaines d'un grand nombre de personnes pour couvrir les pertes rares mais importantes que l'une d'entre elles pourrait subir — elle échange un coût faible et garanti contre une protection face à une perte catastrophique.",
+    "definition": [
+      "L'assurance fonctionne grâce à la loi des grands nombres : personne ne peut prédire si une maison en particulier brûlera cette année, mais un assureur couvrant un million de maisons peut prévoir le nombre total d'incendies avec une réelle précision. Cette prévisibilité permet à l'assureur de collecter auprès de chacun une prime modeste et calculable, et d'utiliser le fonds mutualisé pour indemniser intégralement les rares malchanceux qui subissent un sinistre. Individuellement, souscrire une assurance est presque toujours un pari perdant en termes de pure espérance de gain — l'assureur intègre ses propres coûts et sa marge — mais c'est précisément le but : vous payez pour éliminer une faible probabilité d'une perte que vous ne pourriez pas assumer, pas pour gagner de l'argent.",
+      "C'est pourquoi la bonne règle en matière d'assurance personnelle est « assurez les pertes que vous ne pouvez pas absorber, auto-assurez celles que vous pouvez ». Un écran de téléphone brisé est agaçant mais surmontable sans assurance ; un incendie de maison, une maladie grave ou un procès après un accident de voiture peuvent être financièrement ruineux. Les franchises existent pour la même raison, côté assureur : faire absorber au souscripteur la première tranche, faible et prévisible, de toute perte supprime le coût administratif du traitement des petits sinistres et maintient des primes plus basses pour tout le monde."
+    ],
+    "keyPoints": [
+      "Les primes sont tarifées au-dessus de la perte attendue « équitable » car les assureurs doivent couvrir la gestion des sinistres, le coût du capital et leur marge — l'assurance est délibérément à espérance de gain négative pour l'acheteur.",
+      "Antisélection : les personnes qui se savent plus à risque sont plus enclines à souscrire une couverture, ce qui pousse les assureurs vers des examens médicaux, des relevés de conduite et d'autres vérifications de souscription.",
+      "Aléa moral : être assuré peut en soi modifier le comportement (conduire moins prudemment, retarder l'entretien), c'est pourquoi les franchises et la coassurance laissent une part du risque au souscripteur.",
+      "Le bon niveau d'assurance dépend de ce que vous ne pouvez pas vous permettre de perdre, pas de ce qui fait peur — l'assurance existe pour les risques catastrophiques et peu probables."
+    ],
+    "formula": {
+      "expression": "Prime ≈ (Probabilité de sinistre × Sévérité moyenne du sinistre) × (1 + Coefficient de chargement)",
+      "legend": "Probabilité × sévérité = la prime « pure » ou actuariellement équitable · Coefficient de chargement = majoration pour les frais de gestion, le coût du capital et la marge",
+      "note": "La prime pure correspond à ce que l'assureur s'attend à verser en moyenne ; le chargement explique pourquoi souscrire une assurance n'est pas, et n'est pas censé être, à espérance de gain positive pour l'acheteur."
+    },
+    "example": {
+      "scenario": "Un assureur habitation estime une probabilité annuelle de sinistre de 2%, avec une sévérité moyenne de 150 000 €, et applique un coefficient de chargement de 50%.",
+      "steps": [
+        "Estimer les paramètres : probabilité de sinistre = 2% par an, sévérité moyenne = 150 000 €.",
+        "Prime pure (actuariellement équitable) = 0,02 × 150 000 = 3 000 €/an.",
+        "Appliquer le chargement pour la gestion des sinistres, le marketing, les réserves de capital et la marge : 3 000 € × 1,50 = 4 500 €/an facturés au souscripteur.",
+        "Du point de vue de l'acheteur : payer 4 500 € pour couvrir un risque dont le coût attendu n'est que de 3 000 € ressemble à une « perte » moyenne de 1 500 €/an — mais l'alternative est une probabilité de 2% de subir une perte inabordable de 150 000 € sans aucun coussin."
+      ],
+      "result": "L'écart de 1 500 € entre la prime équitable et le prix facturé est le coût du transfert hors de votre propre bilan d'un risque catastrophique et peu probable — une mauvaise affaire en espérance, et une bonne affaire en pratique."
+    },
+    "deepDive": [
+      "L'antisélection et l'aléa moral sont les deux forces contre lesquelles les assureurs luttent le plus, et ce sont toutes deux des problèmes d'information. L'antisélection survient avant la souscription : les personnes les plus enclines à souscrire une assurance-vie ou santé sont de manière disproportionnée celles qui se savent, en privé, plus à risque, ce qui fausserait la tarification de l'assureur si rien n'était fait — d'où les examens médicaux, les relevés de conduite et les déclarations de statut fumeur. L'aléa moral survient après la souscription : une fois la perte couverte, l'assuré a moins intérêt à la prévenir (laisser une voiture non verrouillée, négliger l'entretien), c'est pourquoi les assureurs font porter une partie du risque au souscripteur via les franchises, les pourcentages de coassurance et les bonus de non-sinistre plutôt que de couvrir chaque euro de chaque perte.",
+      "Un point plus subtil est que l'assurance et l'épargne de précaution remplissent, au fond, la même fonction — absorber un choc sans dérailler ses finances — mais elles couvrent des plages de sévérité différentes. L'épargne de précaution est le bon outil pour les perturbations fréquentes, modérées et globalement prévisibles en agrégat (une perte d'emploi, une réparation automobile, un appareil ménager en panne) ; l'assurance est le bon outil pour les événements rares mais potentiellement ruineux (un incendie de maison, un procès en responsabilité civile, une maladie grave). Souscrire une assurance pour de petits coûts prévisibles — les garanties étendues sur des appareils bon marché en sont l'exemple classique — inverse cette logique : vous payez des frais de chargement récurrents pour assurer une perte qu'une épargne de précaution modeste pourrait absorber directement, ce qui explique pourquoi cette catégorie d'assurance est systématiquement rentable pour le vendeur et systématiquement peu avantageuse pour l'acheteur."
+    ],
+    "glossary": [
+      {
+        "term": "Franchise",
+        "def": "Le montant que le souscripteur paie de sa poche avant que l'assureur ne prenne en charge le reste d'un sinistre."
+      },
+      {
+        "term": "Souscription",
+        "def": "Le processus par lequel l'assureur évalue le risque d'un candidat pour décider de le couvrir ou non, et à quel prix."
+      },
+      {
+        "term": "Prime",
+        "def": "Le montant que le souscripteur verse, généralement à intervalles réguliers, pour maintenir un contrat d'assurance actif."
+      }
+    ]
+  },
+  "monetary-policy": {
+    "title": "Politique monétaire",
+    "hook": "Une poignée de membres d'un comité déplace un seul chiffre — le taux d'intérêt — et cela se répercute sur chaque crédit immobilier, chaque prêt aux entreprises et chaque valorisation boursière de l'économie.",
+    "tldr": "La politique monétaire est l'utilisation par une banque centrale des taux d'intérêt et de la masse monétaire pour maintenir l'inflation basse et l'économie stable.",
+    "definition": [
+      "La politique monétaire est la manière dont une banque centrale (la Réserve fédérale, la BCE, la Banque d'Angleterre) gère l'économie en contrôlant le prix et la quantité de monnaie. Le principal levier est le taux d'intérêt directeur à court terme : le relever rend l'emprunt plus coûteux, ce qui ralentit les dépenses et l'investissement et refroidit l'inflation ; le baisser rend l'emprunt moins cher, ce qui relance les dépenses et l'investissement et soutient la croissance et l'emploi. La plupart des banques centrales visent un taux d'inflation précis (généralement autour de 2 %) et ajustent leurs taux pour y ramener l'économie.",
+      "Lorsque les taux seuls ne suffisent plus — c'est ce qui s'est le plus nettement produit lors de la crise financière de 2008 et de la pandémie de 2020, alors que les taux directeurs étaient déjà proches de zéro — les banques centrales recourent à des outils non conventionnels comme l'assouplissement quantitatif (quantitative easing, QE) : l'achat massif d'obligations pour injecter directement de l'argent dans le système financier et faire baisser les coûts d'emprunt à long terme. La politique monétaire agit avec un décalage de plusieurs mois, ce qui la rend difficile à mener : une banque centrale doit agir en fonction de prévisions sur l'évolution future de l'inflation et de la croissance, et non seulement sur leur niveau actuel, et elle peut se tromper lourdement sur ce calendrier, dans un sens comme dans l'autre."
+    ],
+    "keyPoints": [
+      "Le principal outil est le taux d'intérêt directeur à court terme : le relever pour refroidir l'inflation, le baisser pour soutenir la croissance.",
+      "La plupart des banques centrales visent une inflation d'environ 2 % et calibrent leur politique en conséquence.",
+      "L'assouplissement quantitatif (achats massifs d'obligations) est l'outil de secours lorsque les taux atteignent zéro.",
+      "La politique agit avec un long décalage (souvent 12 à 18 mois), ce qui oblige les banques centrales à agir sur la base de prévisions, pas seulement des données actuelles."
+    ],
+    "formula": {
+      "expression": "Taux d'intérêt réel ≈ Taux d'intérêt nominal − Taux d'inflation",
+      "legend": "Taux nominal = le taux affiché · Taux d'inflation = rythme de hausse des prix · Taux réel = rendement en pouvoir d'achat effectif",
+      "note": "Ce qui freine ou stimule réellement l'économie, c'est le taux réel, pas le taux nominal — un taux de 5 % avec une inflation à 6 % reste stimulant."
+    },
+    "example": {
+      "scenario": "L'inflation atteint 6 %, bien au-delà de l'objectif de 2 %. La banque centrale relève son taux directeur de 2 % à 5,5 % sur un an. Que se passe-t-il ?",
+      "steps": [
+        "Taux réel avant : 2 % nominal − 6 % d'inflation = −4 % (fortement négatif — emprunter revient presque à ne rien payer, ce qui alimente encore les dépenses).",
+        "Taux réel après : 5,5 % nominal − 6 % d'inflation (initialement) = −0,5 %, toujours légèrement négatif mais beaucoup plus restrictif.",
+        "Les crédits immobiliers, les prêts automobiles et les crédits aux entreprises se renchérissent tous, si bien que ménages et entreprises empruntent et dépensent moins.",
+        "Au cours de l'année suivante, cette demande plus faible se traduit par un ralentissement des hausses de prix, et l'inflation recommence à se rapprocher de l'objectif."
+      ],
+      "result": "La hausse du taux de 2 % à 5,5 % transforme un taux réel fortement négatif en un taux quasi neutre, refroidissant suffisamment la demande pour faire reculer l'inflation — au prix de crédits immobiliers plus chers et, souvent, d'une croissance plus lente ou de pertes d'emplois en chemin."
+    },
+    "deepDive": [
+      "La politique monétaire est un instrument peu précis visant un problème particulier : elle peut ralentir une économie en surchauffe ou soutenir une économie affaiblie, mais elle ne peut pas résoudre une pénurie de main-d'œuvre, une rupture de chaîne d'approvisionnement ou une flambée des prix de l'énergie liée à une guerre — ces « chocs d'offre » qui provoquent eux aussi de l'inflation. Relever les taux face à une inflation d'offre refroidit tout de même la demande, mais en rendant les crédits immobiliers et les prêts aux entreprises douloureusement chers sans agir sur le véritable goulot d'étranglement — c'est pourquoi l'outil qui arrête une inflation de demande peut, s'il est mal utilisé, faire basculer une inflation d'offre dans une récession inutile. Les banquiers centraux marchent constamment sur ce fil, et des économistes raisonnables peuvent, en temps réel, ne pas s'accorder sur le type d'inflation auquel ils font face.",
+      "L'autre tension profonde oppose crédibilité et marge de manœuvre discrétionnaire. Une banque centrale qui change de cap de façon imprévisible apprend aux marchés et aux travailleurs à se méfier de son objectif d'inflation, ce qui rend cet objectif contre-productif — si les gens s'attendent à une inflation de 6 %, ils réclament des hausses de salaire de 6 % et fixent des prix en conséquence, et l'inflation devient auto-réalisatrice indépendamment de ce que montrent les données. C'est pourquoi les banques centrales consacrent tant d'efforts à la communication (guidage prospectif, conférences de presse) et pourquoi leur indépendance vis-à-vis des pressions politiques de court terme est considérée comme sacrée : un gouvernement à l'approche d'une élection a tout intérêt à réclamer des taux bas quelle que soit l'inflation, et une banque centrale qui céderait à cette pression perdrait la crédibilité qui permet précisément d'obtenir une inflation faible à moindre coût économique."
+    ],
+    "glossary": [
+      {
+        "term": "Taux directeur",
+        "def": "Le taux d'intérêt à court terme fixé par une banque centrale, qui sert de référence aux coûts d'emprunt dans toute l'économie."
+      },
+      {
+        "term": "Assouplissement quantitatif (QE)",
+        "def": "Achats massifs d'obligations par une banque centrale, utilisés pour faire baisser les taux à long terme lorsque le taux directeur est proche de zéro."
+      },
+      {
+        "term": "Guidage prospectif",
+        "def": "La communication publique d'une banque centrale sur la trajectoire future de ses taux, destinée à orienter les anticipations avant même qu'elle n'agisse."
+      }
+    ]
+  },
+  "fiscal-policy": {
+    "title": "Politique budgétaire",
+    "hook": "Pendant que les banques centrales déplacent les taux d'intérêt, les gouvernements manient quelque chose de plus vaste — le montant de leurs impôts et de leurs dépenses — et cela seul peut faire ou défaire une économie.",
+    "tldr": "La politique budgétaire est l'utilisation par un gouvernement de la fiscalité et des dépenses publiques pour influencer la croissance économique, l'emploi et la demande.",
+    "definition": [
+      "La politique budgétaire est le volet gouvernemental du pilotage de l'économie, distinct de la politique monétaire menée par la banque centrale. Les gouvernements peuvent mener une politique budgétaire expansionniste — en réduisant les impôts ou en augmentant les dépenses (infrastructures, aides sociales, versements directs) — pour soutenir la demande en période de ralentissement, ou une politique budgétaire restrictive — en augmentant les impôts ou en réduisant les dépenses — pour refroidir une économie en surchauffe ou contenir la dette. Contrairement à la politique monétaire, généralement fixée par une banque centrale indépendante, la politique budgétaire est décidée par des gouvernements et des parlements élus, ce qui la rend plus lente à mettre en œuvre mais aussi plus directement ciblée (une baisse d'impôt précise ou un programme de dépenses spécifique peut viser un groupe ou un secteur donné).",
+      "Le solde budgétaire — les recettes moins les dépenses — est le tableau de bord permanent de la politique budgétaire. Un déficit (dépenser plus que ce que l'on perçoit) est normal et souvent utile en période de ralentissement, lorsque le gouvernement est le seul acteur encore disposé à dépenser alors que ménages et entreprises se replient ; mais des déficits importants et persistants s'accumulent en dette publique, et le service de cette dette (le paiement des intérêts) finit par entrer en concurrence avec d'autres priorités budgétaires. La question budgétaire centrale, chaque année, n'est pas « déficit ou excédent » dans l'abstrait, mais si le déficit actuel est de la bonne taille compte tenu de l'état actuel de l'économie."
+    ],
+    "keyPoints": [
+      "Les leviers sont la fiscalité et les dépenses publiques, décidées par les gouvernements et les parlements, et non par les banques centrales.",
+      "Une politique expansionniste (baisses d'impôts, hausse des dépenses) soutient la demande ; une politique restrictive (hausses d'impôts, baisse des dépenses) la refroidit.",
+      "Solde budgétaire = recettes − dépenses ; un déficit accroît le stock de dette publique.",
+      "La politique budgétaire est plus lente à mettre en œuvre que la politique monétaire, mais elle peut cibler directement des groupes, des secteurs ou des régions précis."
+    ],
+    "formula": {
+      "expression": "Solde budgétaire = Recettes de l'État − Dépenses de l'État",
+      "legend": "Positif = excédent · Négatif = déficit · Déficits cumulés = dette publique",
+      "note": "Le ratio dette/PIB est le moyen standard d'évaluer si la dette est soutenable au regard de la taille de l'économie qui doit la rembourser."
+    },
+    "example": {
+      "scenario": "Un gouvernement perçoit 900 Md€ de recettes fiscales et dépense 1 050 Md€ (dont 60 Md€ d'intérêts sur la dette existante). Quelle est la situation budgétaire, et qu'advient-il de la dette ?",
+      "steps": [
+        "Solde budgétaire = 900 − 1 050 = −150 Md€, soit un déficit.",
+        "Ce déficit de 150 Md€ doit être financé par l'émission de nouvelles obligations d'État — donc par l'emprunt.",
+        "Si le PIB s'élève à 3 000 Md€, le déficit de cette seule année représente 5 % du PIB — une orientation nettement expansionniste.",
+        "L'année suivante, la dette publique totale sera plus élevée de 150 Md€, et si les taux restent inchangés, la facture d'intérêts de l'année suivante augmentera aussi, à défaut d'une hausse compensatoire des recettes."
+      ],
+      "result": "Le gouvernement affiche un déficit équivalent à 5 % du PIB, financé par un nouvel emprunt — un soutien à la demande aujourd'hui, mais qui alourdit le stock de dette et la facture d'intérêts de l'année suivante, illustrant l'arbitrage central entre relance immédiate et dette future."
+    },
+    "deepDive": [
+      "La politique budgétaire et la politique monétaire peuvent se renforcer ou se contrecarrer, et lorsqu'elles s'opposent, la politique monétaire l'emporte généralement à court terme dans la lutte contre l'inflation, car une banque centrale peut agir plus vite et plus fortement qu'un parlement. Un gouvernement qui creuse de larges déficits (relance) pendant qu'une banque centrale relève ses taux pour combattre l'inflation tire dans des directions opposées — la dépense budgétaire ajoute de la demande que la banque centrale doit ensuite compenser par des taux encore plus élevés, ce qui explique en grande partie pourquoi les économistes surveillent la combinaison des deux politiques, et non l'une isolément. À l'inverse, un soutien budgétaire bien calibré peut raccourcir une récession que la politique monétaire seule mettrait beaucoup plus de temps à corriger, en particulier lorsque les taux sont déjà proches de zéro et que la banque centrale dispose de peu de marge de baisse supplémentaire.",
+      "L'ampleur du « multiplicateur » budgétaire — la quantité de PIB supplémentaire générée par chaque euro de dépense déficitaire — fait l'objet d'un véritable débat et dépend du contexte. Dépenser en pleine récession, lorsque des capacités inutilisées et des travailleurs sans emploi existent, tend à produire un multiplicateur élevé, car cet argent n'aurait sinon été dépensé par personne. La même dépense dans une économie en plein emploi tend surtout à faire monter les prix ou à évincer l'emprunt privé (une demande de crédit accrue de l'État peut faire grimper les taux d'intérêt pour tous les autres), produisant un multiplicateur faible et davantage d'inflation pour le même déficit. C'est pourquoi « dépenser plus » ou « baisser les impôts » ne sont pas des réponses universelles — l'orientation budgétaire appropriée dépend fortement de l'état dans lequel se trouve déjà l'économie, et se tromper sur ce diagnostic est l'une des erreurs de politique économique les plus fréquentes, dans un sens comme dans l'autre."
+    ],
+    "glossary": [
+      {
+        "term": "Déficit budgétaire",
+        "def": "L'écart constaté lorsque les dépenses publiques dépassent les recettes sur une période donnée, financé par l'emprunt."
+      },
+      {
+        "term": "Dette publique",
+        "def": "Le stock accumulé des déficits passés qu'un gouvernement doit rembourser, généralement mesuré par rapport au PIB."
+      },
+      {
+        "term": "Multiplicateur budgétaire",
+        "def": "La quantité de production économique supplémentaire générée par unité de dépense publique ou de baisse d'impôt."
+      }
+    ]
+  },
+  "exchange-rate": {
+    "title": "Taux de change",
+    "hook": "Le prix de la monnaie d'un pays exprimé dans celle d'un autre — et l'un des rares prix capables de rendre discrètement toute une nation plus riche ou plus pauvre du jour au lendemain.",
+    "tldr": "Un taux de change est le prix d'une monnaie exprimé dans une autre, déterminé principalement par l'offre et la demande relatives, les taux d'intérêt et les flux commerciaux.",
+    "definition": [
+      "Un taux de change exprime la quantité d'une monnaie nécessaire pour en acheter une autre — par exemple, 1 euro = 1,08 dollar américain. Les taux sont pour l'essentiel déterminés sur d'immenses marchés des changes mondiaux négociés en continu, où les principales forces en jeu sont les flux commerciaux (les pays qui exportent plus qu'ils n'importent voient la demande pour leur monnaie augmenter), les écarts de taux d'intérêt (des taux plus élevés attirent des capitaux étrangers en quête de rendement, ce qui accroît la demande pour cette monnaie) et les anticipations relatives d'inflation et de croissance. Une monnaie qui se renforce (« s'apprécie ») rend les importations d'un pays moins chères et ses exportations plus coûteuses à l'étranger ; une monnaie qui s'affaiblit (« se déprécie ») produit l'effet inverse.",
+      "La plupart des grandes monnaies (le dollar, l'euro, le yen, la livre sterling) flottent librement, leur valeur étant fixée par le marché plutôt que par décret gouvernemental. Certains pays préfèrent arrimer leur monnaie à une autre (le plus souvent le dollar américain) à un taux fixe ou géré, sacrifiant ainsi l'indépendance de leur politique monétaire au profit de la stabilité du taux de change — une banque centrale ne peut pas à la fois fixer son taux de change, contrôler librement son propre taux d'intérêt et autoriser la libre circulation des capitaux à travers ses frontières, une contrainte connue sous le nom de « triangle d'incompatibilité ». Choisir lesquels de ces trois objectifs privilégier constitue l'une des décisions fondamentales que prend, explicitement ou non, le cadre monétaire de chaque pays."
+    ],
+    "keyPoints": [
+      "Le taux de change est le prix d'une monnaie exprimé dans une autre ; il est déterminé par les flux commerciaux, les écarts de taux d'intérêt et la croissance/l'inflation relatives.",
+      "Une monnaie plus forte rend les importations moins chères et affaiblit la compétitivité des exportations à l'étranger ; une monnaie plus faible produit l'effet inverse.",
+      "Des taux d'intérêt plus élevés tendent à attirer des capitaux étrangers et à renforcer une monnaie, toutes choses égales par ailleurs.",
+      "Le « triangle d'incompatibilité » : un pays ne peut pas avoir simultanément un taux de change fixe, une libre circulation des capitaux et une politique monétaire indépendante."
+    ],
+    "formula": {
+      "expression": "Taux de change PPA = Prix du panier dans le pays A ÷ Prix du même panier dans le pays B",
+      "legend": "PPA = parité de pouvoir d'achat · « Panier » = un ensemble identique de biens dont le prix est relevé dans les deux pays",
+      "note": "L'indice Big Mac est une célèbre vérification informelle de la PPA : si un Big Mac coûte 5 $ aux États-Unis et 60 pesos ailleurs, la PPA implique un taux de 12 pesos par dollar — tout écart par rapport à ce taux laisse penser qu'une monnaie est sur- ou sous-évaluée."
+    },
+    "example": {
+      "scenario": "L'euro s'échange à 1,08 dollar. La BCE relève ensuite ses taux nettement au-dessus de ceux de la Fed, tandis que l'inflation américaine ralentit plus vite que celle de la zone euro. Que va-t-il probablement arriver à l'euro ?",
+      "steps": [
+        "Des taux plus élevés dans la zone euro rendent les obligations libellées en euros plus attractives pour les investisseurs mondiaux en quête de rendement.",
+        "Les investisseurs vendent des dollars pour acheter des euros afin de détenir ces actifs en euros mieux rémunérés, ce qui accroît la demande d'euros.",
+        "Le ralentissement plus rapide de l'inflation américaine rend aussi le rendement réel (corrigé de l'inflation) du dollar relativement moins attractif.",
+        "L'euro s'apprécie — passant par exemple de 1,08 à 1,15 dollar — ce qui renchérit les exportations européennes pour les acheteurs américains et rend les importations américaines moins chères pour les Européens."
+      ],
+      "result": "L'écart de taux et l'écart d'inflation font passer l'euro de 1,08 à 1,15 dollar, soit une appréciation d'environ 6,5 % — une bonne nouvelle pour les consommateurs européens qui achètent des produits importés, mais un frein pour les exportateurs européens qui se font concurrence sur les prix."
+    },
+    "deepDive": [
+      "Une monnaie faible n'est pas simplement « mauvaise », ni une monnaie forte simplement « bonne » — elle redistribue gagnants et perdants au sein d'une même économie. Une monnaie plus faible profite aux exportateurs et aux producteurs nationaux en concurrence avec les importations (leurs produits paraissent moins chers aux acheteurs étrangers, et les importations paraissent plus chères aux acheteurs nationaux, qui se tournent alors vers des alternatives locales), mais elle pénalise les consommateurs achetant des produits importés ainsi que les entreprises endettées en devises étrangères, dont les remboursements coûtent soudain plus cher en monnaie locale. C'est précisément le piège dans lequel sont tombés à répétition des gouvernements et des entreprises de marchés émergents : emprunter en dollars parce que les taux y sont plus bas, puis voir la monnaie locale se déprécier et le fardeau de la dette gonfler en termes de monnaie locale, alors même que le montant dû en dollars n'a pas changé.",
+      "Les taux de change sont aussi l'un des domaines où l'écart entre la valorisation de marché à court terme et la réalité économique de long terme est le plus manifeste. La théorie de la parité de pouvoir d'achat suggère que les taux de change devraient converger vers le niveau qui égalise le prix de biens identiques d'un pays à l'autre, mais en pratique les taux peuvent s'écarter durablement de cette valeur d'équilibre pendant des années, sous l'effet des flux de capitaux, de la spéculation sur les taux d'intérêt, de la demande de valeurs refuges et des interventions des banques centrales — des écarts qui finissent par peser sur la compétitivité commerciale, mais qui peuvent persister bien plus longtemps que ce « finissent par » n'est utile à quiconque cherche à planifier en fonction d'eux. C'est pourquoi les prévisions de taux de change sont notoirement peu fiables, même parmi les professionnels : la théorie indique où une monnaie devrait finir par se situer, mais elle en dit très peu sur le chemin ou le calendrier pour y parvenir."
+    ],
+    "glossary": [
+      {
+        "term": "Appréciation / dépréciation",
+        "def": "Le renforcement ou l'affaiblissement de la valeur d'une monnaie par rapport à une autre."
+      },
+      {
+        "term": "Parité de pouvoir d'achat (PPA)",
+        "def": "La théorie selon laquelle les taux de change devraient s'ajuster de manière à ce que des biens identiques coûtent le même prix dans tous les pays."
+      },
+      {
+        "term": "Triangle d'incompatibilité",
+        "def": "La contrainte selon laquelle un pays ne peut pas avoir simultanément un taux de change fixe, une libre circulation des capitaux et une politique monétaire indépendante."
+      }
+    ]
+  },
+  "capital-structure": {
+    "title": "Structure du capital",
+    "hook": "Le mélange de dette et de capitaux propres qu'une entreprise choisit est un pari sur sa propre survie — se tromper peut tuer même une bonne activité par le simple poids de son financement.",
+    "tldr": "La structure du capital, c'est la manière dont une entreprise se finance — le mélange de dette et de capitaux propres — et ce mélange détermine à la fois son potentiel de rendement et son risque de faillite.",
+    "definition": [
+      "Toute entreprise est financée par une combinaison de dette (emprunts, obligations — de l'argent qui doit être remboursé avec intérêts, quelle que soit la marche des affaires) et de capitaux propres (l'apport des actionnaires, sans remboursement fixe mais avec une part des profits et du contrôle). La structure du capital n'est rien d'autre que ce mélange, généralement exprimé sous forme de ratio dette/capitaux propres ou de pourcentage dette/capital total. Une entreprise financée entièrement par capitaux propres est prudente et flexible, mais laisse peut-être de la valeur sur la table ; une entreprise fortement endettée démultiplie les rendements pour les actionnaires, mais doit assurer le service de cette dette aussi bien dans les bonnes années que dans les mauvaises.",
+      "Ce choix n'est pas qu'une question d'ingénierie financière — il détermine qui supporte le risque et qui a un droit sur l'avenir de l'entreprise. Les créanciers sont payés en premier et perçoivent un rendement fixe ; les actionnaires reçoivent ce qui reste, ce qui peut être considérable (à la hausse) ou nul (en cas de faillite). Comme les intérêts sont déductibles fiscalement dans la plupart des juridictions alors que les dividendes ne le sont pas, la dette bénéficie d'un avantage de coût intégré — le « bouclier fiscal » — ce qui explique pourquoi presque aucune entreprise saine ne se finance à 100% par capitaux propres. Tout l'art consiste à trouver le mélange qui capte cet avantage sans flirter avec l'insolvabilité."
+    ],
+    "keyPoints": [
+      "Structure du capital = le mélange de dette et de capitaux propres finançant une entreprise, généralement mesuré en ratio dette/capitaux propres ou dette/capital.",
+      "La dette est moins chère (intérêts déductibles, coût fixe) mais doit être remboursée quelle que soit la performance ; les capitaux propres sont plus coûteux mais plus flexibles.",
+      "La structure « optimale » équilibre l'avantage fiscal de la dette avec le coût croissant des difficultés financières à mesure que l'endettement augmente.",
+      "Les secteurs à flux de trésorerie stables et prévisibles (services publics, télécoms) peuvent supporter sans risque bien plus de dette que les activités cycliques ou fortement axées sur la R&D."
+    ],
+    "formula": {
+      "expression": "Ratio dette/capitaux propres = Dette totale ÷ Capitaux propres totaux",
+      "legend": "Dette totale = engagements portant intérêt à court et long terme · Capitaux propres = valeur comptable de l'apport des actionnaires",
+      "note": "Un ratio de 1,0 signifie que l'entreprise est financée à parts égales par dette et capitaux propres ; des ratios plus élevés signifient plus de levier et plus d'engagements fixes par rapport au coussin qui absorbe les pertes."
+    },
+    "example": {
+      "scenario": "Deux entreprises identiques génèrent chacune 100 M€ de résultat d'exploitation sur 1 Md€ d'actifs. L'entreprise A est financée par 800 M€ de capitaux propres / 200 M€ de dette (taux 5%). L'entreprise B est financée par 300 M€ de capitaux propres / 700 M€ de dette (taux 5%). Comparer le rendement des capitaux propres (ROE).",
+      "steps": [
+        "Entreprise A : intérêts = 5% × 200 M€ = 10 M€. Résultat net = 100 M€ − 10 M€ = 90 M€. ROE = 90 ÷ 800 = 11,3%.",
+        "Entreprise B : intérêts = 5% × 700 M€ = 35 M€. Résultat net = 100 M€ − 35 M€ = 65 M€. ROE = 65 ÷ 300 = 21,7%.",
+        "Les actionnaires de l'entreprise B gagnent presque le double de rendement sur leur capital, pour une activité sous-jacente identique.",
+        "Supposons maintenant que le résultat d'exploitation chute à 20 M€ en cas de récession : le résultat net de A = 10 M€ (ROE 1,25%, toujours positif) ; celui de B = 20 M€ − 35 M€ = −15 M€ (ROE −5%, une perte, et B pourrait avoir du mal à simplement payer ses intérêts)."
+      ],
+      "result": "La même activité d'exploitation produit un rendement bien plus élevé pour les actionnaires de l'entreprise B en période faste — et une véritable perte, avec un risque de service de la dette, en période difficile. La structure du capital ne change pas l'activité ; elle redistribue son risque et sa récompense entre créanciers et propriétaires."
+    },
+    "deepDive": [
+      "Le point de départ académique classique (Modigliani-Miller) affirme que dans un monde sans friction, sans impôts ni coûts de faillite, la structure du capital n'aurait aucune importance — la valeur d'une entreprise serait la même quel que soit le mélange dette/capitaux propres, car les investisseurs pourraient répliquer eux-mêmes n'importe quel levier. Le théorème est célèbre précisément parce que la réalité viole ses hypothèses de manière significative : les impôts rendent la dette moins chère (le bouclier fiscal des intérêts), et la faillite est coûteuse et perturbatrice, loin d'être un événement propre et sans friction. En pratique, la structure du capital compte donc énormément — la « théorie de l'arbitrage » (trade-off theory) affirme que les entreprises devraient s'endetter jusqu'à ce que l'avantage fiscal marginal d'un euro de dette supplémentaire égale le coût marginal attendu des difficultés financières qu'il engendre.",
+      "Dans le monde réel, les décisions de structure du capital sont aussi façonnées par des considérations de signal et de contrôle, pas seulement par le calcul fiscal. Émettre de nouvelles actions signale souvent au marché que la direction estime le titre surévalué (pourquoi vendre des actions plutôt qu'emprunter, sinon ?), ce qui explique pourquoi les cours chutent fréquemment à l'annonce d'une émission de capital — un phénomène que la « théorie du financement hiérarchique » (pecking order theory) explique en prédisant que les entreprises préfèrent l'autofinancement, puis la dette, puis les capitaux propres en dernier recours. La dette discipline aussi la direction : des paiements d'intérêts fixes ne peuvent pas être sautés comme peut l'être un dividende discrétionnaire, ce qui force une allocation du capital plus rigoureuse — mais cette même rigidité est ce qui transforme une baisse temporaire de trésorerie en violation de covenant ou en défaut. La structure de capital adéquate est donc spécifique à chaque secteur et à chaque cycle : un monopole stable dans les services publics peut porter sans risque plus de 60% de dette, tandis qu'une biotech qui brûle du cash avant tout revenu serait imprudente avec le moindre levier significatif."
+    ],
+    "glossary": [
+      {
+        "term": "Bouclier fiscal",
+        "def": "La réduction du revenu imposable créée par la déduction des charges d'intérêts, qui abaisse le coût effectif de la dette."
+      },
+      {
+        "term": "Coût des difficultés financières",
+        "def": "Les coûts directs et indirects (frais juridiques, perte de clients, direction distraite) qui apparaissent lorsque le risque de défaut augmente."
+      },
+      {
+        "term": "Covenant",
+        "def": "Une condition d'un contrat de prêt (par exemple un ratio dette/EBITDA maximal) qui, si elle est enfreinte, peut déclencher un défaut même sans impayé."
+      }
+    ]
+  },
+  "mergers-acquisitions": {
+    "title": "Fusions-acquisitions",
+    "hook": "Deux entreprises n'en deviennent qu'une sur la promesse que l'ensemble vaudra plus que la somme des parties — une promesse qui échoue plus souvent qu'elle ne se réalise.",
+    "tldr": "Les fusions-acquisitions (M&A) désignent des entreprises qui se combinent, par fusion (union entre égaux) ou par acquisition (l'une rachète l'autre), généralement pour créer une valeur que les deux entreprises n'auraient pu créer seules.",
+    "definition": [
+      "Une fusion combine deux entreprises en une seule, généralement présentée comme une union entre égaux ; une acquisition consiste pour une entreprise (l'acquéreur) à racheter et absorber une autre (la cible) — c'est le cas le plus fréquent en pratique. L'acquéreur paie en numéraire, en actions, ou par une combinaison des deux, souvent avec une « prime de contrôle » — un surplus par rapport au cours actuel de l'action de la cible — pour convaincre les actionnaires de vendre et compenser la perte de contrôle indépendant. Tout le raisonnement économique repose sur l'idée que l'opération crée davantage de valeur ensemble que ce que les deux entreprises valaient séparément.",
+      "Cette valeur supplémentaire s'appelle la synergie, et elle se décline en deux catégories : les synergies de coûts (élimination des fonctions redondantes — un seul service RH au lieu de deux, pouvoir d'achat combiné, fermeture d'usines superflues) et les synergies de revenus (ventes croisées de produits, distribution combinée, nouveaux marchés). Les synergies de coûts sont relativement prévisibles et se matérialisent souvent ; les synergies de revenus sont notoirement trop optimistes dans les présentations de transactions et déçoivent fréquemment, car les clients, les équipes commerciales et les feuilles de route produit ne fusionnent pas aussi facilement que les organigrammes."
+    ],
+    "keyPoints": [
+      "Les acquisitions (une entreprise en rachetant une autre) sont bien plus courantes en pratique que les véritables fusions entre égaux.",
+      "Les acquéreurs paient généralement une prime de contrôle au-dessus du cours de l'action de la cible avant l'opération.",
+      "La valeur de l'opération dépend des synergies — les synergies de coûts sont plus fiables que les synergies de revenus.",
+      "La plupart des études montrent qu'une majorité d'acquisitions détruisent de la valeur pour les actionnaires de l'acquéreur, même lorsqu'elles profitent à ceux de la cible."
+    ],
+    "formula": {
+      "expression": "Valeur de synergie = Valeur de l'entité combinée − (Valeur autonome de l'acquéreur + Valeur autonome de la cible)",
+      "legend": "Valeur combinée = la valeur de l'entité fusionnée après intégration · Valeurs autonomes = ce que chaque entreprise valait indépendamment",
+      "note": "Pour que l'opération crée de la valeur pour l'acquéreur, la valeur de synergie doit dépasser la prime de contrôle payée — un seuil que de nombreuses opérations ne franchissent pas."
+    },
+    "example": {
+      "scenario": "Un Acquéreur (valant 2 Md€ en autonome) rachète une Cible (valant 500 M€ en autonome, cotant à ce niveau) pour 650 M€ — soit une prime de contrôle de 150 M€ (30%). La direction projette 80 M€/an de synergies de coûts dès le premier jour, valorisées avec un multiple simple de 5x en guise d'approximation de rente perpétuelle. Le prix était-il justifié ?",
+      "steps": [
+        "Valeur combinée autonome sans synergies = 2 Md€ + 500 M€ = 2,5 Md€.",
+        "Valeur de synergie projetée ≈ 80 M€ × 5 = 400 M€ (le multiple servant d'approximation grossière à une rente perpétuelle actualisée).",
+        "Valeur combinée totale avec synergies ≈ 2,5 Md€ + 400 M€ = 2,9 Md€.",
+        "Prix payé pour la Cible = 650 M€ (contre 500 M€ en autonome) → prime payée = 150 M€, largement inférieure aux 400 M€ de valeur de synergie — si les synergies se matérialisent pleinement, l'opération crée environ 250 M€ de valeur nette pour l'acquéreur."
+      ],
+      "result": "L'opération n'a de sens que si la majeure partie de ces 400 M€ de synergies projetées se concrétise réellement ; si seule la moitié se matérialise (200 M€), l'acquéreur atteint tout juste le seuil de rentabilité sur la prime payée — c'est exactement ce risque qui fait de l'exécution de l'opération, et non de la négociation du prix, le véritable déterminant du succès."
+    },
+    "deepDive": [
+      "La statistique dérangeante de la recherche en fusions-acquisitions est durable : entre 50 et 70% des acquisitions ne parviennent pas à créer de valeur pour les actionnaires de l'acquéreur, et les actionnaires de la cible captent l'essentiel, voire la totalité, des gains annoncés par la seule prime. Cela s'explique par des raisons structurelles, pas seulement par la malchance : les acquéreurs surpaient régulièrement dans les enchères concurrentielles (la « malédiction du gagnant » — l'enchérisseur gagnant est, presque par définition, celui qui était le plus optimiste), les équipes dirigeantes ont des incitations de carrière et d'ego à croître par les opérations, indépendamment de toute discipline sur le prix, et les synergies de revenus mises en avant devant le conseil d'administration survivent rarement au contact des clients et des équipes commerciales réels, qui n'ont pas demandé à être fusionnés.",
+      "Les opérations qui fonctionnent partagent un schéma commun : une valorisation disciplinée (se retirer lorsque le prix dépasse la valeur de synergie réaliste, plutôt qu'une psychologie du « il faut gagner à tout prix »), un plan d'intégration clair établi avant la signature plutôt qu'après, et des synergies majoritairement fondées sur les coûts, donc sous le contrôle direct de la direction plutôt que dépendantes du comportement des clients. Le mode de paiement est lui aussi un signal important : les acquéreurs ont tendance à proposer des actions lorsqu'ils estiment que leur propre titre est surévalué, et du numéraire lorsqu'ils estiment que la cible est une véritable bonne affaire — ce qui explique pourquoi les marchés réagissent souvent avec plus de scepticisme aux opérations financées par actions. En définitive, les fusions-acquisitions sont l'une des rares décisions d'entreprise où le cours de l'action de l'acheteur le jour de l'annonce constitue un référendum immédiat et assez honnête sur la crédibilité que le marché accorde à l'histoire racontée — et plus souvent que ne le suggèrent les présentations des banquiers d'affaires, le marché répond non."
+    ],
+    "glossary": [
+      {
+        "term": "Prime de contrôle",
+        "def": "Le montant supplémentaire payé au-dessus de la valeur de marché autonome d'une cible pour en acquérir le contrôle."
+      },
+      {
+        "term": "Synergie",
+        "def": "La valeur additionnelle créée par la combinaison de deux entreprises, au-delà de ce que chacune valait séparément."
+      },
+      {
+        "term": "Malédiction du gagnant",
+        "def": "La tendance de l'enchérisseur gagnant lors d'une vente concurrentielle à avoir surpayé, car remporter l'enchère suppose d'être le participant le plus optimiste."
+      }
+    ]
+  },
+  "cost-of-capital": {
+    "title": "Coût du capital",
+    "hook": "Le rendement minimum qu'une entreprise doit dégager simplement pour justifier son existence — ne pas l'atteindre revient à détruire de la valeur, même en réalisant un profit.",
+    "tldr": "Le coût du capital est le rendement moyen pondéré qu'une entreprise doit verser à ses créanciers et à ses actionnaires — le taux plancher que tout investissement doit franchir pour créer de la valeur.",
+    "definition": [
+      "Le coût du capital est le rendement moyen pondéré qu'une entreprise doit générer sur ses investissements pour satisfaire à la fois ses créanciers (qui exigent des intérêts) et ses actionnaires (qui exigent un rendement à la mesure du risque de détenir des capitaux propres, puisqu'ils n'ont aucun paiement garanti). Il est généralement calculé sous forme de Coût Moyen Pondéré du Capital (CMPC, ou WACC en anglais), combinant le coût de la dette après impôt et le coût des capitaux propres, pondérés selon la manière dont l'entreprise est réellement financée. Le CMPC est le taux d'actualisation utilisé pour valoriser les flux de trésorerie futurs, ainsi que le taux plancher qu'un projet doit franchir pour valoir la peine d'être entrepris.",
+      "Le coût des capitaux propres est plus difficile à observer que le coût de la dette, car les actionnaires ne signent jamais de contrat précisant le rendement qu'ils exigent — il doit être estimé, généralement via le Modèle d'Évaluation des Actifs Financiers (MEDAF, ou CAPM en anglais), à partir du taux sans risque additionné d'une prime liée à la volatilité de l'action par rapport au marché. Le coût du capital n'est donc jamais un chiffre fixe et connu ; c'est une estimation qui évolue avec les taux d'intérêt, l'appétit pour le risque du marché, et le levier ainsi que le risque d'exploitation propres à l'entreprise — mais obtenir une estimation à peu près juste est l'un des jugements les plus lourds de conséquences en finance d'entreprise, car il détermine quels investissements paraissent attractifs et lesquels ne le sont pas."
+    ],
+    "keyPoints": [
+      "Le CMPC combine le coût de la dette après impôt et le coût des capitaux propres, pondérés selon le financement réel de l'entreprise.",
+      "Il sert à la fois de taux d'actualisation pour la valorisation et de taux plancher minimum pour les nouveaux investissements.",
+      "Le coût des capitaux propres (via le MEDAF) est une estimation, pas un chiffre observable, et il est toujours supérieur au coût de la dette car les capitaux propres supportent davantage de risque.",
+      "Un projet dont le rendement dépasse le CMPC crée de la valeur ; un projet dont le rendement est inférieur en détruit, même s'il est « rentable » au sens comptable."
+    ],
+    "formula": {
+      "expression": "CMPC = (E/V) × Re + (D/V) × Rd × (1 − Tc)",
+      "legend": "E = valeur de marché des capitaux propres · D = valeur de marché de la dette · V = E + D · Re = coût des capitaux propres · Rd = coût de la dette · Tc = taux d'imposition des sociétés",
+      "note": "Le terme (1 − Tc) reflète le bouclier fiscal : la dette après impôt est moins chère que son taux d'intérêt affiché, ce qui explique pourquoi la dette réduit généralement le CMPC — jusqu'au point où le risque accru de difficultés financières compense cet effet."
+    },
+    "example": {
+      "scenario": "Une entreprise dispose de 600 M€ de capitaux propres (valeur de marché) et de 400 M€ de dette. Le coût des capitaux propres (selon le MEDAF) est de 11%. Le coût de la dette est de 6%. Le taux d'imposition des sociétés est de 25%. Calculer le CMPC et évaluer un projet dont le rendement attendu est de 8%.",
+      "steps": [
+        "V = E + D = 600 + 400 = 1 000 M€. Pondération des capitaux propres = 600/1 000 = 0,6. Pondération de la dette = 400/1 000 = 0,4.",
+        "Coût de la dette après impôt = 6% × (1 − 0,25) = 4,5%.",
+        "CMPC = (0,6 × 11%) + (0,4 × 4,5%) = 6,6% + 1,8% = 8,4%.",
+        "Le rendement attendu du projet, 8%, est inférieur au taux plancher du CMPC de 8,4%."
+      ],
+      "result": "Même si le projet dégage un rendement positif de 8%, il reste en deçà des 8,4% que l'entreprise doit générer pour compenser ses créanciers et ses actionnaires du capital et du risque engagés — l'entreprendre détruirait de la valeur plutôt que d'en créer, malgré une apparence « rentable » sur le papier."
+    },
+    "deepDive": [
+      "Le CMPC est une formule trompeusement simple mais périlleuse en pratique, car chaque intrant est une estimation truffée de jugements subjectifs. Le coût des capitaux propres via le MEDAF dépend du bêta (une mesure rétrospective de volatilité qui peut varier selon la fenêtre d'estimation retenue et se montre réellement instable pour les petites capitalisations ou les titres peu liquides), de la prime de risque des actions (un chiffre sur lequel des économistes raisonnables peuvent diverger de plusieurs points de pourcentage), et du taux sans risque (qui évolue lui-même avec la politique monétaire). De petites différences se cumulent : modifier la prime de risque des actions supposée d'à peine 1 point de pourcentage peut faire varier une valorisation de 10 à 20% ou plus, ce qui signifie qu'une même entreprise peut paraître bon marché ou chère selon les seules hypothèses de CMPC retenues par l'analyste — un avertissement à ne jamais traiter un calcul de CMPC comme plus précis qu'il ne l'est réellement.",
+      "Une erreur plus subtile et plus fréquente consiste à utiliser un CMPC unique, à l'échelle de toute l'entreprise, pour évaluer tous ses projets, indépendamment du risque propre à chacun. Une division stable et mature et une nouvelle activité spéculative au sein de la même entreprise n'ont pas le même profil de risque ; actualiser les deux au CMPC moyen de l'entreprise conduit systématiquement à surinvestir dans l'activité risquée (dont le véritable taux plancher devrait être plus élevé) et à sous-investir dans la division sûre (dont le véritable taux plancher devrait être plus bas). Les méthodes sophistiquées de budgétisation des investissements utilisent précisément pour cette raison des taux d'actualisation spécifiques au projet ou à la division. Le coût du capital n'est pas non plus statique : à mesure qu'une entreprise s'endette, son coût des capitaux propres tend lui aussi à augmenter (davantage de risque financier repose sur un coussin de capitaux propres plus réduit), ce qui explique pourquoi le simple ajout de dette bon marché ne fait pas baisser mécaniquement le CMPC indéfiniment — au-delà d'un certain seuil, le risque croissant de difficultés financières et l'exigence de rendement accrue des actionnaires compensent l'avantage fiscal, et le CMPC repart à la hausse."
+    ],
+    "glossary": [
+      {
+        "term": "MEDAF",
+        "def": "Modèle d'Évaluation des Actifs Financiers (CAPM) — estime le rendement exigé des capitaux propres comme le taux sans risque plus le bêta multiplié par la prime de risque des actions."
+      },
+      {
+        "term": "Taux plancher",
+        "def": "Le taux de rendement minimum acceptable qu'un projet ou un investissement doit franchir pour valoir la peine d'être entrepris."
+      },
+      {
+        "term": "Bêta",
+        "def": "Une mesure de la volatilité d'une action par rapport au marché dans son ensemble, utilisée pour estimer la prime de risque exigée par les investisseurs en actions."
+      }
+    ]
+  },
+  "defi": {
+    "title": "DeFi (finance décentralisée)",
+    "hook": "La banque sans banque — prêts, échanges et emprunts entièrement gérés par du code sur une blockchain publique.",
+    "tldr": "La DeFi reconstruit les services financiers — prêts, échanges, assurance — sous forme de smart contracts open-source sur des blockchains publiques, remplaçant banques et courtiers par du code et des garanties.",
+    "definition": [
+      "La finance décentralisée (DeFi) désigne un ensemble d'applications financières construites sur des blockchains publiques, principalement Ethereum, qui reproduisent des services traditionnellement fournis par les banques et les courtiers — prêter, emprunter, échanger, gagner des intérêts — sans qu'une entreprise centrale détienne votre argent ou approuve votre transaction. Ce sont des programmes auto-exécutables appelés smart contracts qui détiennent les fonds dans des pools partagés et appliquent des règles automatiquement : déposer une garantie, emprunter contre celle-ci, échanger un jeton contre un autre, le tout régi par un code que chacun peut inspecter et que personne ne peut modifier unilatéralement. Les utilisateurs interagissent directement depuis leur propre portefeuille, il n'y a donc aucun compte à ouvrir et, en principe, aucun intermédiaire pour dire non.",
+      "Le fonctionnement diffère nettement de la finance traditionnelle. Un pool de prêt DeFi fixe les taux d'intérêt de façon algorithmique en fonction de l'offre et de la demande pour chaque actif, en les ajustant à chaque bloc plutôt qu'à chaque trimestre. Une plateforme d'échange décentralisée n'apparie pas les transactions face à un teneur de marché humain, mais face à un pool de jetons déposés par d'autres utilisateurs (un « pool de liquidité »), qui perçoivent des frais en échange. Comme il n'existe aucun service crédit pour évaluer votre fiabilité, les prêts DeFi sont généralement surcollatéralisés — vous devez déposer plus de valeur que vous n'en empruntez — ce qui évite le recours à un score de crédit, mais plafonne aussi la taille du prêt et exclut quiconque n'a pas de capital à immobiliser au départ."
+    ],
+    "keyPoints": [
+      "Les services financiers (prêt, échange, emprunt) sont exécutés par des smart contracts et non par des banques ou des courtiers.",
+      "Les utilisateurs gardent la garde de leurs fonds dans leur propre portefeuille — pas de compte, mais personne à appeler en cas de problème.",
+      "Les prêts sont surcollatéralisés (déposer plus que ce que l'on emprunte) puisqu'il n'y a pas de vérification de crédit.",
+      "La composabilité permet aux protocoles de s'interconnecter automatiquement — mais signifie aussi qu'une défaillance peut se propager en cascade."
+    ],
+    "example": {
+      "scenario": "Vous voulez générer un rendement sur 10 000 € en stablecoin sans passer par une banque. Vous les déposez dans un protocole de prêt DeFi.",
+      "steps": [
+        "Vous connectez votre portefeuille crypto à l'application du protocole de prêt et déposez 10 000 € de stablecoin dans son pool partagé.",
+        "Le smart contract enregistre votre dépôt et commence à générer des intérêts, fixés algorithmiquement selon la part du pool actuellement empruntée (disons 4 % de rendement annuel quand 80 % du pool est emprunté).",
+        "Un autre utilisateur souhaite emprunter en garantissant ses avoirs en Ethereum : il doit déposer, disons, 15 000 € d'ETH en garantie pour emprunter vos 10 000 € — une surcollatéralisation qui maintient la solvabilité du pool même si le prix de l'ETH baisse quelque peu.",
+        "Si le prix de l'ETH chute trop, le smart contract liquide automatiquement la garantie de l'emprunteur pour rembourser le pool — pas d'appel téléphonique, pas de délai de grâce, juste du code qui applique la règle instantanément."
+      ],
+      "result": "Vous avez généré un rendement sans compte bancaire, sans formulaire KYC, sans comité de crédit — mais vous n'avez non plus aucune assurance des dépôts, aucun médiateur, et aucun recours si le smart contract contient un bug ou si l'actif en garantie s'effondre plus vite que la liquidation ne peut suivre."
+    },
+    "deepDive": [
+      "L'argument optimiste honnête est que la DeFi supprime réellement les frictions et les barrières que la finance traditionnelle a accumulées pendant des décennies. Quiconque dispose d'une connexion internet et d'un portefeuille peut prêter, emprunter ou échanger à toute heure, sans solde minimum, sans restriction géographique, sans qu'une banque décide qu'il n'est pas assez rentable à servir. Les taux sont transparents et fixés par une offre et une demande visibles plutôt que négociés à huis clos, et le code est open-source et auditable plutôt qu'une boîte noire. La « composabilité » — des protocoles qui s'assemblent comme des bibliothèques logicielles — permet aux développeurs de construire en quelques semaines des produits sophistiqués (stratégies de rendement automatisées, actifs synthétiques) qu'une banque mettrait des années à livrer à travers la conformité et les systèmes hérités.",
+      "L'argument pessimiste est que la DeFi a, en pratique, réintroduit la plupart des risques que la finance traditionnelle avait été construite pour gérer — sans les filets de sécurité. Des milliards de dollars ont été perdus à cause de bugs dans des smart contracts, d'attaques par flash loan exploitées, et de purs « rug pulls » où les développeurs repartent simplement avec les fonds mis en commun ; contrairement à la faillite d'une banque, il n'y a ni assurance des dépôts, ni régulateur, et souvent aucune partie identifiable à poursuivre. La surcollatéralisation, si elle supprime le besoin d'un score de crédit, est profondément inefficace en capital et exclut précisément les personnes que le crédit traditionnel est censé servir — celles qui n'ont pas de capital disponible à immobiliser. Et la composabilité joue dans les deux sens : quand un protocole tombe en panne (ce qui est arrivé à plusieurs lors de krachs de marché), les interconnexions qui rendaient la DeFi élégante transmettent aussi la défaillance instantanément à travers tous les protocoles construits par-dessus. La technologie résout de vrais problèmes d'accès et de transparence ; reste une question ouverte et non résolue de savoir si elle peut le faire sans faire périodiquement disparaître le capital des utilisateurs."
+    ],
+    "glossary": [
+      {
+        "term": "Pool de liquidité",
+        "def": "Une réserve commune de jetons déposés par des utilisateurs qu'un protocole utilise pour faciliter les échanges ou les prêts, en reversant aux déposants une part des frais."
+      },
+      {
+        "term": "Surcollatéralisation",
+        "def": "L'obligation pour un emprunteur de déposer plus de valeur qu'il n'en emprunte, faute de vérification de crédit pour évaluer le risque de défaut."
+      },
+      {
+        "term": "Flash loan",
+        "def": "Un prêt sans garantie qui doit être emprunté et remboursé au sein d'une seule transaction blockchain — utile pour l'arbitrage, mais aussi un vecteur d'attaque courant."
+      }
+    ]
+  },
+  "smart-contracts": {
+    "title": "Smart contracts",
+    "hook": "Un contrat qui s'exécute lui-même — pas d'avocat, pas de signature, aucun moyen de discuter avec le code une fois qu'il tourne.",
+    "tldr": "Un smart contract est un code stocké sur une blockchain qui exécute automatiquement des règles convenues à l'avance lorsque certaines conditions sont remplies, remplaçant l'application manuelle par une exécution automatique et inviolable.",
+    "definition": [
+      "Un smart contract est un programme déployé sur une blockchain qui s'exécute exactement tel qu'il a été écrit, sans qu'aucune partie — y compris son créateur — ne puisse le modifier une fois en ligne (sauf si cette possibilité a été délibérément codée). Il traduit un accord en logique : « si la condition X est remplie, exécuter l'action Y » — libérer un paiement une fois la livraison d'une marchandise confirmée, liquider une garantie quand sa valeur passe sous un seuil, distribuer des dividendes proportionnellement aux détenteurs de jetons à une date fixée. Comme le code tourne sur un réseau distribué plutôt que sur le serveur d'une seule entreprise, son exécution est très difficile à censurer, et ses règles sont visibles par quiconque sait lire le code, ce qui supprime en principe le besoin de faire confiance à la promesse d'une contrepartie ou à l'application éventuelle d'un tribunal.",
+      "Le nom est quelque peu trompeur sur ses deux mots : un smart contract n'est pas particulièrement « intelligent » — il fait exactement et uniquement ce que dit son code, sans jugement ni marge d'appréciation — et ce n'est pas toujours un « contrat » au sens juridique, car les tribunaux, dans la plupart des juridictions, n'ont pas pleinement tranché la question de savoir comment son exécution s'articule avec le droit des contrats traditionnel. Ce qu'il fait de façon fiable, c'est transformer un accord qui nécessiterait normalement un intermédiaire de confiance pour être appliqué (un agent séquestre, une banque, un tribunal) en quelque chose appliqué par le mécanisme de consensus du réseau lui-même. C'est puissant quand les conditions sont objectives et lisibles par une machine (un prix qui franchit un seuil) ; c'est beaucoup moins fiable quand les conditions nécessitent un jugement, se produisent hors chaîne, ou dépendent de données du monde réel que la blockchain ne peut pas observer directement."
+    ],
+    "keyPoints": [
+      "Un code sur une blockchain qui s'exécute automatiquement dès que ses conditions sont remplies — aucune application manuelle nécessaire.",
+      "Immuable une fois déployé (en général) — puissant pour la confiance, impitoyable en cas de bug ou d'ambiguïté.",
+      "Fonctionne mieux pour des conditions objectives et lisibles par une machine ; peine face aux jugements de valeur ou aux faits hors chaîne.",
+      "Dépend d'« oracles » pour faire entrer des données du monde réel sur la chaîne, ce qui réintroduit un point de confiance et de défaillance."
+    ],
+    "formula": {
+      "expression": "SI (condition remplie sur la chaîne) ALORS (exécuter l'action) — aucune marge d'appréciation, aucun appel possible",
+      "legend": "Condition = une règle inscrite dans le code (ex. prix, date, nombre de signatures) · Action = exécution automatique (transfert, liquidation, versement)",
+      "note": "Contrairement à un contrat juridique, il n'y a pas de juge pour interpréter l'intention — seulement le code littéral qui a été déployé."
+    },
+    "example": {
+      "scenario": "Deux entreprises conviennent que l'entreprise A paiera 50 000 € à l'entreprise B dès que les données de suivi d'une expédition confirmeront la livraison — appliqué par un smart contract plutôt que par un processus de facturation manuel.",
+      "steps": [
+        "Le smart contract est déployé en détenant 50 000 € (ou leur équivalent en jetons) sous séquestre, avec une règle : libérer les fonds à réception d'un signal confirmant la livraison.",
+        "Un flux de données fiable (un « oracle ») rapporte les données GPS et douanières de l'expédition lorsqu'elle franchit le dernier point de contrôle.",
+        "Le smart contract compare les données de l'oracle à sa condition — livraison confirmée au lieu et à l'heure convenus.",
+        "La condition est remplie, le contrat libère donc automatiquement les 50 000 € à l'entreprise B, sans facture, sans étape d'approbation, sans délai de virement bancaire."
+      ],
+      "result": "Le paiement a eu lieu quelques minutes après la livraison, au lieu du cycle habituel de facturation de 30 à 60 jours — mais toute la mise en place dépend désormais de l'exactitude des informations rapportées par l'oracle ; si les données de suivi sont erronées ou manipulées, le contrat versera (ou retiendra) le paiement exactement comme codé, sans qu'aucun humain puisse intervenir."
+    },
+    "deepDive": [
+      "L'argument optimiste honnête est que les smart contracts suppriment un coût bien réel en finance : le coût de faire confiance à quelqu'un pour tenir sa promesse, et tout l'appareil juridique et administratif construit pour faire respecter cette confiance quand elle est trahie. Agents séquestres, chambres de compensation et pans entiers de réconciliation back-office existent en grande partie pour gérer le risque de contrepartie et la vérification manuelle ; un smart contract bien conçu peut remplir la même fonction instantanément, en continu, pour une fraction du coût, sans entreprise intermédiaire susceptible de faire faillite, de se faire pirater en interne, ou de simplement refuser de payer. Pour les accords avec des conditions claires, objectives et vérifiables sur la chaîne — échanges de jetons, prêts garantis, versements programmés — c'est un gain d'efficacité réel et déjà démontré.",
+      "L'argument pessimiste est que « le code fait office de contrat » est une promesse bien plus difficile à tenir qu'il n'y paraît. Des bugs dans le code de smart contracts ont provoqué des centaines de millions de dollars de pertes — des fonds gelés pour toujours, ou vidés par un attaquant exploitant un cas limite que les développeurs n'avaient jamais anticipé — et comme le code est souvent immuable par conception, il n'existe fréquemment aucun moyen de corriger l'erreur après coup. Les conditions du monde réel (l'expédition correspondait-elle vraiment à sa description, la garantie a-t-elle réellement été livrée) exigent encore des flux de données fiables appelés oracles, ce qui réintroduit précisément le point unique de confiance et de défaillance que les smart contracts étaient censés éliminer — si l'oracle se trompe ou est manipulé, le contrat exécute le mauvais résultat avec une confiance totale et sans recours. Et les tribunaux n'ont pas tranché la question de savoir comment l'exécution littérale d'un smart contract se rapporte à l'intention réelle des parties, si bien que les litiges portant sur ce qui aurait dû se passer, plutôt que sur ce que le code a fait, demeurent un territoire juridique réellement non résolu. Cette technologie se comprend mieux comme un puissant outil d'exécution pour des accords étroits et bien définis — et non encore comme un remplacement total du droit des contrats."
+    ],
+    "glossary": [
+      {
+        "term": "Oracle",
+        "def": "Un service qui fait entrer des données du monde réel (prix, événements, statut d'une expédition) dans une blockchain afin que les smart contracts puissent agir en fonction de celles-ci."
+      },
+      {
+        "term": "Immuabilité",
+        "def": "La propriété selon laquelle le code d'un contrat déployé ne peut généralement pas être modifié — fiable pour la confiance, dangereuse s'il contient un bug."
+      },
+      {
+        "term": "Frais de gas",
+        "def": "Le coût payé au réseau pour exécuter le code d'un smart contract, qui varie selon la congestion du réseau et la complexité du calcul."
+      }
+    ]
+  },
+  "payment-systems": {
+    "title": "Systèmes de paiement",
+    "hook": "Déplacer de l'argent semble instantané sur votre écran — derrière se joue une course de relais entre banques, réseaux et chambres de compensation qui peut prendre des jours.",
+    "tldr": "Un système de paiement est le réseau de rails, de règles et d'intermédiaires qui déplace l'argent entre le payeur et le bénéficiaire — allant des virements bancaires lents mais bon marché aux réseaux de cartes rapides mais coûteux, jusqu'aux rails blockchain quasi instantanés mais encore naissants.",
+    "definition": [
+      "Un système de paiement est l'infrastructure qui déplace l'argent du compte d'un payeur vers celui d'un bénéficiaire — les rails qui se cachent derrière chaque paiement par carte, virement bancaire et paiement mobile. Différents rails arbitrent entre vitesse, coût et portée de manières différentes. Les réseaux de cartes (Visa, Mastercard) sont rapides au point de vente mais coûteux, facturant aux commerçants 1,5 à 3 % par transaction pour couvrir la protection contre la fraude, les rétrofacturations et les multiples banques impliquées. Les virements bancaires (virement, ACH, SEPA) sont bon marché mais historiquement lents, prenant souvent un à trois jours ouvrés car ils passent par lots et se réconcilient via des banques intermédiaires et des chambres de compensation plutôt que de se régler instantanément. Les nouveaux rails de paiement en temps réel (virements bancaires instantanés, portefeuilles mobiles) visent à combiner le faible coût des virements bancaires avec la rapidité des cartes, et gagnent rapidement du terrain, en particulier en dehors des États-Unis.",
+      "Chaque système de paiement doit résoudre le même problème fondamental : comment déplacer de la valeur entre deux parties qui ne se font pas entièrement confiance, vérifier que le payeur dispose bien des fonds, prévenir la fraude, et finaliser la transaction pour qu'elle ne puisse être ni annulée ni dépensée deux fois — tout en maintenant un coût assez bas pour que la transaction ait encore un sens économique. Les réseaux de cartes résolvent cela grâce à un ensemble de relations contractuelles et à un système de lutte contre la fraude et de gestion des litiges coûteux mais efficace ; les virements bancaires le résolvent par une compensation bilatérale plus lente mais moins chère entre banques régulées ; et les rails de paiement fondés sur la blockchain tentent de le résoudre par un consensus cryptographique plutôt que par la confiance institutionnelle, au prix de la volatilité, de la complexité et, pour l'instant, d'une acceptation limitée par les commerçants."
+    ],
+    "keyPoints": [
+      "Les rails de paiement arbitrent entre vitesse, coût et portée — les cartes sont rapides mais chères ; les virements bancaires sont bon marché mais plus lents.",
+      "Chaque système doit vérifier les fonds, prévenir la fraude et finaliser la transaction — seuls les mécanismes diffèrent.",
+      "Les rails de paiement en temps réel réduisent l'écart entre la rapidité des cartes et le faible coût des virements bancaires.",
+      "Les paiements transfrontaliers restent le cas le plus coûteux et le plus lent, car plusieurs devises et juridictions cumulent les coûts."
+    ],
+    "formula": {
+      "expression": "Coût de transaction effectif = frais % × montant + (coût de portage lié au délai de règlement)",
+      "legend": "Frais % = frais de réseau/d'interchange facturés par transaction · Coût de portage = le coût d'opportunité des fonds immobilisés jusqu'au règlement complet",
+      "note": "Un virement bancaire « gratuit » qui se règle en 3 jours a quand même un coût caché : l'argent reste immobilisé et inutilisable pendant ce temps."
+    },
+    "example": {
+      "scenario": "Un commerçant compare trois moyens de recevoir un paiement de 1 000 € : une carte de crédit, un virement bancaire classique et un rail de paiement instantané.",
+      "steps": [
+        "Carte de crédit : le commerçant reçoit environ 970 € utilisables instantanément sous 1 à 2 jours, après des frais d'interchange et de réseau de 2,5 % (25 €), avec en plus le risque d'une future rétrofacturation.",
+        "Virement bancaire classique (virement SEPA) : le commerçant reçoit l'intégralité des 1 000 €, mais les fonds peuvent ne pas être compensés et utilisables avant 1 jour ouvré, et le payeur a dû l'initier manuellement.",
+        "Rail de paiement instantané (par ex. SEPA Instantané, ou un virement mobile en temps réel) : le commerçant reçoit l'intégralité des 1 000 € utilisables en quelques secondes, généralement pour des frais très inférieurs à l'interchange des cartes (souvent moins de 0,50 €).",
+        "Le commerçant compare : la carte coûte 25 € pour une liquidité instantanée et une protection contre les litiges ; le virement bancaire ne coûte rien mais immobilise les fonds pendant un jour ; les rails instantanés offrent rapidité et faible coût, mais l'adoption et la familiarité des payeurs sont encore en train de rattraper celles des cartes."
+      ],
+      "result": "Les rails de paiement instantané semblent l'évidence gagnante en coût et en rapidité, et les commerçants s'y tournent de plus en plus — mais les cartes conservent la protection contre la fraude, la gestion des litiges et une familiarité quasi universelle des payeurs, construites en plusieurs décennies, ce qui explique pourquoi elles dominent encore au point de vente."
+    },
+    "deepDive": [
+      "L'argument optimiste honnête pour les systèmes de paiement modernes est que la concurrence et la technologie réduisent régulièrement le coût et le délai que l'on tenait autrefois pour inévitables. Les rails de paiement en temps réel, désormais actifs dans des dizaines de pays, permettent à un paiement de se compenser et de se régler en quelques secondes pour une fraction des frais d'interchange d'une carte, ce qui compte énormément pour les commerçants à faibles marges et pour les personnes qui vivent de salaire en salaire et ne peuvent pas se permettre un blocage de plusieurs jours sur leurs fonds. Les systèmes de mobile money ont apporté une infrastructure de paiement et d'épargne de base à des centaines de millions de personnes qui n'ont jamais eu de compte bancaire, en s'appuyant sur les réseaux téléphoniques plutôt que sur des agences. Et les réglementations d'open banking, dans certaines régions, permettent désormais à des applications tierces d'initier des virements bancaires directement, contournant entièrement les frais des réseaux de cartes — une véritable menace structurelle pour l'économie du duopole des cartes.",
+      "L'argument pessimiste est que l'infrastructure des paiements est un cimetière de standards bien intentionnés qui n'ont jamais atteint les effets de réseau nécessaires pour déloger les acteurs en place. Les réseaux de cartes restent dominants non pas parce qu'ils sont bon marché ou rapides, mais parce qu'ils ont résolu à grande échelle, il y a des décennies, la confiance et la résolution des litiges, et commerçants comme consommateurs répugnent à abandonner quelque chose qui fonctionne de manière fiable, rétrofacturations comprises. Les paiements transfrontaliers restent lents et coûteux — prenant souvent plusieurs jours et coûtant plusieurs pour cent — car ils doivent enchaîner des banques correspondantes à travers devises et juridictions, chacune ajoutant des frais et un délai, et aucun nouveau rail n'a encore atteint la portée mondiale nécessaire pour contourner entièrement cette chaîne. Et chaque rail plus rapide et moins cher introduit de nouveaux vecteurs de fraude : les virements instantanés et irrévocables sont une aubaine pour les escrocs, car la rapidité qui profite aux utilisateurs légitimes signifie aussi que les fonds volés se déplacent et disparaissent avant qu'une banque ne puisse intervenir. La vérité peu glorieuse est que les progrès en matière de paiements se comptent en décennies, pas en années, freinés moins par la technologie (qui est globalement prête) que par le travail lent et essentiel de construction de la confiance, de la réglementation et de l'acceptation universelle autour de tout nouveau rail."
+    ],
+    "glossary": [
+      {
+        "term": "Frais d'interchange",
+        "def": "Les frais que la banque d'un commerçant verse à la banque du titulaire de la carte à chaque transaction par carte, en fin de compte répercutés sur le commerçant."
+      },
+      {
+        "term": "Règlement",
+        "def": "Le moment où un paiement devient définitif et où les fonds sont effectivement transférés entre les banques, par opposition à une simple autorisation."
+      },
+      {
+        "term": "Banque correspondante",
+        "def": "La chaîne de banques intermédiaires qui relaient un paiement transfrontalier entre la banque du payeur et celle du bénéficiaire, chacune ajoutant un coût et un délai."
+      }
+    ]
+  },
+  "cash-flow-statement": {
+    "title": "Tableau des flux de trésorerie",
+    "hook": "Le bénéfice est une opinion ; la trésorerie est un fait — ce tableau suit le fait.",
+    "tldr": "Le tableau des flux de trésorerie indique combien de liquidités sont réellement entrées et sorties d'une entreprise sur une période, réparties entre activités d'exploitation, d'investissement et de financement.",
+    "definition": [
+      "Le tableau des flux de trésorerie réconcilie le résultat net (un chiffre issu de la comptabilité d'engagement, truffé d'estimations et d'éléments non monétaires) avec ce qui s'est réellement passé au niveau de la trésorerie de l'entreprise. Il répartit tous les mouvements de trésorerie en trois catégories : les activités d'exploitation (la trésorerie générée par l'activité principale — on part du résultat net, on y ajoute les charges non monétaires comme les amortissements, puis on ajuste les variations du besoin en fonds de roulement), les activités d'investissement (la trésorerie dépensée ou perçue au titre des actifs à long terme — achat d'équipements, acquisition d'une société, cession d'une division) et les activités de financement (la trésorerie provenant des ou destinée aux prêteurs et actionnaires — émission ou remboursement de dette, émission d'actions, versement de dividendes, rachats d'actions). Les trois flux, additionnés, donnent la variation nette de trésorerie sur la période, qui relie le solde de trésorerie d'ouverture à celui de clôture du bilan.",
+      "Son objectif est de répondre à une question à laquelle le compte de résultat ne peut pas répondre : le bénéfice s'est-il traduit en trésorerie ? Une entreprise peut afficher un bénéfice croissant tout en voyant sa trésorerie fondre — parce que les clients paient lentement, que les stocks s'accumulent, ou qu'elle investit massivement dans sa croissance. À l'inverse, une entreprise peut afficher une perte tout en générant une trésorerie solide — un amortissement élevé est une charge bien réelle sur le papier, mais aucune liquidité n'est sortie de la caisse cette année-là. Les investisseurs et les prêteurs s'appuient sur ce tableau précisément parce que le résultat net peut être façonné par des choix comptables, alors que la trésorerie, elle, ne se discute guère."
+    ],
+    "keyPoints": [
+      "Répartit les mouvements de trésorerie en activités d'exploitation, d'investissement et de financement.",
+      "Part du résultat net, puis réintègre les éléments non monétaires et les variations du besoin en fonds de roulement.",
+      "Les trois sections, additionnées, donnent la variation nette de trésorerie sur la période.",
+      "Met en évidence l'écart entre le bénéfice comptable et la trésorerie réellement générée."
+    ],
+    "formula": {
+      "expression": "Variation nette de trésorerie = FTE + FTI + FTF",
+      "legend": "FTE = flux de trésorerie d'exploitation · FTI = flux de trésorerie d'investissement · FTF = flux de trésorerie de financement",
+      "note": "Le FTE se calcule généralement comme Résultat net + Dotations aux amortissements − Augmentation du besoin en fonds de roulement."
+    },
+    "example": {
+      "scenario": "Une entreprise affiche un résultat net de 175 k€ et des amortissements de 40 k€, mais ses créances clients ont augmenté de 20 k€ (FTE). Elle a acheté un équipement pour 60 k€ (FTI). Elle a remboursé 30 k€ de dette et versé 25 k€ de dividendes (FTF). Quelle est la variation nette de trésorerie ?",
+      "steps": [
+        "FTE = 175 + 40 − 20 = 195 k€ — le bénéfice plus l'amortissement non monétaire, moins la trésorerie immobilisée dans les factures clients impayées.",
+        "FTI = −60 k€ — la trésorerie dépensée pour acheter l'équipement, un investissement à long terme.",
+        "FTF = −30 − 25 = −55 k€ — la trésorerie versée aux prêteurs et aux actionnaires.",
+        "Variation nette de trésorerie = 195 − 60 − 55 = 80 k€."
+      ],
+      "result": "La trésorerie a augmenté de 80 k€, alors même que 20 k€ du bénéfice déclaré restent bloqués, non encaissés, dans les créances clients — le tableau montre exactement d'où vient réellement l'argent et où il est allé."
+    },
+    "deepDive": [
+      "Le tableau des flux de trésorerie est l'outil classique pour repérer une entreprise « rentable mais pauvre en liquidités » avant qu'elle ne bascule dans une crise de solvabilité. Une entreprise peut afficher des bénéfices croissants trimestre après trimestre tandis que ses créances clients enflent (les clients ne paient pas), que ses stocks gonflent (les produits ne se vendent pas), ou qu'elle capitalise des coûts qui devraient sans doute être passés en charges — autant d'éléments qui flattent le résultat net pendant que le flux de trésorerie d'exploitation stagne ou devient négatif. Cette divergence entre résultat net et flux de trésorerie d'exploitation, lorsqu'elle se prolonge sur plusieurs trimestres, est l'un des signaux d'alerte les plus fiables en analyse financière ; plusieurs fraudes comptables et quasi-faillites célèbres (négociants en énergie, distributeurs gonflant artificiellement leurs ventes aux revendeurs) ont montré exactement ce schéma pendant des années avant que le marché ne s'en aperçoive. Une entreprise peut littéralement se retrouver à court de liquidités et faire faillite tout en déclarant un bénéfice — le bénéfice ne paie ni les salaires ni les fournisseurs, la trésorerie oui.",
+      "Les trois sections, lues ensemble, racontent aussi l'histoire du stade de développement d'une entreprise. Une jeune entreprise en forte croissance affiche souvent un flux de trésorerie d'exploitation négatif (elle est encore en train de construire son activité), un flux de trésorerie d'investissement fortement négatif (elle finance sa croissance par des dépenses d'investissement ou des acquisitions) et un flux de trésorerie de financement positif (elle lève des fonds auprès d'investisseurs ou de prêteurs pour combler l'écart) — une situation normale, voire saine, tant que l'histoire de croissance tient la route. Une entreprise mature et en bonne santé affiche typiquement un flux d'exploitation fortement positif, des sorties d'investissement modestes (dépenses d'entretien) et un flux de financement négatif (remboursement de dette, rachats d'actions, retour de trésorerie aux actionnaires). Une entreprise qui brûle de la trésorerie d'exploitation tout en s'appuyant sur du financement pour rester à flot — sans perspective claire de FTE positif — signale quelque chose que le seul compte de résultat ne révélerait jamais."
+    ],
+    "glossary": [
+      {
+        "term": "FTE (flux de trésorerie d'exploitation)",
+        "def": "La trésorerie générée par l'activité principale — la plus scrutée des trois sections."
+      },
+      {
+        "term": "Dépenses d'investissement (capex)",
+        "def": "La trésorerie consacrée aux actifs à long terme — le principal poste des activités d'investissement."
+      },
+      {
+        "term": "Flux de trésorerie disponible (free cash flow)",
+        "def": "Le FTE diminué des dépenses d'investissement — la trésorerie restante après maintien et développement de la base d'actifs, souvent utilisée pour valoriser une entreprise."
+      }
+    ]
+  },
+  "ebitda": {
+    "title": "EBITDA",
+    "hook": "Retirez les intérêts, les impôts et les charges non monétaires, et vous obtenez une approximation grossière de la trésorerie générée par l'activité principale.",
+    "tldr": "L'EBITDA — le résultat avant intérêts, impôts, dépréciation et amortissement — approxime la capacité de génération de trésorerie du cœur d'activité d'une entreprise, indépendamment de son financement et de ses choix comptables.",
+    "definition": [
+      "L'EBITDA part du résultat net et y réintègre les intérêts, les impôts, les dépréciations et les amortissements — quatre éléments qui reflètent soit des décisions de financement ou fiscales (intérêts, impôts) plutôt que la performance opérationnelle, soit des charges comptables non monétaires (dépréciation, amortissement) plutôt que de véritables sorties de trésorerie. Le résultat est censé approximer la capacité de génération de trésorerie du cœur de métier, indépendamment de son mode de financement (dette ou capitaux propres), de sa juridiction fiscale, ou de l'agressivité avec laquelle elle amortit ses actifs. En neutralisant ces différences, l'EBITDA est largement utilisé pour comparer, sur une base plus homogène, des entreprises ayant des structures de capital, des régimes fiscaux ou des parcs d'actifs d'âges différents.",
+      "Il est devenu la mesure de référence dans les rachats à effet de levier (LBO) et le capital-investissement, car les prêteurs s'intéressent à la trésorerie disponible pour assurer le service de la dette, et l'EBITDA en constitue une première approximation raisonnable avant de tenir compte des dépenses d'investissement et des besoins en fonds de roulement. Il se calcule rapidement à partir d'un compte de résultat standard et se transpose facilement d'un secteur ou d'un pays à l'autre, ce qui explique en partie sa diffusion, du capital-investissement vers la recherche actions, les présentations de résultats et les clauses de covenants bancaires. Mais sa popularité a dépassé sa rigueur : l'EBITDA n'est défini ni par les normes GAAP ni par les normes IFRS, si bien que les entreprises disposent d'une grande latitude sur ce qu'elles y réintègrent, et deux entreprises publiant chacune un « EBITDA » peuvent ne pas être comparables du tout."
+    ],
+    "keyPoints": [
+      "Réintègre les intérêts, les impôts, les dépréciations et les amortissements dans le résultat net.",
+      "Approxime la capacité de génération de trésorerie du cœur d'activité, avant choix de financement et fiscaux.",
+      "Central dans les rachats à effet de levier et l'analyse des clauses de covenants (trésorerie disponible pour le service de la dette).",
+      "Ce n'est pas une mesure définie par les normes GAAP/IFRS — les entreprises ont une marge d'appréciation, ce qui limite la comparabilité."
+    ],
+    "formula": {
+      "expression": "EBITDA = Résultat net + Intérêts + Impôts + Dépréciation + Amortissement",
+      "legend": "Intérêts = coût de la dette · Impôts = impôt sur les bénéfices · D&A = charges non monétaires liées à l'usure ou à l'obsolescence des actifs",
+      "note": "De manière équivalente, EBITDA = EBIT (résultat d'exploitation) + Dépréciation + Amortissement."
+    },
+    "example": {
+      "scenario": "Une entreprise déclare un résultat net de 175 k€, des charges d'intérêts de 50 k€, des impôts de 75 k€, des dépréciations de 40 k€ et des amortissements de 10 k€. Quel est son EBITDA ?",
+      "steps": [
+        "Partir du résultat net : 175 k€.",
+        "Réintégrer les intérêts et les impôts : 175 + 50 + 75 = 300 k€ (il s'agit de l'EBIT, le résultat d'exploitation).",
+        "Réintégrer la dépréciation et l'amortissement : 300 + 40 + 10 = 350 k€.",
+        "EBITDA = 350 k€, contre un résultat net déclaré de 175 k€ — exactement le double, car les coûts de financement, les impôts et les charges non monétaires ont absorbé l'autre moitié."
+      ],
+      "result": "Un EBITDA de 350 k€ suggère que le cœur d'activité génère environ deux fois plus de trésorerie que ne le laisse penser le résultat net — utile pour un prêteur ou un acquéreur évaluant la capacité d'endettement, mais seulement si les charges non monétaires sont réellement discrétionnaires et ne masquent pas de véritables coûts futurs."
+    },
+    "deepDive": [
+      "Le critique le plus cité de l'EBITDA, Charlie Munger, qualifiait les références à cet indicateur de « bénéfice de charlatan » — une pique acerbe mais qui vise juste le défaut central de la mesure : la dépréciation et l'amortissement sont réintégrés comme s'ils étaient fictifs, alors que les actifs amortis (usines, camions, serveurs, logiciels) s'usent réellement et devront tôt ou tard être remplacés avec de la trésorerie bien réelle. Une entreprise à forte intensité capitalistique (une compagnie aérienne, un opérateur télécom, un industriel) peut afficher un EBITDA impressionnant alors que son flux de trésorerie disponible réel est mince, voire négatif, une fois déduites des dépenses d'entretien réalistes. L'EBITDA exclut également les intérêts — ce qui convient pour comparer la performance opérationnelle, mais devient dangereux s'il est utilisé sans précaution pour évaluer la capacité de survie d'une entreprise fortement endettée, car la facture d'intérêts, elle, est bien réelle et exigible en trésorerie, à échéance, quoi que dise l'EBITDA.",
+      "Cet indicateur est aussi vulnérable à la manipulation précisément parce qu'il n'est pas normalisé : les entreprises publient un « EBITDA ajusté » qui exclut la rémunération en actions, les charges de restructuration, des pertes « exceptionnelles » qui reviennent étrangement souvent, et d'autres éléments jugés non représentatifs par la direction. Chaque réintégration éloigne un peu plus le chiffre de la réalité de la trésorerie et le rapproche du récit que la direction souhaite raconter — c'est pourquoi les prêteurs et analystes avertis lisent la réconciliation entre résultat net et EBITDA ligne par ligne plutôt que d'accepter le chiffre affiché tel quel, et pourquoi l'EBITDA doit rester une donnée parmi d'autres (aux côtés du flux de trésorerie disponible et du tableau des flux de trésorerie) plutôt qu'un verdict autonome sur la santé d'une entreprise."
+    ],
+    "glossary": [
+      {
+        "term": "EBIT",
+        "def": "Résultat avant intérêts et impôts — le résultat d'exploitation, c'est-à-dire l'EBITDA avant réintégration des D&A."
+      },
+      {
+        "term": "EBITDA ajusté",
+        "def": "Un EBITDA retraité avec des réintégrations choisies par l'entreprise — moins standardisé, plus enclin à l'enjolivement."
+      },
+      {
+        "term": "VE/EBITDA",
+        "def": "Un multiple de valorisation courant comparant la valeur d'entreprise à l'EBITDA, apprécié car il neutralise les différences de structure de capital."
+      }
+    ]
+  },
+  "depreciation": {
+    "title": "Dépréciation (amortissement des immobilisations corporelles)",
+    "hook": "La règle comptable qui admet que chaque actif se meurt discrètement — et qui en étale le coût sur sa durée de vie utile.",
+    "tldr": "La dépréciation étale le coût d'un actif physique à long terme sur sa durée de vie utile, en faisant correspondre la charge aux périodes où il contribue réellement à générer des revenus.",
+    "definition": [
+      "La dépréciation répartit le coût d'un actif corporel (machines, bâtiments, véhicules, équipements) sur les années durant lesquelles il est censé être utilisé, plutôt que de passer en charge la totalité du prix d'achat dès son acquisition. Cela découle du principe de rattachement des charges aux produits propre à la comptabilité d'engagement : si une machine contribue à générer des revenus pendant dix ans, son coût doit être comptabilisé en charge sur ces dix années, et non intégralement l'année de l'achat — sinon une seule année paraîtrait artificiellement déficitaire et les neuf suivantes artificiellement profitables. (L'amortissement des immobilisations incorporelles est le concept identique appliqué aux actifs incorporels, comme les brevets ou les marques acquises, plutôt qu'aux actifs physiques.)",
+      "La dépréciation est une charge non monétaire : la trésorerie est sortie de l'entreprise au moment de l'achat de l'actif, mais la charge est constatée progressivement par la suite. C'est pourquoi elle est réintégrée aussi bien dans le tableau des flux de trésorerie que dans le calcul de l'EBITDA — elle réduit le bénéfice déclaré sans réduire la trésorerie de la période où elle est enregistrée. Les entreprises choisissent parmi plusieurs méthodes (linéaire, qui étale le coût de façon égale ; dégressive, qui concentre la charge sur les premières années ; unités de production, liée à l'usage réel), et le choix de la méthode, de la durée de vie utile et de la valeur résiduelle relèvent tous d'un jugement bien réel qui façonne le bénéfice déclaré, l'impôt et la valeur comptable des actifs au bilan."
+    ],
+    "keyPoints": [
+      "Étale le coût d'un actif sur sa durée de vie utile plutôt que de le passer entièrement en charge dès l'achat.",
+      "Suit le principe de rattachement des charges aux produits : la charge est constatée en même temps que les revenus qu'elle contribue à générer.",
+      "C'est une charge non monétaire — réintégrée dans le tableau des flux de trésorerie et dans l'EBITDA.",
+      "La méthode, la durée de vie utile et la valeur résiduelle sont des choix de jugement qui influencent le bénéfice déclaré et l'impôt."
+    ],
+    "formula": {
+      "expression": "Dépréciation linéaire = (Coût − Valeur résiduelle) / Durée de vie utile",
+      "legend": "Coût = prix d'achat · Valeur résiduelle = valeur estimée en fin de vie · Durée de vie utile = nombre d'années d'utilisation prévues",
+      "note": "La méthode la plus courante ; la méthode dégressive et la méthode des unités de production répartissent le même coût total, mais différemment dans le temps."
+    },
+    "example": {
+      "scenario": "Une boulangerie achète un four pour 50 000 €, prévoit de l'utiliser pendant 9 ans, et estime sa valeur résiduelle à 5 000 € à la fin. Avec la méthode linéaire, quelle est la charge annuelle de dépréciation ?",
+      "steps": [
+        "Montant amortissable = Coût − Valeur résiduelle = 50 000 − 5 000 = 45 000 €.",
+        "Dépréciation annuelle = 45 000 / 9 = 5 000 € par an.",
+        "Chaque année, le compte de résultat enregistre 5 000 € de charge, même si aucune trésorerie n'est sortie de l'entreprise cette année-là.",
+        "Après 9 ans, la valeur comptable du four au bilan est passée de 50 000 € à sa valeur résiduelle de 5 000 €."
+      ],
+      "result": "La sortie de trésorerie de 50 000 € (dépensée intégralement la première année) est au contraire constatée comme une charge de 5 000 € répartie sur neuf ans — faisant correspondre le coût aux années où le four contribue réellement à fabriquer et vendre du pain."
+    },
+    "deepDive": [
+      "Une subtilité qui déroute de nombreux apprenants : la dépréciation utilisée pour le reporting financier (dépréciation comptable, présentée aux actionnaires) diffère souvent de celle utilisée pour les déclarations fiscales (dépréciation fiscale, présentée à l'administration fiscale) — les deux étant légales, simultanément, pour le même actif. Dans de nombreuses juridictions, les règles fiscales autorisent des méthodes de dépréciation accélérée ou des amortissements exceptionnels qui concentrent la charge bien plus rapidement que la méthode linéaire, permettant aux entreprises de différer leurs impôts vers les années suivantes (un prêt sans intérêt, réel et précieux, consenti par l'État). Cela crée un « passif d'impôt différé » au bilan — l'écart entre ce qui a été passé en charge à des fins comptables et à des fins fiscales — et explique pourquoi une entreprise rentable et en croissance peut afficher un résultat avant impôt confortable tout en payant très peu d'impôt en trésorerie une année donnée : ce n'est pas de l'évasion fiscale, c'est une question de calendrier, qui s'inverse dans les années suivantes lorsque la dépréciation fiscale s'épuise plus vite que la dépréciation comptable.",
+      "La dépréciation confère aussi à la direction une réelle marge de manœuvre pour façonner les résultats déclarés sans toucher à l'activité sous-jacente : allonger la durée de vie utile supposée d'un actif, relever sa valeur résiduelle supposée, ou changer de méthode, réduisent tous la charge annuelle de dépréciation et gonflent le bénéfice déclaré, alors même que rien n'a changé physiquement dans l'actif. Des hypothèses optimistes peuvent flatter les résultats pendant des années — jusqu'à ce que l'actif doive être remplacé plus tôt que prévu, provoquant une dépréciation exceptionnelle soudaine ou une flambée inhabituelle des dépenses d'investissement qui surprend les investisseurs. C'est précisément pourquoi l'EBITDA, qui réintègre entièrement la dépréciation, peut être trompeur pour les entreprises à forte intensité capitalistique : les actifs s'usent réellement, une trésorerie bien réelle sera un jour nécessaire pour les remplacer, et la dépréciation — aussi imparfaite soit-elle comme estimation — est la tentative de la comptabilité de reconnaître ce coût économique réel et continu avant que la facture n'arrive effectivement."
+    ],
+    "glossary": [
+      {
+        "term": "Valeur résiduelle",
+        "def": "La valeur de récupération estimée d'un actif à la fin de sa durée de vie utile — déduite avant de répartir le coût."
+      },
+      {
+        "term": "Dépréciation accélérée",
+        "def": "Des méthodes qui concentrent la charge sur les premières années, souvent utilisées à des fins fiscales pour différer l'impôt dû en trésorerie."
+      },
+      {
+        "term": "Valeur comptable",
+        "def": "Le coût d'origine d'un actif diminué de la dépréciation cumulée — sa valeur nette au bilan."
+      }
+    ]
   }
 };
