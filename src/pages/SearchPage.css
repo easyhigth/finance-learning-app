@@ -190,6 +190,7 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
+  border-top: 3px solid var(--brand);
   cursor: pointer;
   transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease);
   position: relative;

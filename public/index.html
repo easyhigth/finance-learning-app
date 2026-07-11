@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0f1017" />
+    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="FinanceLearn — learn finance concepts like Duolingo with comprehensive Wikipedia-powered content."
@@ -22,13 +22,12 @@
       html, body { margin: 0; height: 100%; }
       body {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background-color: #0f1017;
+        background-color: #000000;
         background-image:
-          radial-gradient(1100px 700px at 10% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
-          radial-gradient(900px 600px at 100% 5%, rgba(217, 70, 239, 0.12), transparent 55%),
-          radial-gradient(1000px 800px at 50% 120%, rgba(56, 189, 248, 0.10), transparent 60%);
+          radial-gradient(1100px 700px at 10% -10%, rgba(255, 149, 0, 0.08), transparent 60%),
+          radial-gradient(900px 600px at 100% 5%, rgba(255, 149, 0, 0.05), transparent 55%);
         background-attachment: fixed;
-        color: #eef0fa;
+        color: #f5f1ea;
       }
       #root { min-height: 100%; }
       .app-splash {
@@ -43,10 +42,10 @@
       .app-splash .badge {
         width: 78px; height: 78px;
         border-radius: 24px;
-        background: linear-gradient(135deg, #6366f1, #8b5cf6 55%, #d946ef);
+        background: linear-gradient(135deg, #ffb340, #ff9500 55%, #e66800);
         display: flex; align-items: center; justify-content: center;
         font-size: 2.4rem;
-        box-shadow: 0 20px 50px rgba(99, 102, 241, 0.30), inset 0 1px 0 rgba(255,255,255,0.4);
+        box-shadow: 0 20px 50px rgba(255, 149, 0, 0.30), inset 0 1px 0 rgba(255,255,255,0.25);
       }
       .app-splash h1 {
         margin: 0;
@@ -54,13 +53,13 @@
         font-size: 1.55rem;
         font-weight: 700;
         letter-spacing: -0.02em;
-        color: #eef0fa;
+        color: #f5f1ea;
       }
-      .app-splash p { margin: 0; color: #b3b8d1; font-size: 0.95rem; }
+      .app-splash p { margin: 0; color: #b8afa0; font-size: 0.95rem; }
       .app-splash .spin {
         width: 26px; height: 26px;
-        border: 3px solid #2a2c3e;
-        border-top-color: #8b5cf6;
+        border: 3px solid #2a2620;
+        border-top-color: #ff9500;
         border-radius: 50%;
         animation: splash-spin 0.8s linear infinite;
       }

@@ -128,13 +128,16 @@
 .review-card-front {
   color: #fff;
   position: relative;
+  background:
+    radial-gradient(500px 400px at 85% -10%, rgba(255, 149, 0, 0.2), transparent 55%),
+    linear-gradient(155deg, #14110c 0%, #000000 100%);
 }
 
 .review-card-front::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 149, 0, 0.3);
   border-radius: var(--radius-lg);
   pointer-events: none;
 }

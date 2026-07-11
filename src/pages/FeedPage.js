@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { concepts, categories, categoryColors, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { concepts, categories, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
 import { buildFeed, localizeVocabItem } from '../data/vocab';
 import { localizeGlossaryEntry } from '../data/glossary';
 import { getFavorites } from '../utils/favorites';
@@ -9,6 +9,11 @@ import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
 import './FeedPage.css';
+
+// Terminal theme: every card shares the same black/orange treatment
+// instead of a per-concept color, so the icon illustration uses a fixed
+// amber duotone rather than each concept's individual color pair.
+const TERMINAL_COLORS = ['#ff9500', '#ffb347'];
 
 const FeedPage = () => {
   const { catId } = useParams();
@@ -115,7 +120,6 @@ const FeedPage = () => {
               <section
                 key={concept.id}
                 className={`feed-slide ${i === activeIndex ? 'active' : ''}`}
-                style={{ background: `linear-gradient(160deg, ${concept.color[0]}, ${concept.color[1]})` }}
               >
                 <div className="feed-slide-overlay" />
                 <div className="feed-slide-inner">
@@ -128,7 +132,7 @@ const FeedPage = () => {
                   </div>
 
                   <div className="feed-illustration">
-                    <Illustration type={concept.illustration} colors={concept.color} />
+                    <Illustration type={concept.illustration} colors={TERMINAL_COLORS} />
                   </div>
 
                   <div className="feed-slide-body">
@@ -161,7 +165,6 @@ const FeedPage = () => {
           if (item.kind === 'term') {
             const term = localizeGlossaryEntry(item.data, lang);
             const cat = localizeCategory(getCategory(term.category), lang);
-            const catColor = categoryColors[term.category] || ['#6366f1', '#8b5cf6'];
             const openTerm = term.conceptId
               ? () => openConcept(term.conceptId)
               : () => window.open(
@@ -173,7 +176,6 @@ const FeedPage = () => {
               <section
                 key={item.id}
                 className={`feed-slide feed-slide-term ${i === activeIndex ? 'active' : ''}`}
-                style={{ background: `linear-gradient(160deg, ${catColor[0]}, ${catColor[1]})` }}
               >
                 <div className="feed-slide-overlay" />
                 <div className="feed-slide-inner">
@@ -225,7 +227,6 @@ const FeedPage = () => {
             <section
               key={v.id}
               className={`feed-slide feed-slide-vocab ${i === activeIndex ? 'active' : ''}`}
-              style={{ background: `linear-gradient(160deg, ${v.color[0]}, ${v.color[1]})` }}
             >
               <div className="feed-slide-overlay" />
               <div className="feed-slide-inner">

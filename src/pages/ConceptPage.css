@@ -8,6 +8,10 @@
   color: #fff;
   padding: 1.5rem 1.5rem 3rem;
   overflow: hidden;
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(255, 149, 0, 0.18), transparent 55%),
+    radial-gradient(700px 500px at 5% 110%, rgba(255, 149, 0, 0.08), transparent 55%),
+    linear-gradient(160deg, #14110c 0%, #000000 100%);
 }
 
 .concept-hero-overlay {
@@ -47,23 +51,23 @@
 
 .concept-back {
   color: #fff;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 149, 0, 0.1);
+  border: 1px solid rgba(255, 149, 0, 0.28);
 }
 
 .concept-back:hover {
-  background: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 149, 0, 0.2);
   transform: translateX(-2px);
 }
 
 .concept-cat-chip {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffb347;
+  background: rgba(255, 149, 0, 0.14);
+  border: 1px solid rgba(255, 149, 0, 0.35);
 }
 
 .concept-cat-chip:hover {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 149, 0, 0.24);
 }
 
 .concept-hero-visual {
@@ -396,14 +400,16 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
+  background: linear-gradient(135deg, #1c1a16, #000000);
+  border: 1px solid rgba(255, 149, 0, 0.28);
   box-shadow: var(--shadow-sm);
-  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), filter var(--t-fast) var(--ease);
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
 .concept-related-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  filter: brightness(1.08);
+  border-color: rgba(255, 149, 0, 0.55);
 }
 
 .concept-related-icon {

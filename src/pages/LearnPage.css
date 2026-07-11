@@ -498,14 +498,16 @@
   font-weight: 700;
   font-size: 0.92rem;
   min-height: 56px;
+  background: linear-gradient(135deg, #1c1a16, #000000);
+  border: 1px solid rgba(255, 149, 0, 0.25);
   box-shadow: var(--shadow-xs);
-  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), filter var(--t-fast) var(--ease);
+  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
 .concept-tile:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
-  filter: brightness(1.08);
+  border-color: rgba(255, 149, 0, 0.55);
 }
 
 .concept-tile.learned {
