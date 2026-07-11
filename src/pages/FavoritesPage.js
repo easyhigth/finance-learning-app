@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { concepts, getCategory } from '../data/concepts';
-import { vocab } from '../data/vocab';
-import { glossary } from '../data/glossary';
+import { concepts, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { vocab, localizeVocabItem } from '../data/vocab';
+import { glossary, localizeGlossaryEntry } from '../data/glossary';
 import { getFavorites, useFavoritesCount } from '../utils/favorites';
 import { useLang } from '../utils/lang';
 import FavoriteStar from '../components/FavoriteStar';
 import './FavoritesPage.css';
 
 const FavoritesPage = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const count = useFavoritesCount();
   const favs = getFavorites();
 
@@ -44,8 +44,9 @@ const FavoritesPage = () => {
                 <span className="fav-count">{favConcepts.length}</span>
               </div>
               <div className="fav-grid">
-                {favConcepts.map((c) => {
-                  const cat = getCategory(c.category);
+                {favConcepts.map((rawC) => {
+                  const c = localizeConcept(rawC, lang);
+                  const cat = localizeCategory(getCategory(c.category), lang);
                   return (
                     <Link key={c.id} to={`/concept/${c.id}`} className="fav-card"
                       style={{ borderTop: `3px solid ${c.color[0]}` }}>
@@ -71,9 +72,10 @@ const FavoritesPage = () => {
                 <span className="fav-count">{favVocab.length}</span>
               </div>
               <div className="fav-vocab-grid">
-                {favVocab.map((v) => {
-                  const cat = getCategory(v.category);
-                  const related = v.conceptId ? concepts.find((c) => c.id === v.conceptId) : null;
+                {favVocab.map((rawV) => {
+                  const v = localizeVocabItem(rawV, lang);
+                  const cat = localizeCategory(getCategory(v.category), lang);
+                  const related = v.conceptId ? localizeConcept(concepts.find((c) => c.id === v.conceptId), lang) : null;
                   return (
                     <div key={v.id} className="fav-vocab-card">
                       <div className="fav-vocab-top">
@@ -101,14 +103,15 @@ const FavoritesPage = () => {
                 <span className="fav-count">{favGlossary.length}</span>
               </div>
               <div className="fav-vocab-grid">
-                {favGlossary.map((g) => {
-                  const cat = getCategory(g.category);
-                  const related = g.conceptId ? concepts.find((c) => c.id === g.conceptId) : null;
+                {favGlossary.map((rawG) => {
+                  const g = localizeGlossaryEntry(rawG, lang);
+                  const cat = localizeCategory(getCategory(g.category), lang);
+                  const related = g.conceptId ? localizeConcept(concepts.find((c) => c.id === g.conceptId), lang) : null;
                   return (
-                    <div key={g.term} className="fav-vocab-card">
+                    <div key={rawG.term} className="fav-vocab-card">
                       <div className="fav-vocab-top">
                         <span className="fav-vocab-term">{g.term}</span>
-                        <FavoriteStar id={'g:' + g.term} className="fav-card-star" />
+                        <FavoriteStar id={'g:' + rawG.term} className="fav-card-star" />
                       </div>
                       {cat && <span className="fav-vocab-cat">{cat.name}</span>}
                       <p>{g.def}</p>

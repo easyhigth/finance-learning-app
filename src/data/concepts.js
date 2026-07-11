@@ -1,5 +1,28 @@
 // Curated finance learning dataset — personal use, depth over breadth.
 // Each concept is self-contained: everything you need on one page.
+import { categoriesFr, conceptsFr } from './concepts.fr';
+
+// Merges the French override (if any) over the English base object for the
+// current lang. English fields with no French translation yet fall back to
+// English automatically, so partial translation progress never breaks the UI.
+export const localizeConcept = (concept, lang) => {
+  if (!concept || lang !== 'fr') return concept;
+  const fr = conceptsFr[concept.id];
+  if (!fr) return concept;
+  return {
+    ...concept,
+    ...fr,
+    formula: concept.formula ? { ...concept.formula, ...(fr.formula || {}) } : concept.formula,
+    example: concept.example ? { ...concept.example, ...(fr.example || {}) } : concept.example,
+    glossary: fr.glossary || concept.glossary,
+  };
+};
+
+export const localizeCategory = (category, lang) => {
+  if (!category || lang !== 'fr') return category;
+  const fr = categoriesFr[category.id];
+  return fr ? { ...category, ...fr } : category;
+};
 
 export const categories = [
   { id: 'foundations', name: 'Foundations', icon: '💡', blurb: 'The ideas every financially literate person needs first.' },
@@ -3105,19 +3128,26 @@ export const searchConcepts = (query) => {
   const tokens = q.split(/\s+/).filter(Boolean);
   const rank = (c) => {
     const title = (c.title || '').toLowerCase();
+    const fr = conceptsFr[c.id];
+    // Search across both languages regardless of the current UI language,
+    // so "fonds" finds "Fund" and "swap" finds its French translation alike.
     const body = [
-      c.title,
-      c.hook,
-      c.tldr,
+      c.title, c.hook, c.tldr,
       c.definition.join(' '),
       (c.keyPoints || []).join(' '),
       (c.deepDive || []).join(' '),
       (c.glossary || []).map((g) => `${g.term} ${g.def}`).join(' '),
+      fr?.title, fr?.hook, fr?.tldr,
+      (fr?.definition || []).join(' '),
+      (fr?.keyPoints || []).join(' '),
+      (fr?.deepDive || []).join(' '),
+      (fr?.glossary || []).map((g) => `${g.term} ${g.def}`).join(' '),
     ].join(' ').toLowerCase();
+    const titleFr = (fr?.title || '').toLowerCase();
 
     // Exact title → best, then title starts-with, then every token in body
-    if (title === q) return 4;
-    if (title.startsWith(q) || title.includes(q)) return 3;
+    if (title === q || titleFr === q) return 4;
+    if (title.startsWith(q) || title.includes(q) || titleFr.startsWith(q) || titleFr.includes(q)) return 3;
     if (tokens.every((t) => body.includes(t))) return 2;
     if (tokens.some((t) => body.includes(t))) return 1;
     return -1;

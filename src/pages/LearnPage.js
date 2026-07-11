@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { concepts, categories, getConceptsByCategory } from '../data/concepts';
+import { concepts, categories, getConceptsByCategory, localizeConcept, localizeCategory } from '../data/concepts';
 import { useLearnedSet, toggleLearned } from '../utils/progress';
 import { useLang } from '../utils/lang';
 import './LearnPage.css';
 
 const LearnPage = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const learned = useLearnedSet();
 
   const total = concepts.length;
@@ -14,7 +14,7 @@ const LearnPage = () => {
   const pct = total > 0 ? Math.round((learnedCount / total) * 100) : 0;
 
   // First unlearned concept = "continue here"
-  const next = concepts.find((c) => !learned.has(c.id)) || concepts[0];
+  const next = localizeConcept(concepts.find((c) => !learned.has(c.id)) || concepts[0], lang);
 
   const handleToggle = (id) => {
     toggleLearned(id);
@@ -54,7 +54,8 @@ const LearnPage = () => {
           <Link to="/categories" className="view-all">{t('learn_all_categories')}</Link>
         </div>
         <div className="categories-grid">
-          {categories.map((cat) => {
+          {categories.map((rawCat) => {
+            const cat = localizeCategory(rawCat, lang);
             const terms = getConceptsByCategory(cat.id);
             const done = terms.filter((t) => learned.has(t.id)).length;
             const trackPct = terms.length > 0 ? Math.round((done / terms.length) * 100) : 0;
@@ -78,7 +79,8 @@ const LearnPage = () => {
           <h2>{t('learn_all_concepts')}</h2>
         </div>
         <div className="all-concepts-grid">
-          {concepts.map((c) => {
+          {concepts.map((rawC) => {
+            const c = localizeConcept(rawC, lang);
             const isLearned = learned.has(c.id);
             return (
               <Link

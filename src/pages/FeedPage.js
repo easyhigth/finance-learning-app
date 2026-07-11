@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { concepts, categories, getCategory } from '../data/concepts';
-import { buildFeed } from '../data/vocab';
+import { concepts, categories, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { buildFeed, localizeVocabItem } from '../data/vocab';
 import { getFavorites } from '../utils/favorites';
 import { getFeedPosition, saveFeedPosition } from '../utils/feedPosition';
 import { useLang } from '../utils/lang';
@@ -12,12 +12,14 @@ import './FeedPage.css';
 const FeedPage = () => {
   const { catId } = useParams();
   const navigate = useNavigate();
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isFavMode = catId === 'favorites';
-  const activeCat = isFavMode ? { name: 'Favoris', icon: '⭐' } : (catId ? getCategory(catId) : null);
+  const activeCat = isFavMode
+    ? { name: t('nav_favorites'), icon: '⭐' }
+    : (catId ? localizeCategory(getCategory(catId), lang) : null);
   const feedKey = catId || 'all';
 
   // Interleaved feed: concepts and vocabulary cards alternate.
@@ -98,23 +100,26 @@ const FeedPage = () => {
           <span className="feed-pill-icon">★</span>
           {t('nav_favorites')}
         </Link>
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            to={`/category/${cat.id}`}
-            className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
-          >
-            <span className="feed-pill-icon">{cat.icon}</span>
-            {cat.name}
-          </Link>
-        ))}
+        {categories.map((rawCat) => {
+          const cat = localizeCategory(rawCat, lang);
+          return (
+            <Link
+              key={cat.id}
+              to={`/category/${cat.id}`}
+              className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
+            >
+              <span className="feed-pill-icon">{cat.icon}</span>
+              {cat.name}
+            </Link>
+          );
+        })}
       </div>
 
       <div className="feed-scroll" ref={scrollRef}>
         {list.map((item, i) => {
           if (item.kind === 'concept') {
-            const concept = item.data;
-            const cat = getCategory(concept.category);
+            const concept = localizeConcept(item.data, lang);
+            const cat = localizeCategory(getCategory(concept.category), lang);
             return (
               <section
                 key={concept.id}
@@ -163,8 +168,8 @@ const FeedPage = () => {
           }
 
           // Vocabulary card slide
-          const v = item.data;
-          const cat = getCategory(v.category);
+          const v = localizeVocabItem(item.data, lang);
+          const cat = localizeCategory(getCategory(v.category), lang);
           const open = v.conceptId
             ? () => openConcept(v.conceptId)
             : () => window.open(

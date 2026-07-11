@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getConcept } from '../data/concepts';
+import { getConcept, localizeConcept } from '../data/concepts';
 import { useLearnedSet } from '../utils/progress';
 import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
@@ -16,16 +16,16 @@ const shuffle = (arr) => {
 };
 
 const ReviewPage = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const learned = useLearnedSet();
   const [seed, setSeed] = useState(0);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
 
   const deck = useMemo(
-    () => shuffle([...learned].map(getConcept).filter(Boolean)),
+    () => shuffle([...learned].map(getConcept).filter(Boolean)).map((c) => localizeConcept(c, lang)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [seed, learned.size]
+    [seed, learned.size, lang]
   );
 
   const card = deck[index] || null;

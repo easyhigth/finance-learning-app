@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { categories, getConceptsByCategory } from '../data/concepts';
+import { categories, getConceptsByCategory, localizeConcept, localizeCategory } from '../data/concepts';
 import { useLang } from '../utils/lang';
 import './CategoriesPage.css';
 
 const CategoriesPage = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const enriched = categories.map((cat) => ({
-    ...cat,
-    terms: getConceptsByCategory(cat.id),
-  }));
+  const enriched = categories.map((rawCat) => {
+    const cat = localizeCategory(rawCat, lang);
+    return {
+      ...cat,
+      terms: getConceptsByCategory(cat.id).map((c) => localizeConcept(c, lang)),
+    };
+  });
 
   const filtered = enriched.filter((cat) =>
     cat.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -79,22 +82,12 @@ const CategoriesPage = () => {
           <h2>{t('cat_path_title')}</h2>
           <p>{t('cat_path_sub')}</p>
           <div className="path-steps">
-            <div className="step">
-              <div className="step-number">1</div>
-              <div className="step-text">Foundations</div>
-            </div>
-            <div className="step">
-              <div className="step-number">2</div>
-              <div className="step-text">Investing</div>
-            </div>
-            <div className="step">
-              <div className="step-number">3</div>
-              <div className="step-text">Personal</div>
-            </div>
-            <div className="step">
-              <div className="step-number">4</div>
-              <div className="step-text">Risk</div>
-            </div>
+            {['foundations', 'investing', 'personal', 'risk'].map((id, i) => (
+              <div className="step" key={id}>
+                <div className="step-number">{i + 1}</div>
+                <div className="step-text">{localizeCategory(categories.find((c) => c.id === id), lang)?.name}</div>
+              </div>
+            ))}
           </div>
           <Link to="/category/foundations" className="cta-button">{t('cat_path_cta')} →</Link>
         </div>
