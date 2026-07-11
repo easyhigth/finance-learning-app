@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { wordcards, filterWordcards } from '../data/wordcards';
+import { filterWordcards } from '../data/wordcards';
 import { useLang } from '../utils/lang';
 import './WordsPage.css';
 

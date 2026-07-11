@@ -146,9 +146,27 @@ export const STRINGS = {
     en: 'Tap the star on any concept or vocabulary card to keep it here for quick review.',
     fr: 'Touchez l’étoile d’un concept ou d’une fiche pour le garder ici et le réviser.',
   },
-  // Learn page (partial)
+  // Learn page
   learn_eyebrow: { en: 'Your progress', fr: 'Votre progression' },
   learn_title: { en: 'Keep learning', fr: 'Continuez à apprendre' },
+  learn_progress_sub: {
+    en: '{done} of {total} concepts marked learned. Open any concept to read it in full, then check it off.',
+    fr: '{done} concept(s) sur {total} marqué(s) comme appris. Ouvrez un concept pour le lire en entier, puis cochez-le.',
+  },
+  learn_overall: { en: 'Overall progress', fr: 'Progression globale' },
+  learn_start_with: { en: 'Start with ', fr: 'Commencer par ' },
+  learn_continue_with: { en: 'Continue with ', fr: 'Continuer avec ' },
+  learn_tracks: { en: 'Tracks', fr: 'Filières' },
+  learn_all_categories: { en: 'All categories', fr: 'Toutes les catégories' },
+  learn_learned_count: { en: 'learned', fr: 'appris' },
+  learn_all_concepts: { en: 'All concepts', fr: 'Tous les concepts' },
+  learn_mark: { en: 'Mark as learned', fr: 'Marquer comme appris' },
+  learn_unmark: { en: 'Mark as not learned', fr: 'Marquer comme non appris' },
+  learn_tip_title: { en: 'How to use this', fr: 'Comment utiliser cette page' },
+  learn_tip_sub: {
+    en: 'Scroll the Discover feed for a TikTok-style tour, or open any concept above for the full single-page explainer. Mark concepts learned to track your path.',
+    fr: 'Défilez le flux Découvrir pour un tour façon TikTok, ou ouvrez un concept ci-dessus pour l’explainer complet. Marquez les concepts appris pour suivre votre parcours.',
+  },
 };
 
 export const useLang = () => useContext(LangContext);
