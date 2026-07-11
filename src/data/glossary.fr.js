@@ -2598,5 +2598,157 @@ export const glossaryFr = {
   "High-Yield (Mezzanine)": {
     "term": "High-yield (mezzanine)",
     "def": "Des émissions obligataires de type mezzanine offrant un rendement élevé en contrepartie d'un risque plus élevé, subordonnées aux obligations classiques. La couche la plus risquée et la mieux rémunérée de la structure de dette."
+  },
+  "Euroclear": {
+    "term": "Euroclear",
+    "def": "L'un des deux principaux dépositaires centraux internationaux de titres (ICSD), basé à Bruxelles — règle et conserve les eurobonds et les titres transfrontaliers pour des institutions du monde entier."
+  },
+  "Clearstream": {
+    "term": "Clearstream",
+    "def": "L'autre grand dépositaire central international de titres (ICSD), filiale de Deutsche Börse basée au Luxembourg — le principal rival d'Euroclear pour le règlement des transactions transfrontalières sur obligations et actions."
+  },
+  "DTCC": {
+    "term": "DTCC",
+    "def": "Le géant américain des infrastructures post-marché, propriétaire de DTC, NSCC et FICC — compense et règle en coulisses l'immense majorité des transactions sur titres américains."
+  },
+  "DTC (Depository Trust Company)": {
+    "term": "DTC (Depository Trust Company)",
+    "def": "Le dépositaire central de titres du marché américain, filiale de DTCC — détient les actions et obligations d'entreprises américaines sous forme électronique « au nom du courtier » (street name), permettant un transfert de propriété sans déplacement de certificats papier."
+  },
+  "NSCC": {
+    "term": "NSCC",
+    "def": "La filiale de DTCC qui compense et netse les transactions américaines sur actions, obligations d'entreprises et obligations municipales — la contrepartie centrale derrière la majorité des transactions boursières aux États-Unis."
+  },
+  "FICC": {
+    "term": "FICC",
+    "def": "La filiale de DTCC qui compense les titres du Trésor américain et les titres adossés à des créances hypothécaires — l'ossature de la plomberie du plus grand marché obligataire du monde."
+  },
+  "CSD (Central Securities Depository)": {
+    "term": "CSD (Central Securities Depository)",
+    "def": "Une institution qui détient les titres sous forme électronique inscrite en compte et enregistre qui détient quoi — le teneur de registre qui rend possible la propriété dématérialisée des titres modernes."
+  },
+  "ICSD (International CSD)": {
+    "term": "ICSD (International CSD)",
+    "def": "Un dépositaire central de titres qui règle des transactions transfrontalières impliquant plusieurs pays et devises — Euroclear et Clearstream sont les deux ICSD dominants."
+  },
+  "CCP (Central Counterparty)": {
+    "term": "CCP (Central Counterparty)",
+    "def": "Une chambre de compensation qui s'interpose entre l'acheteur et le vendeur, devenant l'acheteur face à chaque vendeur et le vendeur face à chaque acheteur — de sorte que si une partie fait défaut, c'est la CCP qui absorbe le choc plutôt que la transaction ne se défasse."
+  },
+  "T2S (TARGET2-Securities)": {
+    "term": "T2S (TARGET2-Securities)",
+    "def": "La plateforme de règlement partagée de l'Eurosystème qui permet aux dépositaires centraux européens de régler les transactions sur titres en monnaie banque centrale sur un système technique unique — conçue pour harmoniser un paysage de règlement européen auparavant fragmenté."
+  },
+  "SWIFT": {
+    "term": "SWIFT",
+    "def": "Le réseau de messagerie mondial utilisé par les banques pour s'échanger des instructions de paiement et de règlement-livraison sécurisées et standardisées — ce n'est pas un système de paiement en soi, mais le « service postal » qui indique aux banques ce qu'il faut faire."
+  },
+  "Fedwire": {
+    "term": "Fedwire",
+    "def": "Le système de règlement brut en temps réel de la Réserve fédérale américaine — les banques se transfèrent des fonds entre elles instantanément et de manière irrévocable en monnaie banque centrale, la couche ultime sous la plupart des grands paiements américains."
+  },
+  "CHAPS": {
+    "term": "CHAPS",
+    "def": "Le système britannique de règlement brut en temps réel pour les paiements de gros montant en livres sterling, géré par la Banque d'Angleterre — l'équivalent britannique de Fedwire."
+  },
+  "SEPA": {
+    "term": "SEPA",
+    "def": "Le cadre de la zone euro qui permet aux paiements en euros de circuler entre deux pays membres aussi facilement et à moindre coût qu'un virement domestique — des IBAN et des règles harmonisés ont remplacé des dizaines de systèmes nationaux incompatibles."
+  },
+  "ACH (Automated Clearing House)": {
+    "term": "ACH (Automated Clearing House)",
+    "def": "Un réseau de paiement électronique traité par lots (très utilisé aux États-Unis) qui règle en masse des virements comme les salaires ou les paiements de factures, une ou deux fois par jour — bon marché et fiable, mais pas instantané comme un virement urgent."
+  },
+  "CLS (Continuous Linked Settlement)": {
+    "term": "CLS (Continuous Linked Settlement)",
+    "def": "Un système de règlement spécialisé qui élimine le risque de règlement sur le marché des changes en payant simultanément les deux jambes d'une transaction de change, de sorte qu'aucune banque n'est jamais exposée à livrer sa devise sans recevoir la contrepartie."
+  },
+  "ISIN": {
+    "term": "ISIN",
+    "def": "Le code à 12 caractères qui identifie de manière unique un titre donné dans le monde entier, quelle que soit la bourse sur laquelle il se négocie — le « numéro de passeport » universel d'une obligation ou d'une action."
+  },
+  "CUSIP": {
+    "term": "CUSIP",
+    "def": "L'identifiant à 9 caractères utilisé pour les titres américains et canadiens — préexiste et se retrouve intégré dans de nombreux ISIN pour les instruments nord-américains."
+  },
+  "SEDOL": {
+    "term": "SEDOL",
+    "def": "Le code identifiant historiquement utilisé pour les titres cotés à la Bourse de Londres — toujours employé dans les systèmes de règlement britanniques aux côtés de l'ISIN."
+  },
+  "Nostro Account": {
+    "term": "Compte Nostro",
+    "def": "Un compte qu'une banque détient auprès d'une banque étrangère, libellé dans cette devise étrangère — littéralement « le nôtre » en latin, c'est le moyen pour une banque de conserver des soldes de travail à l'étranger afin de régler les paiements transfrontaliers."
+  },
+  "Vostro Account": {
+    "term": "Compte Vostro",
+    "def": "Un compte qu'une banque détient pour le compte d'une autre banque (généralement étrangère), libellé en devise locale — littéralement « le vôtre », l'image en miroir du compte nostro de cette autre banque."
+  },
+  "DVP (Delivery versus Payment)": {
+    "term": "DVP (Delivery versus Payment)",
+    "def": "Un mécanisme de règlement où les titres et les espèces changent de mains simultanément et de manière conditionnelle — aucune des deux parties ne peut s'approprier l'actif de l'autre sans livrer le sien, ce qui élimine le risque de principal."
+  },
+  "FOP (Free of Payment)": {
+    "term": "FOP (Free of Payment)",
+    "def": "Un transfert de titres sans paiement en espèces associé — utilisé par exemple pour des mouvements de collatéral ou des donations, où l'argent (s'il y en a) est réglé séparément, ou pas du tout."
+  },
+  "Settlement Cycle (T+1/T+2)": {
+    "term": "Cycle de règlement (J+1/J+2)",
+    "def": "Le nombre standard de jours ouvrés entre une transaction et son règlement définitif — la plupart des grands marchés règlent les transactions sur actions un ou deux jours ouvrés après la négociation (J+1 ou J+2), un délai raccourci au fil du temps pour réduire le risque de contrepartie."
+  },
+  "Custodian Bank": {
+    "term": "Banque dépositaire",
+    "def": "Une banque qui conserve les titres et les espèces de ses clients, gère le règlement-livraison et traite les revenus et les opérations sur titres pour leur compte — l'équivalent institutionnel d'un coffre-fort très sûr et très routinier."
+  },
+  "Sub-Custodian": {
+    "term": "Sous-conservateur",
+    "def": "Une banque dépositaire locale qu'un conservateur global désigne sur un marché étranger pour y détenir des actifs, le conservateur global ne disposant pas toujours d'un accès direct au système de règlement de chaque pays."
+  },
+  "Global Custody": {
+    "term": "Conservation globale",
+    "def": "L'activité de conservation et d'administration de titres dans de nombreux pays pour de grands clients institutionnels, généralement via un réseau de sous-conservateurs sur chaque marché local."
+  },
+  "Trade Repository": {
+    "term": "Référentiel central de transactions",
+    "def": "Une base de données centralisée où les transactions sur produits dérivés doivent être déclarées, depuis que les régulateurs (après 2008) ont exigé davantage de transparence sur les risques détenus à travers le système financier."
+  },
+  "RTGS (Real-Time Gross Settlement)": {
+    "term": "RTGS (Real-Time Gross Settlement)",
+    "def": "Une méthode de règlement des paiements où chaque transaction est réglée individuellement et immédiatement en monnaie banque centrale, plutôt que d'être regroupée et compensée par lots — plus coûteuse à mettre en place que les systèmes de netting, mais elle élimine le risque de délai de règlement."
+  },
+  "Correspondent Banking": {
+    "term": "Correspondant bancaire",
+    "def": "Un arrangement dans lequel une banque fournit des services (tenue de comptes, traitement de paiements) à une autre banque, généralement pour lui donner accès à une devise ou à un pays où elle n'a pas de succursale propre."
+  },
+  "LEI (Legal Entity Identifier)": {
+    "term": "LEI (Legal Entity Identifier)",
+    "def": "Un code d'identification mondial à 20 caractères qui identifie de manière unique une entité juridique (société, fonds, trust) participant à des transactions financières — exigé par les régulateurs après 2008 pour rendre traçable l'exposition au risque de contrepartie à travers le système."
+  },
+  "Trade Matching": {
+    "term": "Rapprochement des transactions",
+    "def": "Le processus consistant à confirmer que les deux parties à une transaction s'accordent sur ses détails (prix, quantité, date de règlement) avant qu'elle ne passe au règlement-livraison — permet de détecter les erreurs avant qu'elles ne deviennent des échecs de règlement coûteux."
+  },
+  "Settlement Fail": {
+    "term": "Échec de règlement-livraison",
+    "def": "Lorsqu'une transaction n'est pas réglée à la date prévue, généralement parce qu'une partie ne dispose pas des titres ou des espèces à livrer — rare sur des marchés efficients, mais un véritable risque opérationnel et systémique lorsqu'il se propage."
+  },
+  "Buy-In": {
+    "term": "Rachat forcé",
+    "def": "Un remède à un échec de règlement-livraison : l'acheteur se procure les titres manquants ailleurs sur le marché et facture la différence au vendeur défaillant — une correction imposée qui rétablit l'économie de la transaction."
+  },
+  "Corporate Actions Processing": {
+    "term": "Traitement des opérations sur titres",
+    "def": "Le travail administratif et de conservation consistant à gérer des événements comme les dividendes, les divisions d'actions, les fusions et les augmentations de capital pour chaque titre détenu par une institution — une plomberie peu spectaculaire mais essentielle qui garantit que les actionnaires reçoivent bien ce qui leur est dû."
+  },
+  "Omnibus Account": {
+    "term": "Compte omnibus",
+    "def": "Un compte de conservation unique regroupant les actifs combinés de nombreux clients sous-jacents, plutôt qu'un compte par client — efficace pour le conservateur, mais implique que les avoirs individuels des clients sont mélangés dans le registre jusqu'à leur réconciliation."
+  },
+  "Segregated Account": {
+    "term": "Compte ségrégué",
+    "def": "Un compte de conservation qui maintient les actifs d'un client juridiquement et opérationnellement séparés de ceux de tous les autres — plus coûteux à exploiter qu'un compte omnibus, mais offrant au client une protection plus nette en cas de défaillance du conservateur."
+  },
+  "Tri-Party Repo": {
+    "term": "Pension livrée tripartite",
+    "def": "Une opération de pension livrée où un agent tiers (généralement une banque dépositaire) s'intercale entre les deux contreparties, gérant la sélection du collatéral, sa valorisation et son règlement — simplifie les marchés de pension à grande échelle en externalisant la charge opérationnelle."
   }
 };
