@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useFavoritesCount } from '../utils/favorites';
 import { useLang, LANGS } from '../utils/lang';
+import { useTheme } from '../utils/theme';
 import './Header.css';
 
 const Header = () => {
@@ -9,6 +10,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const favCount = useFavoritesCount();
   const { lang, setLang, t } = useLang();
+  const { isDark, toggle: toggleTheme } = useTheme();
 
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
@@ -52,6 +54,7 @@ const Header = () => {
             {favCount > 0 && <span className="nav-fav-count">{favCount > 99 ? '99+' : favCount}</span>}
           </Link>
           <Link to="/learn" className={`nav-link ${isActive('/learn') ? 'active' : ''}`} onClick={closeMenu}>{t('nav_progress')}</Link>
+          <Link to="/review" className={`nav-link ${isActive('/review') ? 'active' : ''}`} onClick={closeMenu}>{t('nav_review')}</Link>
         </nav>
 
         <div className="header-actions">
@@ -68,6 +71,15 @@ const Header = () => {
               </button>
             ))}
           </div>
+          <button
+            type="button"
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={isDark ? t('theme_light') : t('theme_dark')}
+            title={isDark ? t('theme_light') : t('theme_dark')}
+          >
+            {isDark ? '☀️' : '🌙'}
+          </button>
           <Link to="/search" className="search-icon" aria-label={t('search_aria')}>🔍</Link>
           <Link to="/favorites" className="profile-button" aria-label={t('favorites_aria')} title={t('favorites_aria')}>
             <span className="header-star">★</span>

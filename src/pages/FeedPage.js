@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { concepts, categories, getCategory } from '../data/concepts';
-import { buildFeed } from '../data/vocab';
+import { concepts, categories, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { buildFeed, localizeVocabItem } from '../data/vocab';
 import { getFavorites } from '../utils/favorites';
+import { getFeedPosition, saveFeedPosition } from '../utils/feedPosition';
 import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
@@ -11,12 +12,15 @@ import './FeedPage.css';
 const FeedPage = () => {
   const { catId } = useParams();
   const navigate = useNavigate();
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isFavMode = catId === 'favorites';
-  const activeCat = isFavMode ? { name: 'Favoris', icon: '⭐' } : (catId ? getCategory(catId) : null);
+  const activeCat = isFavMode
+    ? { name: t('nav_favorites'), icon: '⭐' }
+    : (catId ? localizeCategory(getCategory(catId), lang) : null);
+  const feedKey = catId || 'all';
 
   // Interleaved feed: concepts and vocabulary cards alternate.
   let list = buildFeed(concepts, isFavMode ? null : catId);
@@ -24,6 +28,14 @@ const FeedPage = () => {
     const favs = getFavorites();
     list = list.filter((item) => favs.has(item.id));
   }
+
+  const listRef = useRef(list);
+  useEffect(() => { listRef.current = list; });
+
+  // The resume effect below sets activeIndex asynchronously; without this
+  // guard, the position-save effect would fire once first with the stale
+  // initial activeIndex (0) and clobber the just-restored position.
+  const skipNextSaveRef = useRef(true);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -44,12 +56,34 @@ const FeedPage = () => {
     };
   }, [catId]);
 
-  // Reset to top when the list changes
+  // Resume where you left off in this feed, or reset to top for a fresh one.
   useEffect(() => {
     const el = scrollRef.current;
-    if (el) el.scrollTo({ top: 0 });
-    setActiveIndex(0);
+    if (!el) return;
+    skipNextSaveRef.current = true;
+    const favMode = catId === 'favorites';
+    let l = buildFeed(concepts, favMode ? null : catId);
+    if (favMode) {
+      const favs = getFavorites();
+      l = l.filter((item) => favs.has(item.id));
+    }
+    const saved = getFeedPosition(catId || 'all');
+    const idx = saved ? l.findIndex((item) => item.id === saved.itemId) : -1;
+    const startAt = idx > 0 ? idx : 0;
+    el.scrollTo({ top: startAt * el.clientHeight });
+    setActiveIndex(startAt);
   }, [catId]);
+
+  // Remember the current item so the next visit can resume here. Skips the
+  // one save that would otherwise fire with the pre-resume activeIndex.
+  useEffect(() => {
+    if (skipNextSaveRef.current) {
+      skipNextSaveRef.current = false;
+      return;
+    }
+    const item = listRef.current[activeIndex];
+    if (item) saveFeedPosition(feedKey, item.id);
+  }, [activeIndex, feedKey]);
 
   const openConcept = (id) => navigate(`/concept/${id}`);
   const progress = list.length > 1 ? (activeIndex / (list.length - 1)) * 100 : 0;
@@ -66,23 +100,26 @@ const FeedPage = () => {
           <span className="feed-pill-icon">★</span>
           {t('nav_favorites')}
         </Link>
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            to={`/category/${cat.id}`}
-            className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
-          >
-            <span className="feed-pill-icon">{cat.icon}</span>
-            {cat.name}
-          </Link>
-        ))}
+        {categories.map((rawCat) => {
+          const cat = localizeCategory(rawCat, lang);
+          return (
+            <Link
+              key={cat.id}
+              to={`/category/${cat.id}`}
+              className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
+            >
+              <span className="feed-pill-icon">{cat.icon}</span>
+              {cat.name}
+            </Link>
+          );
+        })}
       </div>
 
       <div className="feed-scroll" ref={scrollRef}>
         {list.map((item, i) => {
           if (item.kind === 'concept') {
-            const concept = item.data;
-            const cat = getCategory(concept.category);
+            const concept = localizeConcept(item.data, lang);
+            const cat = localizeCategory(getCategory(concept.category), lang);
             return (
               <section
                 key={concept.id}
@@ -131,8 +168,8 @@ const FeedPage = () => {
           }
 
           // Vocabulary card slide
-          const v = item.data;
-          const cat = getCategory(v.category);
+          const v = localizeVocabItem(item.data, lang);
+          const cat = localizeCategory(getCategory(v.category), lang);
           const open = v.conceptId
             ? () => openConcept(v.conceptId)
             : () => window.open(

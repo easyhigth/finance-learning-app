@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getConcept, getCategory, getRelatedConcepts, getAdjacent } from '../data/concepts';
+import { getConcept, getCategory, getRelatedConcepts, getAdjacent, localizeConcept, localizeCategory } from '../data/concepts';
 import { useLearned } from '../utils/progress';
 import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
@@ -9,17 +9,17 @@ import './ConceptPage.css';
 
 const ConceptPage = () => {
   const { slug } = useParams();
-  const { t } = useLang();
-  const concept = getConcept(slug);
-  const [learned, toggleLearned] = useLearned(concept ? concept.id : null);
+  const { lang, t } = useLang();
+  const rawConcept = getConcept(slug);
+  const [learned, toggleLearned] = useLearned(rawConcept ? rawConcept.id : null);
 
   useEffect(() => {
-    if (concept) {
+    if (rawConcept) {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
-  }, [concept]);
+  }, [rawConcept]);
 
-  if (!concept) {
+  if (!rawConcept) {
     return (
       <div className="concept-page concept-missing">
         <div className="concept-missing-inner">
@@ -32,9 +32,12 @@ const ConceptPage = () => {
     );
   }
 
-  const category = getCategory(concept.category);
-  const related = getRelatedConcepts(concept);
-  const { prev, next } = getAdjacent(concept);
+  const concept = localizeConcept(rawConcept, lang);
+  const category = localizeCategory(getCategory(concept.category), lang);
+  const related = getRelatedConcepts(rawConcept).map((c) => localizeConcept(c, lang));
+  const { prev, next } = getAdjacent(rawConcept);
+  const prevL = prev ? localizeConcept(prev, lang) : null;
+  const nextL = next ? localizeConcept(next, lang) : null;
 
   return (
     <article className="concept-page">
@@ -46,7 +49,7 @@ const ConceptPage = () => {
         <div className="concept-hero-overlay" />
         <div className="concept-hero-inner">
           <div className="concept-topbar">
-            <Link to={prev ? `/concept/${prev.id}` : '/'} className="concept-back">← {prev ? `${t('concept_previn')}: ${prev.title}` : t('concept_feed')}</Link>
+            <Link to={prevL ? `/concept/${prevL.id}` : '/'} className="concept-back">← {prevL ? `${t('concept_previn')}: ${prevL.title}` : t('concept_feed')}</Link>
             <Link to={`/category/${concept.category}`} className="concept-cat-chip">
               {category.icon} {category.name}
             </Link>
@@ -177,16 +180,16 @@ const ConceptPage = () => {
 
         {/* Prev / next */}
         <nav className="concept-prevnext">
-          {prev ? (
-            <Link to={`/concept/${prev.id}`} className="concept-pn-link prev">
+          {prevL ? (
+            <Link to={`/concept/${prevL.id}`} className="concept-pn-link prev">
               <span className="concept-pn-label">← {t('concept_previn')} {category.name}</span>
-              <span className="concept-pn-title">{prev.title}</span>
+              <span className="concept-pn-title">{prevL.title}</span>
             </Link>
           ) : <span className="concept-pn-spacer" />}
-          {next ? (
-            <Link to={`/concept/${next.id}`} className="concept-pn-link next">
+          {nextL ? (
+            <Link to={`/concept/${nextL.id}`} className="concept-pn-link next">
               <span className="concept-pn-label">{t('concept_nextin')} {category.name} →</span>
-              <span className="concept-pn-title">{next.title}</span>
+              <span className="concept-pn-title">{nextL.title}</span>
             </Link>
           ) : <span className="concept-pn-spacer" />}
         </nav>

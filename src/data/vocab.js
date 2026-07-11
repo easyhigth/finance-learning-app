@@ -4,6 +4,14 @@
 //
 // Shape: { id, term, aliases[], category, icon, color[2], simple, example, remember, conceptId? }
 // `conceptId` links to the deep concept page when one exists.
+import { vocabFr } from './vocab.fr';
+
+export const localizeVocabItem = (item, lang) => {
+  if (!item || lang !== 'fr') return item;
+  const fr = vocabFr[item.id];
+  return fr ? { ...item, ...fr } : item;
+};
+
 export const vocab = [
   /* ---------------- FOUNDATIONS ---------------- */
   {

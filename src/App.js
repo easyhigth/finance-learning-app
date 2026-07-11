@@ -1,17 +1,24 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FeedPage from './pages/FeedPage';
-import ConceptPage from './pages/ConceptPage';
-import LearnPage from './pages/LearnPage';
-import CategoriesPage from './pages/CategoriesPage';
-import SearchPage from './pages/SearchPage';
-import FavoritesPage from './pages/FavoritesPage';
-import WordsPage from './pages/WordsPage';
-import NotFoundPage from './pages/NotFoundPage';
 import { LangContext, getStoredLang, STRINGS } from './utils/lang';
 import './App.css';
+
+// Route-level code splitting: only the feed (the landing experience) is
+// eagerly bundled — every other page loads on demand, keeping the first
+// paint light on slow connections before the service worker can help.
+const ConceptPage = lazy(() => import('./pages/ConceptPage'));
+const LearnPage = lazy(() => import('./pages/LearnPage'));
+const CategoriesPage = lazy(() => import('./pages/CategoriesPage'));
+const SearchPage = lazy(() => import('./pages/SearchPage'));
+const FavoritesPage = lazy(() => import('./pages/FavoritesPage'));
+const WordsPage = lazy(() => import('./pages/WordsPage'));
+const ReviewPage = lazy(() => import('./pages/ReviewPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+
+const RouteFallback = () => <div className="route-fallback" aria-hidden="true" />;
 
 function LangProvider({ children }) {
   const [lang, setLangState] = useState(getStoredLang);
@@ -42,17 +49,20 @@ function App() {
     <LangProvider>
       <div className="App">
         <Header />
-        <Routes>
-          <Route path="/" element={<FeedPage />} />
-          <Route path="/category/:catId" element={<FeedPage />} />
-          <Route path="/concept/:slug" element={<ConceptPage />} />
-          <Route path="/learn" element={<LearnPage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/words" element={<WordsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<FeedPage />} />
+            <Route path="/category/:catId" element={<FeedPage />} />
+            <Route path="/concept/:slug" element={<ConceptPage />} />
+            <Route path="/learn" element={<LearnPage />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/words" element={<WordsPage />} />
+            <Route path="/review" element={<ReviewPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
         {!isFeed && <Footer />}
       </div>
     </LangProvider>

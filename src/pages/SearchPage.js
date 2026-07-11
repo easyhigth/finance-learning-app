@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { searchConcepts, concepts, getCategory } from '../data/concepts';
-import { searchGlossary } from '../data/glossary';
+import { searchConcepts, concepts, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
+import { searchGlossary, localizeGlossaryEntry } from '../data/glossary';
 import FavoriteStar from '../components/FavoriteStar';
 import { useLang } from '../utils/lang';
 import './SearchPage.css';
 
 const SearchPage = () => {
-  const { t } = useLang();
+  const { lang, t } = useLang();
   const [searchTerm, setSearchTerm] = useState('');
   const [submitted, setSubmitted] = useState(''); // the last query actually searched
 
@@ -109,8 +109,9 @@ const SearchPage = () => {
               <>
                 <h3 className="results-subhead">{t('concepts_sub')}</h3>
                 <div className="results-grid">
-                  {results.concepts.map((c) => {
-                    const cat = getCategory(c.category);
+                  {results.concepts.map((rawC) => {
+                    const c = localizeConcept(rawC, lang);
+                    const cat = localizeCategory(getCategory(c.category), lang);
                     return (
                       <Link key={c.id} to={`/concept/${c.id}`} className="result-card"
                         style={{ borderTop: `3px solid ${c.color[0]}` }}>
@@ -134,26 +135,27 @@ const SearchPage = () => {
               <>
                 <h3 className="results-subhead">{t('vocab_sub')}</h3>
                 <div className="vocab-grid">
-                  {vocabTerms.map((t, i) => {
-                    const cat = getCategory(t.category);
-                    const related = t.conceptId
-                      ? concepts.find((c) => c.id === t.conceptId)
+                  {vocabTerms.map((rawTerm, i) => {
+                    const term = localizeGlossaryEntry(rawTerm, lang);
+                    const cat = localizeCategory(getCategory(term.category), lang);
+                    const related = term.conceptId
+                      ? localizeConcept(concepts.find((c) => c.id === term.conceptId), lang)
                       : null;
                     return (
-                      <div key={`${t.term}-${i}`} className="vocab-card">
+                      <div key={`${rawTerm.term}-${i}`} className="vocab-card">
                         <div className="vocab-card-top">
-                          <span className="vocab-card-term">{t.term}</span>
+                          <span className="vocab-card-term">{term.term}</span>
                           {cat && <span className="vocab-card-cat">{cat.name}</span>}
-                          <FavoriteStar id={t.conceptId || ('g:' + t.term)} className="result-card-star" />
+                          <FavoriteStar id={term.conceptId || ('g:' + rawTerm.term)} className="result-card-star" />
                         </div>
-                        {t.aliases && t.aliases.length > 0 && (
+                        {term.aliases && term.aliases.length > 0 && (
                           <div className="vocab-aliases">
-                            {t.aliases.slice(0, 6).map((a) => (
+                            {term.aliases.slice(0, 6).map((a) => (
                               <span key={a} className="vocab-alias">{a}</span>
                             ))}
                           </div>
                         )}
-                        <p className="vocab-def">{t.def}</p>
+                        <p className="vocab-def">{term.def}</p>
                         <div className="vocab-card-actions">
                           {related ? (
                             <Link to={`/concept/${related.id}`} className="vocab-deep-link">
@@ -164,7 +166,7 @@ const SearchPage = () => {
                           ) : (
                             <a
                               className="vocab-deep-link wiki"
-                              href={wikiLink(t.term)}
+                              href={wikiLink(rawTerm.term)}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -186,12 +188,15 @@ const SearchPage = () => {
             <h2>{t('quick_picks')}</h2>
             <p className="popular-description">{t('quick_picks_sub')}</p>
             <div className="popular-grid">
-              {quickPicks.map((c) => (
-                <Link key={c.id} to={`/concept/${c.id}`} className="popular-term">
-                  <span className="popular-term-icon">{c.icon}</span>
-                  <span className="popular-term-name">{c.title}</span>
-                </Link>
-              ))}
+              {quickPicks.map((rawC) => {
+                const c = localizeConcept(rawC, lang);
+                return (
+                  <Link key={c.id} to={`/concept/${c.id}`} className="popular-term">
+                    <span className="popular-term-icon">{c.icon}</span>
+                    <span className="popular-term-name">{c.title}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

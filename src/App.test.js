@@ -15,20 +15,20 @@ test('renders the feed at / without crashing', () => {
   expect(screen.getByRole('banner')).toBeInTheDocument();
 });
 
-test('renders the learn page with progress at 0%', () => {
+test('renders the learn page with progress at 0%', async () => {
   render(
     <MemoryRouter initialEntries={['/learn']}>
       <App />
     </MemoryRouter>
   );
-  expect(screen.getByText('0%')).toBeInTheDocument();
+  expect(await screen.findByText('0%')).toBeInTheDocument();
 });
 
-test('renders a 404 page for an unknown route', () => {
+test('renders a 404 page for an unknown route', async () => {
   render(
     <MemoryRouter initialEntries={['/this-route-does-not-exist']}>
       <App />
     </MemoryRouter>
   );
-  expect(screen.getByText(/404|not found/i)).toBeInTheDocument();
+  expect(await screen.findByText(/404|not found/i)).toBeInTheDocument();
 });

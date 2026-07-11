@@ -5,6 +5,14 @@
 //
 // Categories mirror the main `categories` array in concepts.js, plus
 // 'fintech' and 'accounting' for crypto and financial-statement terms.
+import { glossaryFr } from './glossary.fr';
+
+// Keyed by the English `term` (unique across the glossary).
+export const localizeGlossaryEntry = (entry, lang) => {
+  if (!entry || lang !== 'fr') return entry;
+  const fr = glossaryFr[entry.term];
+  return fr ? { ...entry, ...fr } : entry;
+};
 
 export const glossary = [
   /* ---------------- FOUNDATIONS ---------------- */
@@ -736,10 +744,13 @@ export const searchGlossary = (query) => {
 
   const scored = glossary
     .map((entry) => {
+      const fr = glossaryFr[entry.term];
       const termLow = norm(entry.term);
+      const termFrLow = norm(fr?.term);
       const aliasesLow = (entry.aliases || []).map(norm);
-      const defLow = norm(entry.def);
-      const haystacks = [termLow, ...aliasesLow];
+      // Search both languages regardless of the current UI language.
+      const defLow = norm(entry.def) + ' ' + norm(fr?.def);
+      const haystacks = [termLow, termFrLow, ...aliasesLow];
 
       // Exact alias/term match → highest rank
       const exact = haystacks.some((h) => h === q || h === q + 's' || q === h + 's' || h === q + 'e');
