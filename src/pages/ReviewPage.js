@@ -67,7 +67,7 @@ const ReviewPage = () => {
             <div className="review-card-inner">
               <div className="review-card-face review-card-front">
                 <div className="review-card-illustration">
-                  <Illustration type={card.illustration} colors={['#ff9500', '#ffb347']} />
+                  <Illustration type={card.illustration} colors={['#ffd400', '#ffe066']} />
                 </div>
                 <span className="review-card-icon">{card.icon}</span>
                 <h2>{card.title}</h2>

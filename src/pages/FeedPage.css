@@ -11,14 +11,14 @@
 /* ---------- Top progress ---------- */
 .feed-progress-bar {
   height: 3px;
-  background: rgba(255, 149, 0, 0.14);
+  background: rgba(255, 212, 0, 0.14);
   flex-shrink: 0;
   z-index: 5;
 }
 
 .feed-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #ffb347, #ff9500, #e67e00);
+  background: linear-gradient(90deg, #ffe066, #ffd400, #e6b800);
   transition: width 0.2s linear;
 }
 
@@ -32,7 +32,7 @@
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 149, 0, 0.14);
+  border-bottom: 1px solid rgba(255, 212, 0, 0.14);
   scrollbar-width: none;
 }
 
@@ -48,14 +48,14 @@
   font-size: 0.85rem;
   font-weight: 600;
   color: rgba(245, 241, 234, 0.62);
-  background: rgba(255, 149, 0, 0.06);
-  border: 1px solid rgba(255, 149, 0, 0.14);
+  background: rgba(255, 212, 0, 0.06);
+  border: 1px solid rgba(255, 212, 0, 0.14);
   text-decoration: none;
   transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
 
 .feed-pill:hover {
-  background: rgba(255, 149, 0, 0.16);
+  background: rgba(255, 212, 0, 0.16);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -64,7 +64,7 @@
   background: var(--brand-grad);
   color: #14110c;
   border-color: transparent;
-  box-shadow: 0 6px 18px rgba(255, 149, 0, 0.28);
+  box-shadow: 0 6px 18px rgba(255, 212, 0, 0.28);
 }
 
 .feed-pill-icon {
@@ -95,8 +95,8 @@
   /* Terminal look: every card is the same black panel with a faint amber
      glow, regardless of concept — no more per-topic color gradients. */
   background:
-    radial-gradient(900px 500px at 85% -10%, rgba(255, 149, 0, 0.16), transparent 55%),
-    radial-gradient(700px 500px at 10% 110%, rgba(255, 149, 0, 0.08), transparent 55%),
+    radial-gradient(900px 500px at 85% -10%, rgba(255, 212, 0, 0.16), transparent 55%),
+    radial-gradient(700px 500px at 10% 110%, rgba(255, 212, 0, 0.08), transparent 55%),
     linear-gradient(160deg, #14110c 0%, #000000 100%);
 }
 
@@ -145,9 +145,9 @@
   text-transform: uppercase;
   padding: 0.32rem 0.7rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 149, 0, 0.14);
-  border: 1px solid rgba(255, 149, 0, 0.35);
-  color: #ffb347;
+  background: rgba(255, 212, 0, 0.14);
+  border: 1px solid rgba(255, 212, 0, 0.35);
+  color: #ffe066;
 }
 
 .feed-counter {
@@ -186,11 +186,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 18px;
-  background: rgba(255, 149, 0, 0.12);
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(255, 212, 0, 0.12);
+  border: 1px solid rgba(255, 212, 0, 0.3);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  box-shadow: inset 0 1px 0 rgba(255, 149, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 212, 0, 0.15);
 }
 
 .feed-title {
@@ -213,8 +213,8 @@
 }
 
 .feed-preview {
-  background: rgba(255, 149, 0, 0.07);
-  border: 1px solid rgba(255, 149, 0, 0.22);
+  background: rgba(255, 212, 0, 0.07);
+  border: 1px solid rgba(255, 212, 0, 0.22);
   border-radius: var(--radius);
   padding: 0.95rem 1.05rem;
   margin-top: 0.4rem;
@@ -228,7 +228,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffb347;
+  color: #ffe066;
   margin-bottom: 0.3rem;
 }
 
@@ -254,13 +254,13 @@
   font-weight: 700;
   cursor: pointer;
   align-self: flex-start;
-  box-shadow: 0 10px 28px rgba(255, 149, 0, 0.22);
+  box-shadow: 0 10px 28px rgba(255, 212, 0, 0.22);
   transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
 }
 
 .feed-open:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(255, 149, 0, 0.32);
+  box-shadow: 0 16px 36px rgba(255, 212, 0, 0.32);
 }
 
 .feed-open-arrow {
@@ -303,8 +303,8 @@
 .feed-slide-term .feed-slide-inner::-webkit-scrollbar { display: none; }
 
 .feed-chip-term {
-  background: rgba(255, 149, 0, 0.22);
-  border-color: rgba(255, 149, 0, 0.5);
+  background: rgba(255, 212, 0, 0.22);
+  border-color: rgba(255, 212, 0, 0.5);
 }
 
 .feed-badge-term {
@@ -322,8 +322,8 @@
 }
 
 .feed-chip-vocab {
-  background: rgba(255, 149, 0, 0.22);
-  border-color: rgba(255, 149, 0, 0.5);
+  background: rgba(255, 212, 0, 0.22);
+  border-color: rgba(255, 212, 0, 0.5);
 }
 
 .feed-badge-vocab {
@@ -341,8 +341,8 @@
 }
 
 .feed-vocab-block {
-  background: rgba(255, 149, 0, 0.07);
-  border: 1px solid rgba(255, 149, 0, 0.2);
+  background: rgba(255, 212, 0, 0.07);
+  border: 1px solid rgba(255, 212, 0, 0.2);
   border-radius: var(--radius);
   padding: 0.65rem 0.85rem;
   backdrop-filter: blur(6px);
@@ -357,9 +357,9 @@
 }
 
 .feed-vocab-remember {
-  background: rgba(255, 149, 0, 0.14);
-  border: 1px solid rgba(255, 149, 0, 0.4);
-  border-left: 4px solid #ff9500;
+  background: rgba(255, 212, 0, 0.14);
+  border: 1px solid rgba(255, 212, 0, 0.4);
+  border-left: 4px solid #ffd400;
   border-radius: var(--radius);
   padding: 0.65rem 0.85rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
@@ -379,7 +379,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #ffb347;
+  color: #ffe066;
   margin-bottom: 0.25rem;
 }
 
@@ -391,7 +391,7 @@
 /* ---------- End card ---------- */
 .feed-slide.feed-end {
   background:
-    radial-gradient(900px 500px at 50% -10%, rgba(255, 149, 0, 0.14), transparent 60%),
+    radial-gradient(900px 500px at 50% -10%, rgba(255, 212, 0, 0.14), transparent 60%),
     linear-gradient(160deg, #14110c, #000000);
   align-items: center;
   justify-content: center;
@@ -435,14 +435,14 @@
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
-  background: rgba(255, 149, 0, 0.1);
-  border: 1px solid rgba(255, 149, 0, 0.3);
+  background: rgba(255, 212, 0, 0.1);
+  border: 1px solid rgba(255, 212, 0, 0.3);
   color: #fff;
   transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
 .feed-end-btn:hover {
-  background: rgba(255, 149, 0, 0.2);
+  background: rgba(255, 212, 0, 0.2);
   transform: translateY(-2px);
 }
 
@@ -468,17 +468,17 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(255, 149, 0, 0.3);
+  background: rgba(255, 212, 0, 0.3);
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
 
 .feed-dot:hover {
-  background: rgba(255, 149, 0, 0.55);
+  background: rgba(255, 212, 0, 0.55);
 }
 
 .feed-dot.active {
-  background: #ff9500;
+  background: #ffd400;
   transform: scale(1.5);
 }
 

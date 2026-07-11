@@ -54,7 +54,7 @@ const ConceptPage = () => {
           <div className="concept-hero-visual">
             <span className="concept-hero-badge">{concept.icon}</span>
             <div className="concept-hero-illustration">
-              <Illustration type={concept.illustration} colors={['#ff9500', '#ffb347']} />
+              <Illustration type={concept.illustration} colors={['#ffd400', '#ffe066']} />
             </div>
           </div>
           <h1 className="concept-title">{concept.title}</h1>
