@@ -24,6 +24,24 @@ export const localizeCategory = (category, lang) => {
   return fr ? { ...category, ...fr } : category;
 };
 
+// One representative gradient per category, reused for glossary "quick
+// term" feed cards (glossary entries don't carry their own color/icon
+// like concepts and vocab fiches do).
+export const categoryColors = {
+  foundations: ['#6366f1', '#8b5cf6'],
+  investing: ['#22c55e', '#3b82f6'],
+  markets: ['#6366f1', '#0ea5e9'],
+  personal: ['#f59e0b', '#16a34a'],
+  corporate: ['#ec4899', '#8b5cf6'],
+  banking: ['#6366f1', '#0ea5e9'],
+  economics: ['#f59e0b', '#0ea5e9'],
+  risk: ['#dc2626', '#8b5cf6'],
+  institutions: ['#3b82f6', '#6366f1'],
+  derivatives: ['#8b5cf6', '#3b82f6'],
+  accounting: ['#475569', '#0ea5e9'],
+  fintech: ['#f59e0b', '#6366f1'],
+};
+
 export const categories = [
   { id: 'foundations', name: 'Foundations', icon: '💡', blurb: 'The ideas every financially literate person needs first.' },
   { id: 'investing', name: 'Investing', icon: '📈', blurb: 'How money grows when you put it to work.' },

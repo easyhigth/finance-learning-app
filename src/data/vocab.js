@@ -5,6 +5,7 @@
 // Shape: { id, term, aliases[], category, icon, color[2], simple, example, remember, conceptId? }
 // `conceptId` links to the deep concept page when one exists.
 import { vocabFr } from './vocab.fr';
+import { glossary } from './glossary';
 
 export const localizeVocabItem = (item, lang) => {
   if (!item || lang !== 'fr') return item;
@@ -958,18 +959,31 @@ export const vocab = [
 
 export const getVocabByCategory = (catId) => vocab.filter((v) => v.category === catId);
 
-// Build the interleaved feed: alternate concepts and vocab cards.
-// If a catId is given, restrict both lists to that category.
-// Returns an array of { kind: 'concept'|'vocab', data, id } in a stable mixed order.
+// Glossary entries are the comprehensive, dictionary-style term bank (649+
+// entries) used for search. We also surface them in the scroll feed as
+// quick "what does this mean" cards, skipping any term already covered by
+// a richer vocab.js fiche so the same word never appears twice.
+const normTerm = (s) => (s || '').trim().toLowerCase();
+const vocabTermSet = new Set(vocab.map((v) => normTerm(v.term)));
+const dedupedGlossary = glossary.filter((g) => !vocabTermSet.has(normTerm(g.term)));
+
+export const getGlossaryTermsByCategory = (catId) =>
+  dedupedGlossary.filter((g) => g.category === catId);
+
+// Build the interleaved feed: alternate concepts, vocab fiches, and quick
+// glossary term cards. If a catId is given, restrict all three to that category.
+// Returns an array of { kind: 'concept'|'vocab'|'term', data, id } in a stable mixed order.
 export const buildFeed = (conceptsArr, catId) => {
   const cons = catId ? conceptsArr.filter((c) => c.category === catId) : conceptsArr;
   const vocs = catId ? getVocabByCategory(catId) : vocab;
+  const terms = catId ? getGlossaryTermsByCategory(catId) : dedupedGlossary;
 
   const merged = [];
-  const max = Math.max(cons.length, vocs.length);
+  const max = Math.max(cons.length, vocs.length, terms.length);
   for (let i = 0; i < max; i++) {
     if (i < cons.length) merged.push({ kind: 'concept', id: cons[i].id, data: cons[i] });
     if (i < vocs.length) merged.push({ kind: 'vocab', id: vocs[i].id, data: vocs[i] });
+    if (i < terms.length) merged.push({ kind: 'term', id: 'g:' + terms[i].term, data: terms[i] });
   }
   return merged;
 };

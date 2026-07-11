@@ -288,12 +288,33 @@
 }
 
 /* ---------- Vocabulary slides ---------- */
-.feed-slide-vocab .feed-slide-inner {
+.feed-slide-vocab .feed-slide-inner,
+.feed-slide-term .feed-slide-inner {
   justify-content: flex-start;
   overflow-y: auto;
   scrollbar-width: none;
 }
-.feed-slide-vocab .feed-slide-inner::-webkit-scrollbar { display: none; }
+.feed-slide-vocab .feed-slide-inner::-webkit-scrollbar,
+.feed-slide-term .feed-slide-inner::-webkit-scrollbar { display: none; }
+
+.feed-chip-term {
+  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.feed-badge-term {
+  font-size: 1.5rem;
+}
+
+.feed-title-term {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 5.5vw, 2.3rem);
+  margin-bottom: 0.15rem;
+}
+
+.feed-term-body {
+  gap: 0.5rem;
+}
 
 .feed-chip-vocab {
   background: rgba(255, 255, 255, 0.26);
