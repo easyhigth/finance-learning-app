@@ -1,0 +1,63 @@
+.fav-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fav-star.sm { width: 32px; height: 32px; }
+.fav-star.md { width: 38px; height: 38px; }
+.fav-star.lg { width: 44px; height: 44px; }
+
+/* On light cards */
+.fav-star.solid {
+  background: var(--surface-2);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+}
+.fav-star.solid:hover {
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.4);
+  background: #fffbeb;
+}
+.fav-star.solid.on {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+/* On dark / gradient slides */
+.fav-star.light {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.fav-star.light:hover {
+  background: rgba(255, 255, 255, 0.24);
+  color: #fde68a;
+}
+.fav-star.light.on {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
+}
+
+/* Pop animation when toggled on */
+.fav-star.on {
+  animation: fav-pop 0.4s var(--ease);
+}
+
+@keyframes fav-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.3) rotate(-8deg); }
+  70% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}

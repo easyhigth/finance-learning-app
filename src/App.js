@@ -7,6 +7,7 @@ import ConceptPage from './pages/ConceptPage';
 import LearnPage from './pages/LearnPage';
 import CategoriesPage from './pages/CategoriesPage';
 import SearchPage from './pages/SearchPage';
+import FavoritesPage from './pages/FavoritesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/learn" element={<LearnPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       {!isFeed && <Footer />}

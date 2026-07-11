@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { searchConcepts, concepts, getCategory } from '../data/concepts';
 import { searchGlossary } from '../data/glossary';
+import FavoriteStar from '../components/FavoriteStar';
 import './SearchPage.css';
 
 const SearchPage = () => {
@@ -119,6 +120,7 @@ const SearchPage = () => {
                         <div className="result-card-top">
                           <span className="result-card-icon">{c.icon}</span>
                           <span className="result-card-cat">{cat ? cat.name : c.category}</span>
+                          <FavoriteStar id={c.id} className="result-card-star" />
                         </div>
                         <h3>{c.title}</h3>
                         <p>{c.tldr}</p>
@@ -145,6 +147,7 @@ const SearchPage = () => {
                         <div className="vocab-card-top">
                           <span className="vocab-card-term">{t.term}</span>
                           {cat && <span className="vocab-card-cat">{cat.name}</span>}
+                          <FavoriteStar id={t.conceptId || ('g:' + t.term)} className="result-card-star" />
                         </div>
                         {t.aliases && t.aliases.length > 0 && (
                           <div className="vocab-aliases">

@@ -78,6 +78,33 @@
   box-shadow: var(--shadow-sm);
 }
 
+.nav-fav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-fav-star {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.nav-fav-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -106,7 +133,7 @@
 }
 
 .profile-button {
-  background: var(--brand-grad);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
   border: none;
   font-size: 1.05rem;
   width: 40px;
@@ -114,14 +141,38 @@
   border-radius: var(--radius-pill);
   color: #fff;
   transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
-  box-shadow: var(--shadow-brand);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.4);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .profile-button:hover {
   transform: translateY(-1px) scale(1.04);
+}
+
+.profile-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  background: var(--text);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--surface);
+  line-height: 1;
+}
+
+.header-star {
+  line-height: 1;
 }
 
 .menu-toggle {

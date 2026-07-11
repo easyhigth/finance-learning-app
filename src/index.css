@@ -95,6 +95,12 @@ code {
   background: rgba(99, 102, 241, 0.22);
 }
 
+/* Subtle entrance animation for cards */
+@keyframes cardRise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Accessible focus ring for keyboard users */
 :focus-visible {
   outline: 3px solid rgba(99, 102, 241, 0.5);

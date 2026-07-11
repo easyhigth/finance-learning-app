@@ -2,7 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { concepts, categories, getCategory } from '../data/concepts';
 import { buildFeed } from '../data/vocab';
+import { getFavorites } from '../utils/favorites';
 import Illustration from '../components/Illustration';
+import FavoriteStar from '../components/FavoriteStar';
 import './FeedPage.css';
 
 const FeedPage = () => {
@@ -11,9 +13,15 @@ const FeedPage = () => {
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const activeCat = catId ? getCategory(catId) : null;
+  const isFavMode = catId === 'favorites';
+  const activeCat = isFavMode ? { name: 'Favoris', icon: '⭐' } : (catId ? getCategory(catId) : null);
+
   // Interleaved feed: concepts and vocabulary cards alternate.
-  const list = buildFeed(concepts, catId);
+  let list = buildFeed(concepts, isFavMode ? null : catId);
+  if (isFavMode) {
+    const favs = getFavorites();
+    list = list.filter((item) => favs.has(item.id));
+  }
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -52,6 +60,10 @@ const FeedPage = () => {
 
       <div className="feed-filters">
         <Link to="/" className={`feed-pill ${!catId ? 'active' : ''}`}>All</Link>
+        <Link to="/category/favorites" className={`feed-pill feed-pill-fav ${isFavMode ? 'active' : ''}`}>
+          <span className="feed-pill-icon">★</span>
+          Favoris
+        </Link>
         {categories.map((cat) => (
           <Link
             key={cat.id}
@@ -79,7 +91,10 @@ const FeedPage = () => {
                 <div className="feed-slide-inner">
                   <div className="feed-slide-top">
                     <span className="feed-chip">{cat?.icon} {cat?.name}</span>
-                    <span className="feed-counter">{i + 1} / {list.length}</span>
+                    <div className="feed-slide-top-right">
+                      <FavoriteStar id={concept.id} tone="light" size="sm" className="feed-slide-star" />
+                      <span className="feed-counter">{i + 1} / {list.length}</span>
+                    </div>
                   </div>
 
                   <div className="feed-illustration">
@@ -133,7 +148,10 @@ const FeedPage = () => {
               <div className="feed-slide-inner">
                 <div className="feed-slide-top">
                   <span className="feed-chip feed-chip-vocab">📚 Vocabulaire · {cat?.name}</span>
-                  <span className="feed-counter">{i + 1} / {list.length}</span>
+                  <div className="feed-slide-top-right">
+                    <FavoriteStar id={v.id} tone="light" size="sm" className="feed-slide-star" />
+                    <span className="feed-counter">{i + 1} / {list.length}</span>
+                  </div>
                 </div>
 
                 <div className="feed-slide-body feed-vocab-body">
@@ -172,6 +190,21 @@ const FeedPage = () => {
           );
         })}
 
+        {isFavMode && list.length === 0 && (
+          <section className="feed-slide feed-end">
+            <div className="feed-end-inner">
+              <div className="feed-end-emoji">⭐</div>
+              <h2>No favorites yet</h2>
+              <p>Tap the star on any concept or vocabulary card to keep it here for quick review.</p>
+              <div className="feed-end-actions">
+                <Link to="/" className="feed-end-btn primary">Discover concepts</Link>
+                <Link to="/search" className="feed-end-btn">Search a term</Link>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {!(isFavMode && list.length === 0) && (
         <section className="feed-slide feed-end">
           <div className="feed-end-inner">
             <div className="feed-end-emoji">🎉</div>
@@ -183,6 +216,7 @@ const FeedPage = () => {
             </div>
           </div>
         </section>
+        )}
       </div>
 
       <div className="feed-dots" aria-hidden="true">

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { getConcept, getCategory, getRelatedConcepts, getAdjacent } from '../data/concepts';
 import { isLearned, toggleLearned } from '../utils/progress';
 import Illustration from '../components/Illustration';
+import FavoriteStar from '../components/FavoriteStar';
 import './ConceptPage.css';
 
 const ConceptPage = () => {
@@ -137,7 +138,7 @@ const ConceptPage = () => {
           </section>
         )}
 
-        {/* Learned + Wikipedia */}
+        {/* Learned + Favorite + Wikipedia */}
         <section className="concept-section concept-actions-row">
           <button
             className={`concept-learned-btn ${learned ? 'on' : ''}`}
@@ -145,6 +146,7 @@ const ConceptPage = () => {
           >
             {learned ? '✓ Marked as learned' : 'Mark as learned'}
           </button>
+          <FavoriteStar id={concept.id} size="lg" className="concept-fav-star" />
           <a
             className="concept-wiki-link"
             href={`https://en.wikipedia.org/wiki/${encodeURIComponent(concept.title)}`}

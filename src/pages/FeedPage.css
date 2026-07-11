@@ -120,6 +120,20 @@
   align-items: center;
 }
 
+.feed-slide-top-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feed-pill-fav .feed-pill-icon {
+  color: #fbbf24;
+}
+
+.feed-pill-fav.active .feed-pill-icon {
+  color: #f59e0b;
+}
+
 .feed-chip {
   font-size: 0.78rem;
   font-weight: 700;
