@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { concepts, categories, categoryColors, getCategory, localizeConcept, localizeCategory } from '../data/concepts';
 import { buildFeed, localizeVocabItem } from '../data/vocab';
 import { localizeGlossaryEntry } from '../data/glossary';
 import { getFavorites } from '../utils/favorites';
-import { getFeedPosition, saveFeedPosition } from '../utils/feedPosition';
+import { shuffle } from '../utils/shuffle';
 import { useLang } from '../utils/lang';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
@@ -21,22 +21,21 @@ const FeedPage = () => {
   const activeCat = isFavMode
     ? { name: t('nav_favorites'), icon: '⭐' }
     : (catId ? localizeCategory(getCategory(catId), lang) : null);
-  const feedKey = catId || 'all';
 
-  // Interleaved feed: concepts and vocabulary cards alternate.
-  let list = buildFeed(concepts, isFavMode ? null : catId);
-  if (isFavMode) {
-    const favs = getFavorites();
-    list = list.filter((item) => favs.has(item.id));
-  }
-
-  const listRef = useRef(list);
-  useEffect(() => { listRef.current = list; });
-
-  // The resume effect below sets activeIndex asynchronously; without this
-  // guard, the position-save effect would fire once first with the stale
-  // initial activeIndex (0) and clobber the just-restored position.
-  const skipNextSaveRef = useRef(true);
+  // Every time this feed is (re)entered — including on a fresh page load —
+  // the order is reshuffled, so no two sessions look the same and nothing
+  // gets stuck being "first". The dedicated Favorites view is the one
+  // exception: it stays in a stable order since it's a deliberately curated
+  // list, not something to rediscover at random.
+  const list = useMemo(() => {
+    const favMode = catId === 'favorites';
+    const built = buildFeed(concepts, favMode ? null : catId);
+    if (favMode) {
+      const favs = getFavorites();
+      return built.filter((item) => favs.has(item.id));
+    }
+    return shuffle(built);
+  }, [catId]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -57,34 +56,12 @@ const FeedPage = () => {
     };
   }, [catId]);
 
-  // Resume where you left off in this feed, or reset to top for a fresh one.
+  // Reset to the top whenever a fresh (reshuffled) list arrives.
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el) return;
-    skipNextSaveRef.current = true;
-    const favMode = catId === 'favorites';
-    let l = buildFeed(concepts, favMode ? null : catId);
-    if (favMode) {
-      const favs = getFavorites();
-      l = l.filter((item) => favs.has(item.id));
-    }
-    const saved = getFeedPosition(catId || 'all');
-    const idx = saved ? l.findIndex((item) => item.id === saved.itemId) : -1;
-    const startAt = idx > 0 ? idx : 0;
-    el.scrollTo({ top: startAt * el.clientHeight });
-    setActiveIndex(startAt);
-  }, [catId]);
-
-  // Remember the current item so the next visit can resume here. Skips the
-  // one save that would otherwise fire with the pre-resume activeIndex.
-  useEffect(() => {
-    if (skipNextSaveRef.current) {
-      skipNextSaveRef.current = false;
-      return;
-    }
-    const item = listRef.current[activeIndex];
-    if (item) saveFeedPosition(feedKey, item.id);
-  }, [activeIndex, feedKey]);
+    if (el) el.scrollTo({ top: 0 });
+    setActiveIndex(0);
+  }, [list]);
 
   const openConcept = (id) => navigate(`/concept/${id}`);
   const progress = list.length > 1 ? (activeIndex / (list.length - 1)) * 100 : 0;
@@ -93,7 +70,7 @@ const FeedPage = () => {
   // rendering every slide's DOM at once made first paint take 10+ seconds.
   // Only mount slides near the current position; spacers (sized in the same
   // 100%-of-container units each slide uses) keep scrollHeight/scrollTop math
-  // — and therefore scroll-snap and the resume/position logic — unchanged.
+  // — and therefore scroll-snap behavior — unchanged.
   const WINDOW = 8;
   const windowStart = Math.max(0, activeIndex - WINDOW);
   const windowEnd = Math.min(list.length - 1, activeIndex + WINDOW);
