@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { concepts, categories, getConceptsByCategory } from '../data/concepts';
 import { useLearnedSet, toggleLearned } from '../utils/progress';
 import { useLang } from '../utils/lang';
+import { localizeConcept, localizeCategory } from '../utils/localize';
 import './LearnPage.css';
 
 const LearnPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const learned = useLearnedSet();
 
   const total = concepts.length;
@@ -14,7 +15,7 @@ const LearnPage = () => {
   const pct = total > 0 ? Math.round((learnedCount / total) * 100) : 0;
 
   // First unlearned concept = "continue here"
-  const next = concepts.find((c) => !learned.has(c.id)) || concepts[0];
+  const next = localizeConcept(concepts.find((c) => !learned.has(c.id)) || concepts[0], lang);
 
   const handleToggle = (id) => {
     toggleLearned(id);
@@ -55,13 +56,14 @@ const LearnPage = () => {
         </div>
         <div className="categories-grid">
           {categories.map((cat) => {
+            const lc = localizeCategory(cat, lang);
             const terms = getConceptsByCategory(cat.id);
             const done = terms.filter((t) => learned.has(t.id)).length;
             const trackPct = terms.length > 0 ? Math.round((done / terms.length) * 100) : 0;
             return (
               <Link key={cat.id} to={`/category/${cat.id}`} className="category-card track-card">
-                <div className="category-icon">{cat.icon}</div>
-                <h3>{cat.name}</h3>
+                <div className="category-icon">{lc.icon}</div>
+                <h3>{lc.name}</h3>
                 <p>{terms.length} {t('cat_concepts')} · {done} {t('learn_learned_count')}</p>
                 <div className="track-bar">
                   <div className="track-fill" style={{ width: `${trackPct}%` }} />
@@ -79,16 +81,17 @@ const LearnPage = () => {
         </div>
         <div className="all-concepts-grid">
           {concepts.map((c) => {
+            const lc = localizeConcept(c, lang);
             const isLearned = learned.has(c.id);
             return (
               <Link
                 key={c.id}
                 to={`/concept/${c.id}`}
                 className={`concept-tile ${isLearned ? 'learned' : ''}`}
-                style={{ background: isLearned ? undefined : `linear-gradient(135deg, ${c.color[0]}, ${c.color[1]})` }}
+                style={{ background: isLearned ? undefined : `linear-gradient(135deg, ${lc.color[0]}, ${lc.color[1]})` }}
               >
-                <span className="concept-tile-icon">{c.icon}</span>
-                <span className="concept-tile-name">{c.title}</span>
+                <span className="concept-tile-icon">{lc.icon}</span>
+                <span className="concept-tile-name">{lc.title}</span>
                 <span className={`concept-tile-check ${isLearned ? 'on' : ''}`} onClick={(e) => { e.preventDefault(); handleToggle(c.id); }} title={isLearned ? t('learn_unmark') : t('learn_mark')}>
                   {isLearned ? '✓' : '○'}
                 </span>

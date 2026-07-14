@@ -4,6 +4,7 @@ import { concepts, categories, getCategory } from '../data/concepts';
 import { buildFeed } from '../data/vocab';
 import { getFavorites } from '../utils/favorites';
 import { useLang } from '../utils/lang';
+import { localizeCategory, localizeConcept, localizeVocab } from '../utils/localize';
 import Illustration from '../components/Illustration';
 import FavoriteStar from '../components/FavoriteStar';
 import './FeedPage.css';
@@ -11,12 +12,14 @@ import './FeedPage.css';
 const FeedPage = () => {
   const { catId } = useParams();
   const navigate = useNavigate();
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const scrollRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const isFavMode = catId === 'favorites';
-  const activeCat = isFavMode ? { name: 'Favoris', icon: '⭐' } : (catId ? getCategory(catId) : null);
+  const activeCat = isFavMode
+    ? { name: t('nav_favorites'), icon: '⭐' }
+    : (catId ? localizeCategory(getCategory(catId), lang) : null);
 
   // Interleaved feed: concepts and vocabulary cards alternate.
   let list = buildFeed(concepts, isFavMode ? null : catId);
@@ -24,6 +27,12 @@ const FeedPage = () => {
     const favs = getFavorites();
     list = list.filter((item) => favs.has(item.id));
   }
+  // Localize content for the current language (no-op fallback to English when
+  // a French translation is missing — see utils/localize.js).
+  list = list.map((item) => ({
+    ...item,
+    data: item.kind === 'concept' ? localizeConcept(item.data, lang) : localizeVocab(item.data, lang),
+  }));
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -66,23 +75,26 @@ const FeedPage = () => {
           <span className="feed-pill-icon">★</span>
           {t('nav_favorites')}
         </Link>
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            to={`/category/${cat.id}`}
-            className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
-          >
-            <span className="feed-pill-icon">{cat.icon}</span>
-            {cat.name}
-          </Link>
-        ))}
+        {categories.map((cat) => {
+          const lc = localizeCategory(cat, lang);
+          return (
+            <Link
+              key={cat.id}
+              to={`/category/${cat.id}`}
+              className={`feed-pill ${catId === cat.id ? 'active' : ''}`}
+            >
+              <span className="feed-pill-icon">{lc.icon}</span>
+              {lc.name}
+            </Link>
+          );
+        })}
       </div>
 
       <div className="feed-scroll" ref={scrollRef}>
         {list.map((item, i) => {
           if (item.kind === 'concept') {
             const concept = item.data;
-            const cat = getCategory(concept.category);
+            const cat = localizeCategory(getCategory(concept.category), lang);
             return (
               <section
                 key={concept.id}
@@ -132,7 +144,7 @@ const FeedPage = () => {
 
           // Vocabulary card slide
           const v = item.data;
-          const cat = getCategory(v.category);
+          const cat = localizeCategory(getCategory(v.category), lang);
           const open = v.conceptId
             ? () => openConcept(v.conceptId)
             : () => window.open(

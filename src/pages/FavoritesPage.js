@@ -5,17 +5,18 @@ import { vocab } from '../data/vocab';
 import { glossary } from '../data/glossary';
 import { getFavorites, useFavoritesCount } from '../utils/favorites';
 import { useLang } from '../utils/lang';
+import { localizeConcept, localizeVocab, localizeGlossary, localizeCategory } from '../utils/localize';
 import FavoriteStar from '../components/FavoriteStar';
 import './FavoritesPage.css';
 
 const FavoritesPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const count = useFavoritesCount();
   const favs = getFavorites();
 
-  const favConcepts = concepts.filter((c) => favs.has(c.id));
-  const favVocab = vocab.filter((v) => favs.has(v.id));
-  const favGlossary = glossary.filter((g) => favs.has('g:' + g.term));
+  const favConcepts = concepts.filter((c) => favs.has(c.id)).map((c) => localizeConcept(c, lang));
+  const favVocab = vocab.filter((v) => favs.has(v.id)).map((v) => localizeVocab(v, lang));
+  const favGlossary = glossary.filter((g) => favs.has('g:' + g.term)).map((g) => localizeGlossary(g, lang));
 
   return (
     <div className="favorites-page">
@@ -45,7 +46,7 @@ const FavoritesPage = () => {
               </div>
               <div className="fav-grid">
                 {favConcepts.map((c) => {
-                  const cat = getCategory(c.category);
+                  const cat = localizeCategory(getCategory(c.category), lang);
                   return (
                     <Link key={c.id} to={`/concept/${c.id}`} className="fav-card"
                       style={{ borderTop: `3px solid ${c.color[0]}` }}>
@@ -72,8 +73,9 @@ const FavoritesPage = () => {
               </div>
               <div className="fav-vocab-grid">
                 {favVocab.map((v) => {
-                  const cat = getCategory(v.category);
-                  const related = v.conceptId ? concepts.find((c) => c.id === v.conceptId) : null;
+                  const cat = localizeCategory(getCategory(v.category), lang);
+                  const found = v.conceptId ? concepts.find((c) => c.id === v.conceptId) : null;
+                  const related = found ? localizeConcept(found, lang) : null;
                   return (
                     <div key={v.id} className="fav-vocab-card">
                       <div className="fav-vocab-top">
@@ -102,8 +104,9 @@ const FavoritesPage = () => {
               </div>
               <div className="fav-vocab-grid">
                 {favGlossary.map((g) => {
-                  const cat = getCategory(g.category);
-                  const related = g.conceptId ? concepts.find((c) => c.id === g.conceptId) : null;
+                  const cat = localizeCategory(getCategory(g.category), lang);
+                  const found = g.conceptId ? concepts.find((c) => c.id === g.conceptId) : null;
+                  const related = found ? localizeConcept(found, lang) : null;
                   return (
                     <div key={g.term} className="fav-vocab-card">
                       <div className="fav-vocab-top">

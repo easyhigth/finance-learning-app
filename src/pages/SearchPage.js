@@ -4,10 +4,11 @@ import { searchConcepts, concepts, getCategory } from '../data/concepts';
 import { searchGlossary } from '../data/glossary';
 import FavoriteStar from '../components/FavoriteStar';
 import { useLang } from '../utils/lang';
+import { localizeCategory, localizeConcept } from '../utils/localize';
 import './SearchPage.css';
 
 const SearchPage = () => {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [searchTerm, setSearchTerm] = useState('');
   const [submitted, setSubmitted] = useState(''); // the last query actually searched
 
@@ -45,7 +46,8 @@ const SearchPage = () => {
   // A few hand-picked concepts as quick-start chips
   const quickPicks = ['compound-interest', 'time-value-of-money', 'diversification', 'budgeting-50-30-20', 'risk-vs-return', 'swap', 'bond']
     .map((id) => concepts.find((c) => c.id === id))
-    .filter(Boolean);
+    .filter(Boolean)
+    .map((c) => localizeConcept(c, lang));
 
   const wikiLink = (term) =>
     `https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(term)}`;
@@ -110,17 +112,18 @@ const SearchPage = () => {
                 <h3 className="results-subhead">{t('concepts_sub')}</h3>
                 <div className="results-grid">
                   {results.concepts.map((c) => {
-                    const cat = getCategory(c.category);
+                    const lc = localizeConcept(c, lang);
+                    const cat = localizeCategory(getCategory(c.category), lang);
                     return (
-                      <Link key={c.id} to={`/concept/${c.id}`} className="result-card"
-                        style={{ borderTop: `3px solid ${c.color[0]}` }}>
+                      <Link key={lc.id} to={`/concept/${lc.id}`} className="result-card"
+                        style={{ borderTop: `3px solid ${lc.color[0]}` }}>
                         <div className="result-card-top">
-                          <span className="result-card-icon">{c.icon}</span>
+                          <span className="result-card-icon">{lc.icon}</span>
                           <span className="result-card-cat">{cat ? cat.name : c.category}</span>
-                          <FavoriteStar id={c.id} className="result-card-star" />
+                          <FavoriteStar id={lc.id} className="result-card-star" />
                         </div>
-                        <h3>{c.title}</h3>
-                        <p>{c.tldr}</p>
+                        <h3>{lc.title}</h3>
+                        <p>{lc.tldr}</p>
                         <span className="result-arrow">→</span>
                       </Link>
                     );
@@ -135,7 +138,7 @@ const SearchPage = () => {
                 <h3 className="results-subhead">{t('vocab_sub')}</h3>
                 <div className="vocab-grid">
                   {vocabTerms.map((t, i) => {
-                    const cat = getCategory(t.category);
+                    const cat = localizeCategory(getCategory(t.category), lang);
                     const related = t.conceptId
                       ? concepts.find((c) => c.id === t.conceptId)
                       : null;
